@@ -1,0 +1,30 @@
+.order {
+  position: relative;
+  background-color: var(--color-secondary);
+  font-size: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.5rem;
+  color: var(--color-background);
+  transition: background 250ms ease;
+}
+
+/* .order:hover {
+  background-color: var(--color-secondary-light);
+} */
+
+.badge {
+  position: absolute;
+  background-color: var(--color-background);
+  border: 2px solid var(--color-secondary);
+  border-radius: 50%;
+  top: -40%;
+  right: 0.5rem;
+  padding: 0.25rem;
+  color: var(--color-primary);
+  font-size: 0.7rem;
+  height: 1.75rem;
+  width: 1.75rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,5 +1,6 @@
 .header-logo {
-  max-width: 20rem;
+  max-width: 10rem;
+  transform: translateY(-0.75rem);
 }
 
 .header-logo img {
@@ -12,7 +13,7 @@
 }
 
 .header-logo--bottom {
-  margin-top: -1rem;
+  margin-top: -0.5rem;
   transform: translateX(-200%);
   animation: slideIn 1500ms forwards;
 }

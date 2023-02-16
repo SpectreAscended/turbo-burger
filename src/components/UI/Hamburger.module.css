@@ -1,0 +1,17 @@
+.hamburger * {
+  height: 2px;
+  width: 2rem;
+  background-color: var(--color-primary);
+}
+
+.hamburger {
+  cursor: pointer;
+}
+
+.hamburger--top {
+  margin-bottom: 0.5rem;
+}
+
+.hamburger--bottom {
+  margin-top: 0.5rem;
+}

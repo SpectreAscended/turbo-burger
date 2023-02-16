@@ -1,7 +1,8 @@
 import React from 'react';
-import classes from './Logo.module.css';
 import turboLogoTop from '../../assets/Turbo Burger Logo--Turbo.svg';
 import turboLogoBottom from '../../assets/Turbo Burger Logo--Burger.svg';
+// import classes from './Logo.module.css';
+import classes from './LogoMobile.module.css';
 
 const Logo = () => {
   return (
