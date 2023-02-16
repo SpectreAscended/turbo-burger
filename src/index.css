@@ -2,6 +2,7 @@
 
 :root {
   --color-primary: #9c7b26;
+  --color-primary-light: #c29421;
   --color-secondary: #ba3a3a;
   --color-background: #1e1e1e;
 }
@@ -29,7 +30,7 @@ a:link,
 a:visited {
   display: inline-block;
   text-decoration: none;
-  color: inherit;
+  /* color: inherit; */
 }
 /* TEMPORARY   */
 main {
