@@ -1,0 +1,44 @@
+.header-logo {
+  max-width: 20rem;
+}
+
+.header-logo img {
+  display: block;
+  max-width: 100%;
+}
+
+.header-logo--top {
+  animation: fadeIn 1500ms forwards;
+}
+
+.header-logo--bottom {
+  margin-top: -1rem;
+  transform: translateX(-200%);
+  animation: slideIn 1500ms forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-10%, -25%);
+  }
+
+  90% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateX(-200%);
+  }
+  80% {
+    opacity: 1;
+    transform: translateX(10%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
