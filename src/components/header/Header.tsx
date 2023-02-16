@@ -17,7 +17,7 @@ const Header: React.FC = () => {
       <header className={classes.header}>
         <Logo />
         <div className={classes.actions}>
-          <Hamburger onShowMenu={showMenuHandler} />
+          <Hamburger onShowMenu={showMenuHandler} menuOpen={menuOpen} />
           <OrderBtn />
         </div>
         {/* <MainNav /> */}

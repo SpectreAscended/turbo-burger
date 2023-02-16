@@ -2,6 +2,7 @@
   height: 2px;
   width: 2rem;
   background-color: var(--color-primary);
+  transition: transform 250ms, background 250ms ease;
 }
 
 .hamburger {
@@ -14,4 +15,16 @@
 
 .hamburger--bottom {
   margin-top: 0.5rem;
+}
+
+.hamburger--active .hamburger--top {
+  transform: translateY(0.6rem) rotate(-45deg);
+}
+
+.hamburger--active .hamburger--middle {
+  transform: scaleX(0);
+}
+
+.hamburger--active .hamburger--bottom {
+  transform: translateY(-0.6rem) rotate(45deg);
 }
