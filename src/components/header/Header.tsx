@@ -5,6 +5,7 @@ import MainNav from './main-nav/MainNav';
 import classes from './HeaderMobile.module.css';
 import Hamburger from '../UI/Hamburger';
 import OrderBtn from '../UI/OrderBtn';
+import MobileNav from './main-nav/MobileNav';
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -15,14 +16,17 @@ const Header: React.FC = () => {
   return (
     <>
       <header className={classes.header}>
-        <Logo />
-        <div className={classes.actions}>
-          <Hamburger onShowMenu={showMenuHandler} menuOpen={menuOpen} />
-          <OrderBtn />
+        <div className={classes['header-content']}>
+          <Logo />
+          <div className={classes.actions}>
+            <Hamburger onClick={showMenuHandler} menuOpen={menuOpen} />
+            <OrderBtn />
+          </div>
+          {/* <MainNav /> */}
         </div>
-        {/* <MainNav /> */}
+        <div className={classes['border-bottom']}></div>
       </header>
-      <div className={classes['border-bottom']}></div>
+      {menuOpen && <MobileNav />}
     </>
   );
 };

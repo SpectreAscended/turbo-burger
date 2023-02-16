@@ -1,0 +1,36 @@
+.mobile-nav {
+  position: absolute;
+  top: 0;
+  left: 5%;
+  width: 90%;
+  background-color: var(--color-primary);
+  font-size: 1rem;
+  color: white;
+  padding: 2rem;
+  padding-top: 10rem;
+  border-radius: 0 0 1rem 1rem;
+  z-index: 10;
+}
+
+.mobile-nav h2 {
+  color: var(--color-background);
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.mobile-nav a:link,
+.mobile-nav a:visited {
+  text-decoration: none;
+  color: var(--color-background);
+  margin-block: 1rem;
+  margin-inline: auto;
+  display: block;
+  text-align: center;
+  background-color: rgba(98, 77, 25, 0.377);
+  padding-block: 1rem;
+  border-radius: 0.5rem;
+}
+
+.mobile-nav ul {
+  list-style: none;
+}
