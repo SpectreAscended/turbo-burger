@@ -14,8 +14,8 @@ const MainNav = () => {
 
   useEffect(() => {}, []);
 
-  const badgeClasses = () => {
-    return `${classes.badge} ${bump ? classes['animate-badge'] : undefined}`;
+  const orderClasses = () => {
+    return `${classes.order} ${bump ? classes['animate-badge'] : undefined}`;
   };
 
   return (
@@ -51,9 +51,9 @@ const MainNav = () => {
             Reviews
           </NavLink>
         </li>
-        <li className={classes.order} onClick={buttonBounceHandler}>
+        <li className={orderClasses()} onClick={buttonBounceHandler}>
           <NavLink to="order">Your Order</NavLink>
-          <div className={badgeClasses()}>5</div>
+          <div className={classes.badge}>5</div>
         </li>
         <li className={classes.auth}>
           <NavLink to="auth">Log in</NavLink>
