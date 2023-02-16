@@ -2,24 +2,34 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import classes from './MobileNav.module.css';
 
-interface MobileNavProps {}
+interface MobileNavProps {
+  onCloseMenu: () => void;
+}
 
-const MobileNav: React.FC = () => {
+const MobileNav: React.FC<MobileNavProps> = ({ onCloseMenu }) => {
   return (
     <nav className={classes['mobile-nav']}>
       <h2>Welcome back, Dave!</h2>
       <ul>
         <li className={classes.auth}>
-          <Link to="/auth">Log in</Link>
+          <Link to="/auth" onClick={onCloseMenu}>
+            Log in
+          </Link>
         </li>
         <li>
-          <Link to="/menu">Menu</Link>
+          <Link to="/menu" onClick={onCloseMenu}>
+            Menu
+          </Link>
         </li>
         <li>
-          <Link to="/reviews">Reviews</Link>
+          <Link to="/reviews" onClick={onCloseMenu}>
+            Reviews
+          </Link>
         </li>
         <li>
-          <Link to="/auth">About</Link>
+          <Link to="/auth" onClick={onCloseMenu}>
+            About
+          </Link>
         </li>
       </ul>
     </nav>

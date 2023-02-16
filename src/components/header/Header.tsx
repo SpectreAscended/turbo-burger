@@ -26,7 +26,7 @@ const Header: React.FC = () => {
         </div>
         <div className={classes['border-bottom']}></div>
       </header>
-      {menuOpen && <MobileNav />}
+      {menuOpen && <MobileNav onCloseMenu={showMenuHandler} />}
     </>
   );
 };
