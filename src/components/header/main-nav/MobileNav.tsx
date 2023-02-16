@@ -9,7 +9,7 @@ const MobileNav: React.FC = () => {
     <nav className={classes['mobile-nav']}>
       <h2>Welcome back, Dave!</h2>
       <ul>
-        <li>
+        <li className={classes.auth}>
           <Link to="/auth">Log in</Link>
         </li>
         <li>
