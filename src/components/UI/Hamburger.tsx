@@ -11,7 +11,7 @@ const Hamburger: React.FC<HamburgerProps> = ({ onClick }) => {
   const menuOpen = useSelector<RootState>(state => state.ui.menuOpen);
 
   const hamburgerClasses = `${classes.hamburger} ${
-    menuOpen ? classes['hamburger--active'] : undefined
+    menuOpen ? classes['hamburger--active'] : ''
   }`;
 
   return (

@@ -18,7 +18,7 @@ const OrderBtn: React.FC = () => {
   };
 
   const orderClasses = `${classes.order} ${
-    bounce ? classes['animate-bump'] : undefined
+    bounce ? classes['animate-bump'] : ''
   }`;
 
   return (
