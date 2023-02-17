@@ -35,7 +35,14 @@ const SignupForm: React.FC = () => {
         emailRef.current!.value,
         passwordRef.current!.value
       );
-      console.log(userCredentials.user?.uid);
+
+      const user = userCredentials.user;
+      await user?.updateProfile({
+        displayName: firstNameRef.current!.value,
+      });
+
+      console.log(userCredentials);
+
       dispatch(authActions.signup({ uid: userCredentials.user!.uid }));
     } catch (err) {
       if (err instanceof Error) {

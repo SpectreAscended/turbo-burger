@@ -28,10 +28,8 @@ const authSlice = createSlice({
       state.uid = action.payload.uid;
     },
     login(state, action) {
-      auth.signInWithEmailAndPassword(
-        action.payload.email,
-        action.payload.password
-      );
+      state.uid = action.payload.uid;
+      state.accessToken = action.payload.accessToken;
     },
   },
 });

@@ -1,11 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../store';
+import { auth } from '../../../firebase';
 
 const AboutContent: React.FC = () => {
-  // const user = useSelector<RootState>(state => state.auth.uid);
-  // return <section>{user ? <h1>Welcome back, {user}</h1> : ''}</section>;
-  return <h1>Welcome back</h1>;
+  const userName = auth.currentUser?.displayName;
+  const output = userName ? (
+    <h1>Welcome back, {userName}!</h1>
+  ) : (
+    <h1>Welcome to Turbo Burger!</h1>
+  );
+  return output;
 };
 
 export default AboutContent;
