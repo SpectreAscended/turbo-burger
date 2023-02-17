@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux/es/exports';
 import { Link } from 'react-router-dom';
 import uiSlice, { uiActions } from '../../../store/uiSlice';
+import { authActions } from '../../../store/authSlice';
 import classes from './MobileNav.module.css';
+import { auth } from '../../../../firebase';
 
 interface MobileNavProps {}
 
@@ -13,9 +15,13 @@ const MobileNav: React.FC = () => {
     dispatch(uiActions.toggleMenu());
   };
 
+  const signOutHandler = () => {
+    dispatch(authActions.signOut());
+  };
+
   return (
     <nav className={classes['mobile-nav']}>
-      <h2>Welcome back, Dave!</h2>
+      <h2>Welcome back, Guest</h2>
       <ul>
         <li className={classes.auth}>
           <Link to="/login" onClick={closeMenuHandler}>
