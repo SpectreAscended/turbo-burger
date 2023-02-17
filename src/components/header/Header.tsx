@@ -1,17 +1,23 @@
 import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import Logo from './Logo';
-import MainNav from './main-nav/MainNav';
+// import MainNav from './main-nav/MainNav';
 // import classes from './Header.module.css';
 import classes from './HeaderMobile.module.css';
 import Hamburger from '../UI/Hamburger';
 import OrderBtn from '../UI/OrderBtn';
 import MobileNav from './main-nav/MobileNav';
+import { uiActions } from '../../store/uiSlice';
+import { RootState } from '../../store';
 
 const Header: React.FC = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const dispatch = useDispatch();
+  const menuState = useSelector<RootState>(state => state.ui.menuOpen);
 
   const showMenuHandler = () => {
-    setMenuOpen(menuOpen => !menuOpen);
+    // setMenuOpen(menuOpen => !menuOpen);
+    dispatch(uiActions.toggleMenu());
   };
   return (
     <>
@@ -26,7 +32,7 @@ const Header: React.FC = () => {
         </div>
         <div className={classes['border-bottom']}></div>
       </header>
-      {menuOpen && <MobileNav onCloseMenu={showMenuHandler} />}
+      {menuState && <MobileNav onCloseMenu={showMenuHandler} />}
     </>
   );
 };
