@@ -7,7 +7,7 @@ interface LoginFormProps {}
 const LoginForm: React.FC = () => {
   return (
     <form className={classes.form}>
-      <h2>Log in</h2>
+      <h1>Log in</h1>
       <label htmlFor="email">Email</label>
       <input type="email" id="email" autoComplete="email" />
       <label htmlFor="password">Password</label>
