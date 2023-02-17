@@ -4,6 +4,7 @@ import { auth } from '../../firebase';
 interface InitialAuthState {
   currentUser: string | undefined;
   uid: string | undefined;
+  accessToken: string | undefined;
   loading: boolean;
 }
 
@@ -15,6 +16,7 @@ interface SignupData {
 const initialAuthState: InitialAuthState = {
   currentUser: undefined,
   uid: undefined,
+  accessToken: undefined,
   loading: false,
 };
 
@@ -23,10 +25,7 @@ const authSlice = createSlice({
   initialState: initialAuthState,
   reducers: {
     signup(state, action) {
-      auth.createUserWithEmailAndPassword(
-        action.payload.email,
-        action.payload.password
-      );
+      state.uid = action.payload.uid;
     },
     login(state, action) {
       auth.signInWithEmailAndPassword(
