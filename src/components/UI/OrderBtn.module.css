@@ -8,6 +8,10 @@
   transition: background 250ms ease;
 }
 
+.animate-bump {
+  animation: bump 250ms ease;
+}
+
 /* .order:hover {
   background-color: var(--color-secondary-light);
 } */
@@ -27,4 +31,29 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+@keyframes bump {
+  0% {
+    scale: 1;
+    transform: translateY(0);
+  }
+
+  50% {
+    scale: 1.035;
+    transform: translateY(-0.25rem);
+  }
+
+  80% {
+    scale: 1;
+    transform: translateY(0);
+  }
+
+  90% {
+    transform: translateY(-0.15rem);
+  }
+
+  10% {
+    transform: translateY(0);
+  }
 }
