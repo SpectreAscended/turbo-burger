@@ -15,6 +15,9 @@ const uiSlice = createSlice({
     toggleMenu(state) {
       state.menuOpen = !state.menuOpen;
     },
+    closeMenu(state) {
+      state.menuOpen = false;
+    },
   },
 });
 
