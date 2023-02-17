@@ -12,7 +12,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ onCloseMenu }) => {
       <h2>Welcome back, Dave!</h2>
       <ul>
         <li className={classes.auth}>
-          <Link to="/auth" onClick={onCloseMenu}>
+          <Link to="/login" onClick={onCloseMenu}>
             Log in
           </Link>
         </li>

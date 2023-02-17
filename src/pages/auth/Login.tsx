@@ -1,8 +1,8 @@
 import React from 'react';
 import LoginForm from '../../components/auth/LoginForm';
 
-const AuthPage = () => {
+const LoginPage = () => {
   return <LoginForm />;
 };
 
-export default AuthPage;
+export default LoginPage;

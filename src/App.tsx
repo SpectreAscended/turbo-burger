@@ -1,7 +1,8 @@
 import React from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import AboutPage from './pages/about/About';
-import AuthPage from './pages/auth/Auth';
+import LoginPage from './pages/auth/Login';
+import SignupPage from './pages/auth/Signup';
 import RootLayout from './pages/layout/Root';
 import MenuPage from './pages/menu/Menu';
 import OrderPage from './pages/order/Order';
@@ -20,8 +21,12 @@ const App = () => {
           element: <OrderPage />,
         },
         {
-          path: '/auth',
-          element: <AuthPage />,
+          path: '/login',
+          element: <LoginPage />,
+        },
+        {
+          path: '/signup',
+          element: <SignupPage />,
         },
         {
           path: '/menu',
