@@ -27,7 +27,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ onCloseMenu }) => {
           </Link>
         </li>
         <li>
-          <Link to="/auth" onClick={onCloseMenu}>
+          <Link to="/" onClick={onCloseMenu}>
             About
           </Link>
         </li>

@@ -5,12 +5,14 @@ import AuthPage from './pages/auth/Auth';
 import RootLayout from './pages/layout/Root';
 import MenuPage from './pages/menu/Menu';
 import OrderPage from './pages/order/Order';
+import ErrorPage from './pages/error/Error';
 
 const App = () => {
   const router = createBrowserRouter([
     {
       path: '/',
       element: <RootLayout />,
+      errorElement: <ErrorPage />,
       children: [
         { index: true, element: <AboutPage /> },
         {
