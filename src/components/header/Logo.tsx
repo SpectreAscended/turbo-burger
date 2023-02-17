@@ -4,7 +4,7 @@ import turboLogoBottom from '../../assets/Turbo Burger Logo--Burger.svg';
 // import classes from './Logo.module.css';
 import classes from './LogoMobile.module.css';
 
-const Logo = () => {
+const Logo: React.FC = () => {
   return (
     <div className={classes['header-logo']}>
       <div className={classes['header-logo--top']}>

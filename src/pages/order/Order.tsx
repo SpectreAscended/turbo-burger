@@ -1,6 +1,4 @@
-import React from 'react';
-
-const OrderPage = () => {
+const OrderPage: React.FC = () => {
   return <div></div>;
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const MenuPage = () => {
+const MenuPage: React.FC = () => {
   return (
     <div>
       <h1>Menu Page</h1>

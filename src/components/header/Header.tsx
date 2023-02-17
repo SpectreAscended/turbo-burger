@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Logo from './Logo';
 // import MainNav from './main-nav/MainNav';
@@ -11,12 +11,10 @@ import { uiActions } from '../../store/uiSlice';
 import { RootState } from '../../store';
 
 const Header: React.FC = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
   const dispatch = useDispatch();
   const menuState = useSelector<RootState>(state => state.ui.menuOpen);
 
   const showMenuHandler = () => {
-    // setMenuOpen(menuOpen => !menuOpen);
     dispatch(uiActions.toggleMenu());
   };
   return (

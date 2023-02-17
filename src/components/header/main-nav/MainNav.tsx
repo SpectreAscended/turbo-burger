@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import classes from './MainNav.module.css';
 
-const MainNav = () => {
+const MainNav: React.FC = () => {
   const [bump, setBump] = useState(false);
 
   const buttonBounceHandler = () => {
