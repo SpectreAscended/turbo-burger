@@ -25,14 +25,14 @@ const Header: React.FC = () => {
         <div className={classes['header-content']}>
           <Logo />
           <div className={classes.actions}>
-            <Hamburger onClick={showMenuHandler} menuOpen={menuOpen} />
+            <Hamburger onClick={showMenuHandler} />
             <OrderBtn />
           </div>
           {/* <MainNav /> */}
         </div>
         <div className={classes['border-bottom']}></div>
       </header>
-      {menuState && <MobileNav onCloseMenu={showMenuHandler} />}
+      {menuState && <MobileNav />}
     </>
   );
 };

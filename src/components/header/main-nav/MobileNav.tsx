@@ -4,11 +4,9 @@ import { Link } from 'react-router-dom';
 import uiSlice, { uiActions } from '../../../store/uiSlice';
 import classes from './MobileNav.module.css';
 
-interface MobileNavProps {
-  onCloseMenu: () => void;
-}
+interface MobileNavProps {}
 
-const MobileNav: React.FC<MobileNavProps> = ({ onCloseMenu }) => {
+const MobileNav: React.FC = () => {
   const dispatch = useDispatch();
 
   const closeMenuHandler = () => {

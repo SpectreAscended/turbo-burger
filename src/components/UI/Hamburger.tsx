@@ -1,12 +1,15 @@
 import React from 'react';
 import classes from './Hamburger.module.css';
+import { useSelector } from 'react-redux/es/exports';
+import { RootState } from '../../store';
 
 interface HamburgerProps {
   onClick?: () => void;
-  menuOpen: boolean;
 }
 
-const Hamburger: React.FC<HamburgerProps> = ({ onClick, menuOpen }) => {
+const Hamburger: React.FC<HamburgerProps> = ({ onClick }) => {
+  const menuOpen = useSelector<RootState>(state => state.ui.menuOpen);
+
   const hamburgerClasses = `${classes.hamburger} ${
     menuOpen ? classes['hamburger--active'] : undefined
   }`;
