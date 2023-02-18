@@ -30,7 +30,7 @@ const Menu: React.FC<IMenuProps> = ({
         {burgers.map(burger => {
           return (
             <li style={{ marginBlock: '1rem' }} key={burger.id}>
-              <p style={{ marginBottom: '.5rem' }}>{burger.title}</p>
+              <h4 style={{ marginBottom: '.5rem' }}>{burger.title}</h4>
               <p style={{ marginBottom: '.5rem' }}>{burger.description}</p>
               <p>${burger.price.toFixed(2)}</p>
             </li>
@@ -40,7 +40,7 @@ const Menu: React.FC<IMenuProps> = ({
         {hotdogs.map(hotdog => {
           return (
             <li style={{ marginBlock: '1rem' }} key={hotdog.id}>
-              <p style={{ marginBottom: '.5rem' }}>{hotdog.title}</p>
+              <h4 style={{ marginBottom: '.5rem' }}>{hotdog.title}</h4>
               <p style={{ marginBottom: '.5rem' }}>{hotdog.description}</p>
               <p>${hotdog.price.toFixed(2)}</p>
             </li>
@@ -50,7 +50,7 @@ const Menu: React.FC<IMenuProps> = ({
         {chicken.map(chicken => {
           return (
             <li style={{ marginBlock: '1rem' }} key={chicken.id}>
-              <p style={{ marginBottom: '.5rem' }}>{chicken.title}</p>
+              <h4 style={{ marginBottom: '.5rem' }}>{chicken.title}</h4>
               <p style={{ marginBottom: '.5rem' }}>{chicken.description}</p>
               <p>${chicken.price.toFixed(2)}</p>
             </li>
@@ -60,7 +60,7 @@ const Menu: React.FC<IMenuProps> = ({
         {sides.map(side => {
           return (
             <li style={{ marginBlock: '1rem' }} key={side.id}>
-              <p style={{ marginBottom: '.5rem' }}>{side.title}</p>
+              <h4 style={{ marginBottom: '.5rem' }}>{side.title}</h4>
               <p>${side.price.toFixed(2)}</p>
             </li>
           );
@@ -69,7 +69,7 @@ const Menu: React.FC<IMenuProps> = ({
         {drinks.map(drink => {
           return (
             <li style={{ marginBlock: '1rem' }} key={drink.id}>
-              <p style={{ marginBottom: '.5rem' }}>{drink.title}</p>
+              <h4 style={{ marginBottom: '.5rem' }}>{drink.title}</h4>
               <p>${drink.price.toFixed(2)}</p>
             </li>
           );

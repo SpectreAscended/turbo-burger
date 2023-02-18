@@ -1,8 +1,7 @@
-import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import { uiActions } from '../../store/uiSlice';
+import { Link } from 'react-router-dom';
 import './orderBtn.scss';
 
 const OrderBtn: React.FC = () => {
