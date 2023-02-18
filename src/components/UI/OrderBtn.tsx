@@ -22,7 +22,7 @@ const OrderBtn: React.FC = () => {
   return (
     <Link to="/order" className={orderClasses} onClick={btnBounceHandler}>
       Your Order
-      <div className="badge">4</div>
+      <div className="order-badge">4</div>
     </Link>
   );
 };
