@@ -5,7 +5,7 @@ import Logo from './Logo';
 // import classes from './Header.module.css';
 import Hamburger from '../UI/Hamburger';
 import OrderBtn from '../UI/OrderBtn';
-import MobileNav from './main-nav/MobileNav';
+import MobileNav from '../main-nav/MobileNav';
 import { uiActions } from '../../store/uiSlice';
 import { RootState } from '../../store';
 // import classes from './HeaderMobile.module.css';

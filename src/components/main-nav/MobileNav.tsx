@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux/es/exports';
 import { Link } from 'react-router-dom';
-import uiSlice, { uiActions } from '../../../store/uiSlice';
-import { authActions } from '../../../store/authSlice';
-import { auth } from '../../../../firebase';
+import uiSlice, { uiActions } from '../../store/uiSlice';
+import { authActions } from '../../store/authSlice';
+import { auth } from '../../../firebase';
 // import classes from './MobileNav.module.css';
 import './mobileNav.scss';
 
