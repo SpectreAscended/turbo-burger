@@ -1,8 +1,8 @@
 import { json } from 'react-router-dom';
 
 interface IRequestConfig {
-  method?: string;
   url: string;
+  method?: string;
   headers?: Record<string, string>;
   body?: Record<string, unknown>;
 }
@@ -24,6 +24,7 @@ const loaderRequest = async (requestConfig: IRequestConfig) => {
     if (!res.ok) throw new Error('Problem fetching data');
 
     const data = await res.json();
+
     return data;
   } catch (err) {
     if (err instanceof Error) {
