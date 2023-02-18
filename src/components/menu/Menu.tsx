@@ -25,14 +25,43 @@ const Menu: React.FC<IMenuProps> = ({
   return (
     <div>
       <h1 style={{ textAlign: 'center' }}>Menu</h1>
-      <h3 style={{ color: 'var(--color-secondary)' }}>Burgers</h3>
       <ul style={{ listStyle: 'none' }}>
+        <h3 style={{ color: 'var(--color-secondary)' }}>Burgers</h3>
         {burgers.map(burger => {
           return (
             <li style={{ marginBlock: '1rem' }}>
               <p style={{ marginBottom: '.5rem' }}>{burger.title}</p>
               <p style={{ marginBottom: '.5rem' }}>{burger.description}</p>
-              <p>{burger.price}</p>
+              <p>${burger.price.toFixed(2)}</p>
+            </li>
+          );
+        })}
+        <h3 style={{ color: 'var(--color-secondary)' }}>Hot dogs</h3>
+        {hotdogs.map(hotdog => {
+          return (
+            <li style={{ marginBlock: '1rem' }}>
+              <p style={{ marginBottom: '.5rem' }}>{hotdog.title}</p>
+              <p style={{ marginBottom: '.5rem' }}>{hotdog.description}</p>
+              <p>${hotdog.price.toFixed(2)}</p>
+            </li>
+          );
+        })}
+        <h3 style={{ color: 'var(--color-secondary)' }}>Chicken</h3>
+        {chicken.map(chicken => {
+          return (
+            <li style={{ marginBlock: '1rem' }}>
+              <p style={{ marginBottom: '.5rem' }}>{chicken.title}</p>
+              <p style={{ marginBottom: '.5rem' }}>{chicken.description}</p>
+              <p>${chicken.price.toFixed(2)}</p>
+            </li>
+          );
+        })}
+        <h3 style={{ color: 'var(--color-secondary)' }}>Drinks</h3>
+        {drinks.map(drink => {
+          return (
+            <li style={{ marginBlock: '1rem' }}>
+              <p style={{ marginBottom: '.5rem' }}>{drink.title}</p>
+              <p>${drink.price.toFixed(2)}</p>
             </li>
           );
         })}
