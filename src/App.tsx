@@ -4,7 +4,7 @@ import AboutPage from './pages/about/About';
 import LoginPage from './pages/auth/Login';
 import SignupPage from './pages/auth/Signup';
 import RootLayout from './pages/layout/Root';
-import MenuPage from './pages/menu/Menu';
+import MenuPage, { loader as menuLoader } from './pages/menu/Menu';
 import OrderPage from './pages/order/Order';
 import ErrorPage from './pages/error/Error';
 
@@ -31,6 +31,7 @@ const App = () => {
         {
           path: '/menu',
           element: <MenuPage />,
+          loader: menuLoader,
         },
       ],
     },
