@@ -1,12 +1,16 @@
 import React from 'react';
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { uiActions } from '../../store/uiSlice';
 import './orderBtn.scss';
 
 const OrderBtn: React.FC = () => {
   const [bounce, setBounce] = useState(false);
+  const dispatch = useDispatch();
 
   const btnBounceHandler = () => {
+    dispatch(uiActions.closeMenu());
     setBounce(true);
     const timeout = setTimeout(() => {
       setBounce(false);

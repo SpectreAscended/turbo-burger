@@ -1,8 +1,10 @@
 .header {
-  max-width: 100%;
+  width: 100%;
   background: var(--color-background);
   margin-inline: auto;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   z-index: 20;
 
   &-content {
