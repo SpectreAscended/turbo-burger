@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-// import classes from './OrderBtn.module.css';
 import './orderBtn.scss';
 
 const OrderBtn: React.FC = () => {

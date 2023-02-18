@@ -1,7 +1,6 @@
 import React from 'react';
 import { useRouteError } from 'react-router-dom';
 import Header from '../../components/header/Header';
-// import classes from './Error.module.css';
 import './error.scss';
 
 interface ErrorPageProps {}

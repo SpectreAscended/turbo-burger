@@ -1,0 +1,56 @@
+.form {
+  margin-top: 1rem;
+
+  h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  label {
+    display: block;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  input {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-bottom: 2rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #919191;
+    color: #000;
+  }
+
+  a:link,
+  a:visited {
+    text-decoration: none;
+    display: inline-block;
+    color: inherit;
+    border-bottom: 1px solid currentColor;
+    transition: color 250ms, transform 250ms ease;
+  }
+
+  a:hover,
+  a:active {
+    color: var(--color-primary-light);
+    transform: translateY(-2px);
+  }
+
+  button {
+    display: block;
+    border: none;
+    padding: 0.5rem 2rem;
+    width: 80%;
+    margin-inline: auto;
+    margin-block: 2rem;
+    font-size: 1.2rem;
+    background-color: var(--color-primary);
+    border-radius: 0.5rem;
+    cursor: pointer;
+  }
+}

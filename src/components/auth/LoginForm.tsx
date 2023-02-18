@@ -1,10 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import classes from './AuthForm.module.css';
 import { auth } from '../../../firebase';
 import { authActions } from '../../store/authSlice';
 import AuthDetails from './AuthDetails';
+import './authForm.scss';
 
 interface LoginFormProps {}
 
@@ -37,7 +37,7 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <form className={classes.form} onSubmit={signInHandler}>
+    <form className="form" onSubmit={signInHandler}>
       <h1>Log in</h1>
       {error && <p style={{ color: 'red' }}>Incorrect email or password</p>}
       <AuthDetails />

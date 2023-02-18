@@ -1,5 +1,4 @@
 import React from 'react';
-// import classes from './Hamburger.module.css';
 import { useSelector } from 'react-redux/es/exports';
 import { RootState } from '../../store';
 import './hamburger.scss';

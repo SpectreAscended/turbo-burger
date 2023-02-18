@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import uiSlice, { uiActions } from '../../store/uiSlice';
 import { authActions } from '../../store/authSlice';
 import { auth } from '../../../firebase';
-// import classes from './MobileNav.module.css';
 import './mobileNav.scss';
 
 interface MobileNavProps {}

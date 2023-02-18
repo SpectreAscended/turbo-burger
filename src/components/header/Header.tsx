@@ -8,7 +8,6 @@ import OrderBtn from '../UI/OrderBtn';
 import MobileNav from '../main-nav/MobileNav';
 import { uiActions } from '../../store/uiSlice';
 import { RootState } from '../../store';
-// import classes from './HeaderMobile.module.css';
 import './header.scss';
 
 const Header: React.FC = () => {
