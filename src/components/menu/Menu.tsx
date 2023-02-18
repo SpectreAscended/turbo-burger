@@ -1,4 +1,4 @@
-import classes from './Menu.module.css';
+import './menu.scss';
 
 interface IMenuItem {
   id: string;
@@ -23,7 +23,7 @@ const Menu: React.FC<IMenuProps> = ({
   sides,
 }) => {
   return (
-    <div>
+    <div className="menu">
       <h1 style={{ textAlign: 'center' }}>Menu</h1>
       <ul style={{ listStyle: 'none' }}>
         <h3 style={{ color: 'var(--color-secondary)' }}>Burgers</h3>
@@ -53,6 +53,15 @@ const Menu: React.FC<IMenuProps> = ({
               <p style={{ marginBottom: '.5rem' }}>{chicken.title}</p>
               <p style={{ marginBottom: '.5rem' }}>{chicken.description}</p>
               <p>${chicken.price.toFixed(2)}</p>
+            </li>
+          );
+        })}
+        <h3 style={{ color: 'var(--color-secondary)' }}>Sides</h3>
+        {sides.map(side => {
+          return (
+            <li style={{ marginBlock: '1rem' }} key={side.id}>
+              <p style={{ marginBottom: '.5rem' }}>{side.title}</p>
+              <p>${side.price.toFixed(2)}</p>
             </li>
           );
         })}

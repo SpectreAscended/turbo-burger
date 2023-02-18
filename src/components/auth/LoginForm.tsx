@@ -13,7 +13,7 @@ const LoginForm: React.FC = () => {
   const navigate = useNavigate();
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
-  const [error, setError] = useState('');
+  const [error, setError] = useState<string | null>(null);
 
   const signInHandler = async (e: React.FormEvent) => {
     e.preventDefault();
