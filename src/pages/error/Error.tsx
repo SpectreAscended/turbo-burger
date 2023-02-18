@@ -1,7 +1,8 @@
 import React from 'react';
 import { useRouteError } from 'react-router-dom';
 import Header from '../../components/header/Header';
-import classes from './Error.module.css';
+// import classes from './Error.module.css';
+import './error.scss';
 
 interface ErrorPageProps {}
 
@@ -24,7 +25,7 @@ const ErrorPage = () => {
     <>
       <Header />
       <main>
-        <section className={classes.error}>
+        <section className="error">
           <h2>{title}</h2>
           <p>{message}</p>
         </section>

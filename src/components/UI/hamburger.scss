@@ -1,0 +1,31 @@
+.hamburger {
+  cursor: pointer;
+
+  * {
+    height: 2px;
+    width: 2rem;
+    background-color: var(--color-primary);
+    transition: transform 250ms, background 250ms, opacity 250ms ease;
+  }
+
+  &--top {
+    margin-bottom: 0.5rem;
+  }
+
+  &--bottom {
+    margin-top: 0.5rem;
+  }
+
+  &--active &--top {
+    transform: translateY(0.6rem) rotate(-45deg);
+  }
+
+  &--active &--middle {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+
+  &--active &--bottom {
+    transform: translateY(-0.6rem) rotate(45deg);
+  }
+}

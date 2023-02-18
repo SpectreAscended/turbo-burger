@@ -3,8 +3,9 @@ import { useDispatch } from 'react-redux/es/exports';
 import { Link } from 'react-router-dom';
 import uiSlice, { uiActions } from '../../../store/uiSlice';
 import { authActions } from '../../../store/authSlice';
-import classes from './MobileNav.module.css';
 import { auth } from '../../../../firebase';
+// import classes from './MobileNav.module.css';
+import './mobileNav.scss';
 
 interface MobileNavProps {}
 
@@ -20,10 +21,10 @@ const MobileNav: React.FC = () => {
   };
 
   return (
-    <nav className={classes['mobile-nav']}>
+    <nav className="mobile-nav">
       <h2>Welcome back, Guest</h2>
       <ul>
-        <li className={classes.auth}>
+        <li className="auth">
           <Link to="/login" onClick={closeMenuHandler}>
             Log in
           </Link>

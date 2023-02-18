@@ -1,7 +1,8 @@
 import React from 'react';
-import classes from './Hamburger.module.css';
+// import classes from './Hamburger.module.css';
 import { useSelector } from 'react-redux/es/exports';
 import { RootState } from '../../store';
+import './hamburger.scss';
 
 interface HamburgerProps {
   onClick?: () => void;
@@ -10,15 +11,13 @@ interface HamburgerProps {
 const Hamburger: React.FC<HamburgerProps> = ({ onClick }) => {
   const menuOpen = useSelector<RootState>(state => state.ui.menuOpen);
 
-  const hamburgerClasses = `${classes.hamburger} ${
-    menuOpen ? classes['hamburger--active'] : ''
-  }`;
+  const hamburgerClasses = `hamburger ${menuOpen ? 'hamburger--active' : ''}`;
 
   return (
     <div className={hamburgerClasses} onClick={onClick}>
-      <div className={classes['hamburger--top']}></div>
-      <div className={classes['hamburger--middle']}></div>
-      <div className={classes['hamburger--bottom']}></div>
+      <div className="hamburger--top"></div>
+      <div className="hamburger--middle"></div>
+      <div className="hamburger--bottom"></div>
     </div>
   );
 };
