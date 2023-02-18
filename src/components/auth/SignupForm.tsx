@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import classes from './AuthForm.module.css';
 import { useDispatch } from 'react-redux';
 import { authActions } from '../../store/authSlice';
 import { auth } from '../../../firebase';
+import './authForm.scss';
 
 const SignupForm: React.FC = () => {
   const dispatch = useDispatch();
@@ -61,7 +61,7 @@ const SignupForm: React.FC = () => {
   };
 
   return (
-    <form className={classes.form} onSubmit={submitSignUpHandler}>
+    <form className="form" onSubmit={submitSignUpHandler}>
       <h1>Sign up</h1>
       <label htmlFor="first-name">First Name</label>
       <input type="text" id="first-name" ref={firstNameRef} />
