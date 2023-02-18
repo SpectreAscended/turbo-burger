@@ -1,7 +1,7 @@
 import React from 'react';
 import turboLogoTop from '../../assets/Turbo Burger Logo--Turbo.svg';
 import turboLogoBottom from '../../assets/Turbo Burger Logo--Burger.svg';
-import './logoMobile.scss';
+import './logo.scss';
 
 const Logo: React.FC = () => {
   return (
