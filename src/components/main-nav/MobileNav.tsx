@@ -4,21 +4,42 @@ import { Link } from 'react-router-dom';
 import uiSlice, { uiActions } from '../../store/uiSlice';
 import { authActions } from '../../store/authSlice';
 import { auth } from '../../../firebase';
+import Backdrop from '../backdrop/Backdrop';
 import './mobileNav.scss';
+import { motion } from 'framer-motion';
 
-interface MobileNavProps {}
+interface MobileNavProps {
+  children?: React.ReactNode;
+}
 
 const MobileNav: React.FC = () => {
   const dispatch = useDispatch();
 
-  const closeMenuHandler = (
-    e: React.MouseEvent<HTMLDivElement | HTMLAnchorElement>
-  ) => {
-    dispatch(uiActions.toggleMenu());
+  const dropIn = {
+    hidden: {
+      y: '-200vh',
+      opacity: 0,
+    },
+
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        type: 'spring',
+        damping: 32,
+        stiffness: 600,
+      },
+    },
+
+    exit: {
+      y: '-100vh',
+      opacity: 0,
+    },
   };
 
-  const closeMenuInsideHandler = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
+  const closeMenuHandler = () => {
+    dispatch(uiActions.toggleMenu());
   };
 
   const signOutHandler = () => {
@@ -26,33 +47,45 @@ const MobileNav: React.FC = () => {
   };
 
   return (
-    <div className="backdrop" onClick={closeMenuHandler}>
-      <nav className="mobile-nav" onClick={closeMenuInsideHandler}>
-        <h2>Welcome back, Guest</h2>
-        <ul>
-          <li className="auth">
-            <Link to="/login" onClick={closeMenuHandler}>
-              Log in
-            </Link>
-          </li>
-          <li>
-            <Link to="/menu" onClick={closeMenuHandler}>
-              Menu
-            </Link>
-          </li>
-          <li>
-            <Link to="/reviews" onClick={closeMenuHandler}>
-              Reviews
-            </Link>
-          </li>
-          <li>
-            <Link to="/" onClick={closeMenuHandler}>
-              About
-            </Link>
-          </li>
-        </ul>
-      </nav>
-    </div>
+    <Backdrop onClick={closeMenuHandler}>
+      <motion.div
+        onClick={e => e.stopPropagation()}
+        variants={dropIn}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+      >
+        <nav className="mobile-nav">
+          <h2>Welcome back, Guest</h2>
+          <ul>
+            <li className="auth">
+              <Link to="/login" onClick={closeMenuHandler} className="noSelect">
+                Log in
+              </Link>
+            </li>
+            <li>
+              <Link to="/menu" onClick={closeMenuHandler} className="noSelect">
+                Menu
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/reviews"
+                onClick={closeMenuHandler}
+                className="noSelect"
+              >
+                Reviews
+              </Link>
+            </li>
+            <li>
+              <Link to="/" onClick={closeMenuHandler} className="noSelect">
+                About
+              </Link>
+            </li>
+          </ul>
+        </nav>
+      </motion.div>
+    </Backdrop>
   );
 };
 
