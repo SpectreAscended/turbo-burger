@@ -17,7 +17,7 @@ const MobileNav: React.FC = () => {
 
   const dropIn = {
     hidden: {
-      y: '-200vh',
+      y: '-100vh',
       opacity: 0,
     },
 
@@ -27,8 +27,7 @@ const MobileNav: React.FC = () => {
       transition: {
         duration: 0.5,
         type: 'spring',
-        damping: 32,
-        stiffness: 600,
+        bounce: 0.25,
       },
     },
 
