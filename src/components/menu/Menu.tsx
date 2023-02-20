@@ -23,7 +23,7 @@ const Menu: React.FC<IMenuProps> = ({
   sides,
 }) => {
   return (
-    <div className="menu">
+    <section className="menu">
       <h1 style={{ textAlign: 'center' }}>Menu</h1>
       <ul style={{ listStyle: 'none' }}>
         <h3 style={{ color: 'var(--color-secondary)' }}>Burgers</h3>
@@ -75,7 +75,7 @@ const Menu: React.FC<IMenuProps> = ({
           );
         })}
       </ul>
-    </div>
+    </section>
   );
 };
 

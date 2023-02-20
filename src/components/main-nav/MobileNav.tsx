@@ -11,8 +11,14 @@ interface MobileNavProps {}
 const MobileNav: React.FC = () => {
   const dispatch = useDispatch();
 
-  const closeMenuHandler = () => {
+  const closeMenuHandler = (
+    e: React.MouseEvent<HTMLDivElement | HTMLAnchorElement>
+  ) => {
     dispatch(uiActions.toggleMenu());
+  };
+
+  const closeMenuInsideHandler = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation();
   };
 
   const signOutHandler = () => {
@@ -20,31 +26,33 @@ const MobileNav: React.FC = () => {
   };
 
   return (
-    <nav className="mobile-nav">
-      <h2>Welcome back, Guest</h2>
-      <ul>
-        <li className="auth">
-          <Link to="/login" onClick={closeMenuHandler}>
-            Log in
-          </Link>
-        </li>
-        <li>
-          <Link to="/menu" onClick={closeMenuHandler}>
-            Menu
-          </Link>
-        </li>
-        <li>
-          <Link to="/reviews" onClick={closeMenuHandler}>
-            Reviews
-          </Link>
-        </li>
-        <li>
-          <Link to="/" onClick={closeMenuHandler}>
-            About
-          </Link>
-        </li>
-      </ul>
-    </nav>
+    <div className="backdrop" onClick={closeMenuHandler}>
+      <nav className="mobile-nav" onClick={closeMenuInsideHandler}>
+        <h2>Welcome back, Guest</h2>
+        <ul>
+          <li className="auth">
+            <Link to="/login" onClick={closeMenuHandler}>
+              Log in
+            </Link>
+          </li>
+          <li>
+            <Link to="/menu" onClick={closeMenuHandler}>
+              Menu
+            </Link>
+          </li>
+          <li>
+            <Link to="/reviews" onClick={closeMenuHandler}>
+              Reviews
+            </Link>
+          </li>
+          <li>
+            <Link to="/" onClick={closeMenuHandler}>
+              About
+            </Link>
+          </li>
+        </ul>
+      </nav>
+    </div>
   );
 };
 
