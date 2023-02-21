@@ -19,8 +19,8 @@ const MobileNav: React.FC = () => {
       y: 0,
       transition: {
         duration: 0.5,
-        type: 'spring',
-        bounce: 0.25,
+        // type: 'spring',
+        // bounce: 0.25,
       },
     },
 
