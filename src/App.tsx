@@ -4,9 +4,17 @@ import LoginPage from './pages/auth/Login';
 import SignupPage from './pages/auth/Signup';
 import RootLayout from './pages/layout/Root';
 import MenuPage, { loader as menuLoader } from './pages/menu/Menu';
-import MenuItemPage from './pages/menuItem/MenuItem';
+import MenuItemPage, {
+  loader as menuItemLoader,
+} from './pages/menuItem/MenuItem';
 import OrderPage from './pages/order/Order';
 import ErrorPage from './pages/error/Error';
+
+interface MenuLoaderProps {
+  params: {
+    menuItemId: string;
+  };
+}
 
 const App = () => {
   const router = createBrowserRouter([
@@ -39,6 +47,8 @@ const App = () => {
             {
               path: ':menuItemId',
               element: <MenuItemPage />,
+              id: 'menu-item',
+              loader: menuItemLoader,
             },
           ],
         },
