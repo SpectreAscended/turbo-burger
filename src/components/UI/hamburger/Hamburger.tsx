@@ -10,7 +10,9 @@ interface HamburgerProps {
 const Hamburger: React.FC<HamburgerProps> = ({ onClick }) => {
   const menuOpen = useSelector<RootState>(state => state.ui.menuOpen);
 
-  const hamburgerClasses = `hamburger ${menuOpen ? 'hamburger--active' : ''}`;
+  const hamburgerClasses = `hamburger noSelect ${
+    menuOpen ? 'hamburger--active' : ''
+  }`;
 
   return (
     <button className={hamburgerClasses} onClick={onClick}>
