@@ -2,8 +2,15 @@ import MenuItem from '../../components/menuItem/MenuItem';
 import loaderRequest from '../../utlities/loaderRequest';
 import { useRouteLoaderData } from 'react-router';
 
+interface LoaderData {
+  id: string;
+  price: number;
+  description?: string;
+  title: string;
+}
+
 const MenuItemPage: React.FC = () => {
-  const menuItem = useRouteLoaderData('menu-item');
+  const menuItem = useRouteLoaderData('menu-item') as LoaderData;
   return <MenuItem item={menuItem} />;
 };
 
@@ -13,13 +20,6 @@ interface LoaderProps {
   params: {
     menuItemId?: string;
   };
-}
-
-interface LoaderData {
-  id: string;
-  price: number;
-  description?: string;
-  title: string;
 }
 
 export const loader = async ({ params }: LoaderProps) => {
