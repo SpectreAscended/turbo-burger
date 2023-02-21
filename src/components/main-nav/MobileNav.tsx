@@ -1,16 +1,11 @@
-import React, { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux/es/exports';
 import { Link } from 'react-router-dom';
-import uiSlice, { uiActions } from '../../store/uiSlice';
+import { uiActions } from '../../store/uiSlice';
 import { authActions } from '../../store/authSlice';
-import { auth } from '../../../firebase';
+// import { auth } from '../../../firebase';
 import Backdrop from '../backdrop/Backdrop';
 import './mobileNav.scss';
 import { motion } from 'framer-motion';
-
-interface MobileNavProps {
-  children?: React.ReactNode;
-}
 
 const MobileNav: React.FC = () => {
   const dispatch = useDispatch();
@@ -18,12 +13,10 @@ const MobileNav: React.FC = () => {
   const dropIn = {
     hidden: {
       y: '-100vh',
-      opacity: 0,
     },
 
     visible: {
       y: 0,
-      opacity: 1,
       transition: {
         duration: 0.5,
         type: 'spring',
@@ -33,7 +26,6 @@ const MobileNav: React.FC = () => {
 
     exit: {
       y: '-100vh',
-      opacity: 0,
     },
   };
 

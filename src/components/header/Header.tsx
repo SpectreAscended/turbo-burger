@@ -33,7 +33,7 @@ const Header: React.FC = () => {
         </div>
         <div className="header-border-bottom"></div>
       </header>
-      <AnimatePresence initial={false} mode="wait">
+      <AnimatePresence initial={false} mode="sync">
         {menuState && <MobileNav />}
       </AnimatePresence>
     </>
