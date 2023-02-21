@@ -13,11 +13,11 @@ const Hamburger: React.FC<HamburgerProps> = ({ onClick }) => {
   const hamburgerClasses = `hamburger ${menuOpen ? 'hamburger--active' : ''}`;
 
   return (
-    <div className={hamburgerClasses} onClick={onClick}>
+    <button className={hamburgerClasses} onClick={onClick}>
       <div className="hamburger--top"></div>
       <div className="hamburger--middle"></div>
       <div className="hamburger--bottom"></div>
-    </div>
+    </button>
   );
 };
 

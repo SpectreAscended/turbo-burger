@@ -58,9 +58,9 @@ main {
   -ms-user-select: none;
   user-select: none;
 }
-.noSelect:focus {
-  outline: none !important;
-}
+// .noSelect:focus {
+//   outline: none !important;
+// }
 
 @media only screen and (max-width: 21.25em) {
   html {
