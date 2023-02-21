@@ -20,7 +20,7 @@ const OrderBtn: React.FC = () => {
     };
   };
 
-  const orderClasses = `order ${bounce ? 'animate-bump' : ''}`;
+  const orderClasses = `order noSelect ${bounce ? 'animate-bump' : ''}`;
 
   return (
     <Link to="/order" className={orderClasses} onClick={btnBounceHandler}>
