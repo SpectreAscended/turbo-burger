@@ -1,11 +1,11 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import Logo from './Logo';
+import Logo from '../logo/Logo';
 // import MainNav from './main-nav/MainNav';
 // import classes from './Header.module.css';
 import Hamburger from '../UI/hamburger/Hamburger';
 import OrderBtn from '../UI/orderBtn/OrderBtn';
-import MobileNav from '../main-nav/MobileNav';
+import MobileNav from '../mainNav/MobileNav';
 import { uiActions } from '../../store/uiSlice';
 import { RootState } from '../../store';
 import './header.scss';

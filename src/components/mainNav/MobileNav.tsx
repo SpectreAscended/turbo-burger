@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { uiActions } from '../../store/uiSlice';
 import { authActions } from '../../store/authSlice';
 // import { auth } from '../../../firebase';
-import Backdrop from '../backdrop/Backdrop';
+import Backdrop from '../UI/backdrop/Backdrop';
 import './mobileNav.scss';
 import { motion } from 'framer-motion';
 

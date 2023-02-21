@@ -1,4 +1,4 @@
-import MenuItem from '../../components/menu-item/MenuItem';
+import MenuItem from '../../components/menuItem/MenuItem';
 
 const MenuItemPage: React.FC = () => {
   return <MenuItem />;
