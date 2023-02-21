@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './menu.scss';
 
 interface IMenuItem {
@@ -24,53 +25,60 @@ const Menu: React.FC<IMenuProps> = ({
 }) => {
   return (
     <section className="menu">
-      <h1 style={{ textAlign: 'center' }}>Menu</h1>
-      <ul style={{ listStyle: 'none' }}>
-        <h3 style={{ color: 'var(--color-secondary)' }}>Burgers</h3>
+      <h1>Menu</h1>
+      <ul>
+        <h3>Burgers</h3>
         {burgers.map(burger => {
           return (
-            <li style={{ marginBlock: '1rem' }} key={burger.id}>
-              <h4 style={{ marginBottom: '.5rem' }}>{burger.title}</h4>
-              <p style={{ marginBottom: '.5rem' }}>{burger.description}</p>
-              <p>${burger.price.toFixed(2)}</p>
+            <li key={burger.id}>
+              <Link to={`/menu/${burger.id}`}>
+                <h4>{burger.title}</h4>
+                <p>${burger.price.toFixed(2)}</p>
+              </Link>
             </li>
           );
         })}
-        <h3 style={{ color: 'var(--color-secondary)' }}>Hot dogs</h3>
+        <h3>Hot dogs</h3>
         {hotdogs.map(hotdog => {
           return (
-            <li style={{ marginBlock: '1rem' }} key={hotdog.id}>
-              <h4 style={{ marginBottom: '.5rem' }}>{hotdog.title}</h4>
-              <p style={{ marginBottom: '.5rem' }}>{hotdog.description}</p>
-              <p>${hotdog.price.toFixed(2)}</p>
+            <li key={hotdog.id}>
+              <Link to={`/menu/${hotdog.id}`}>
+                <h4>{hotdog.title}</h4>
+                <p>${hotdog.price.toFixed(2)}</p>
+              </Link>
             </li>
           );
         })}
-        <h3 style={{ color: 'var(--color-secondary)' }}>Chicken</h3>
+        <h3>Chicken</h3>
         {chicken.map(chicken => {
           return (
-            <li style={{ marginBlock: '1rem' }} key={chicken.id}>
-              <h4 style={{ marginBottom: '.5rem' }}>{chicken.title}</h4>
-              <p style={{ marginBottom: '.5rem' }}>{chicken.description}</p>
-              <p>${chicken.price.toFixed(2)}</p>
+            <li key={chicken.id}>
+              <Link to={`/menu/${chicken.id}`}>
+                <h4>{chicken.title}</h4>
+                <p>${chicken.price.toFixed(2)}</p>
+              </Link>
             </li>
           );
         })}
-        <h3 style={{ color: 'var(--color-secondary)' }}>Sides</h3>
+        <h3>Sides</h3>
         {sides.map(side => {
           return (
-            <li style={{ marginBlock: '1rem' }} key={side.id}>
-              <h4 style={{ marginBottom: '.5rem' }}>{side.title}</h4>
-              <p>${side.price.toFixed(2)}</p>
+            <li key={side.id}>
+              <Link to={`/menu/${side.id}`}>
+                <h4>{side.title}</h4>
+                <p>${side.price.toFixed(2)}</p>
+              </Link>
             </li>
           );
         })}
-        <h3 style={{ color: 'var(--color-secondary)' }}>Drinks</h3>
+        <h3>Drinks</h3>
         {drinks.map(drink => {
           return (
-            <li style={{ marginBlock: '1rem' }} key={drink.id}>
-              <h4 style={{ marginBottom: '.5rem' }}>{drink.title}</h4>
-              <p>${drink.price.toFixed(2)}</p>
+            <li key={drink.id}>
+              <Link to={`/menu/${drink.id}`}>
+                <h4>{drink.title}</h4>
+                <p>${drink.price.toFixed(2)}</p>
+              </Link>
             </li>
           );
         })}
