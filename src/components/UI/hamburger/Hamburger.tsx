@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux/es/exports';
-import { RootState } from '../../store';
+import { RootState } from '../../../store';
 import './hamburger.scss';
 
 interface HamburgerProps {

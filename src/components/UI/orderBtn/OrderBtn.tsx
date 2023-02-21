@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { uiActions } from '../../store/uiSlice';
+import { uiActions } from '../../../store/uiSlice';
 import { Link } from 'react-router-dom';
 import './orderBtn.scss';
 
