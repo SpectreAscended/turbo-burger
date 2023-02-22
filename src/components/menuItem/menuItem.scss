@@ -56,4 +56,9 @@
   margin-inline: auto;
   padding-block: 0.5rem;
   border-radius: 0.5rem;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
 }

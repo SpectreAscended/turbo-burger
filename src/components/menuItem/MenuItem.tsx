@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { orderActions } from '../../store/orderSlice';
 import './menuItem.scss';
 
 interface MenuItemProps {
@@ -13,6 +15,7 @@ interface MenuItemProps {
 
 const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
   const [orderQty, setOrderQty] = useState(1);
+  const dispatch = useDispatch();
 
   const addQtyHandler = () => {
     if (orderQty < 40) {
@@ -26,18 +29,33 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
 
   const totalItemPrice = orderQty * item.price;
 
+  const formSubmitHandler = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (orderQty > 0) {
+      const newItem = {
+        id: item.id,
+        price: +item.price,
+        title: item.title,
+        quantity: orderQty,
+      };
+
+      dispatch(orderActions.addToCart(newItem));
+    }
+  };
+
   return (
     <section className="menu-item">
       <h1>{item.title}</h1>
       {item.description && <p>{item.description}</p>}
       <span className="menu-item-price">${item.price.toFixed(2)}</span>
 
-      <form>
+      <form onSubmit={formSubmitHandler}>
         <div className="menu-item-form--actions">
           <button type="button" onClick={removeQtyHandler}>
             -
           </button>
-          <input type="number" value={orderQty} min="0" max="40" />
+          <input type="number" value={orderQty} min="0" max="40" readOnly />
           <button type="button" onClick={addQtyHandler}>
             +
           </button>
