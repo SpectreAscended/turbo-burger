@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { uiActions } from '../../../store/uiSlice';
 import { Link } from 'react-router-dom';
@@ -15,8 +15,7 @@ const OrderBtn: React.FC = () => {
     state => state.order.cartQuantity
   ) as number;
 
-  const btnBounceHandler = () => {
-    dispatch(uiActions.closeMenu());
+  const buttonBounceEffect = () => {
     setBounce(true);
     const timeout = setTimeout(() => {
       setBounce(false);
@@ -27,10 +26,19 @@ const OrderBtn: React.FC = () => {
     };
   };
 
+  const orderBtnHandler = () => {
+    dispatch(uiActions.closeMenu());
+    buttonBounceEffect();
+  };
+
+  useEffect(() => {
+    buttonBounceEffect();
+  }, [cartQty]);
+
   const orderClasses = `order noSelect ${bounce ? 'animate-bump' : ''}`;
 
   return (
-    <Link to="/order" className={orderClasses} onClick={btnBounceHandler}>
+    <Link to="/order" className={orderClasses} onClick={orderBtnHandler}>
       Your Order
       <div className="order-badge">{cartQty}</div>
     </Link>
