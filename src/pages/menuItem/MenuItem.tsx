@@ -41,8 +41,8 @@ export const loader = async ({ params }: LoaderProps) => {
 
   const REQUEST_URL: string = import.meta.env.VITE_DATABASE_MENU_ITEM;
 
-  const url = `${REQUEST_URL}${itemType}/${id}.json`;
-  const data = await loaderRequest({ url: url });
+  const combinedUrl = `${REQUEST_URL}${itemType}/${id}.json`;
+  const data = await loaderRequest({ url: combinedUrl });
 
   const loaderData: LoaderData = {
     id: id,
