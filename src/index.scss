@@ -45,12 +45,9 @@ ul {
   list-style: none;
 }
 
-/* TEMPORARY   */
 main {
   background: var(--color-background);
   min-height: calc(100vh - 2.5rem);
-  /* max-width: 87.5em; */
-  /* max-width: 95%; */
   margin-inline: auto;
   padding: 0.75rem;
   padding-top: 10rem;
@@ -60,12 +57,6 @@ main {
 
 .noSelect {
   -webkit-tap-highlight-color: transparent;
-  // -webkit-touch-callout: none;
-  // -webkit-user-select: none;
-  // -khtml-user-select: none;
-  // -moz-user-select: none;
-  // -ms-user-select: none;
-  // user-select: none;
 }
 
 // Media Queries
