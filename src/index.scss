@@ -35,6 +35,16 @@ body {
   line-height: 1.2;
 }
 
+body::-webkit-scrollbar {
+  background-color: #272727;
+  width: 0.75rem;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary);
+  border-radius: 0.25rem;
+}
+
 a:link,
 a:visited {
   display: inline-block;
