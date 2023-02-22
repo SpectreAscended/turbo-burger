@@ -9,6 +9,7 @@ import MenuItemPage, {
 } from './pages/menuItem/MenuItem';
 import OrderPage from './pages/order/Order';
 import ErrorPage from './pages/error/Error';
+import CheckoutPage from './pages/checkout/Checkout';
 
 interface MenuLoaderProps {
   params: {
@@ -26,7 +27,16 @@ const App = () => {
         { index: true, element: <AboutPage /> },
         {
           path: '/order',
-          element: <OrderPage />,
+          children: [
+            {
+              index: true,
+              element: <OrderPage />,
+            },
+            {
+              path: 'checkout',
+              element: <CheckoutPage />,
+            },
+          ],
         },
         {
           path: '/login',

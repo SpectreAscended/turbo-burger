@@ -1,5 +1,7 @@
+import OrderForm from '../../components/order/orderForm/OrderForm';
+
 const OrderPage: React.FC = () => {
-  return <div></div>;
+  return <OrderForm />;
 };
 
 export default OrderPage;

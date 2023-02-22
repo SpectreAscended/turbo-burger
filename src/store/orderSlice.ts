@@ -34,7 +34,7 @@ const orderSlice = createSlice({
       }
       state.totalPrice = state.totalPrice + newItem.price * newItem.quantity;
       state.cartQuantity = state.cartQuantity + newItem.quantity;
-      console.log(current(state));
+      // console.log(current(state));
     },
     // TODO removeCart function needs to be tested still
     removeFromCart(state, action) {
