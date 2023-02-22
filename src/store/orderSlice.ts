@@ -36,6 +36,7 @@ const orderSlice = createSlice({
       state.cartQuantity = state.cartQuantity + newItem.quantity;
       console.log(current(state));
     },
+    // TODO removeCart function needs to be tested still
     removeFromCart(state, action) {
       const id = action.payload;
       const existingItem = state.items.find(item => item.id === id);
