@@ -1,7 +1,7 @@
-import OrderForm from '../../components/order/orderForm/OrderForm';
+import OrderConfirm from '../../components/order/orderConfirm/OrderConfirm';
 
 const OrderPage: React.FC = () => {
-  return <OrderForm />;
+  return <OrderConfirm />;
 };
 
 export default OrderPage;
