@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Form, Link } from 'react-router-dom';
 import { RootState } from '../../../store';
-import OrderForm from '../orderForm/orderForm';
+import OrderForm from '../orderForm/OrderForm';
 import './orderConfirm.scss';
 
 interface OrderConfirmProps {}
