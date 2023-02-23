@@ -41,12 +41,11 @@ const orderSlice = createSlice({
       const item = state.items.find(item => item.id === id);
       console.log(current(item));
       if (item) {
-        item.quantity = item.quantity + 1;
+        item.quantity++;
         state.totalPrice = state.totalPrice + item.price;
-        state.cartQuantity = state.cartQuantity + 1;
+        state.cartQuantity++;
       }
     },
-    // TODO removeCart function needs to be tested still
     removeFromCart(state, action) {
       const id = action.payload;
       const existingItem = state.items.find(item => item.id === id);
@@ -59,7 +58,7 @@ const orderSlice = createSlice({
       }
 
       state.cartQuantity--;
-      state.totalPrice = state.totalPrice - existingItem!.price;
+      state.totalPrice = Math.abs(state.totalPrice - existingItem!.price);
     },
   },
 });

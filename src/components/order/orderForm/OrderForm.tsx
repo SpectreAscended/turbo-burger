@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { orderActions } from '../../../store/orderSlice';
 import './orderForm.scss';
 
@@ -9,17 +9,15 @@ interface OrderFormProps {
 }
 
 const OrderForm: React.FC<OrderFormProps> = ({ id, quantity }) => {
-  const [itemQty, setItemQty] = useState(quantity);
   const dispatch = useDispatch();
 
   const addItemQtyHandler = () => {
-    // setItemQty(prevQty => (prevQty = prevQty + 1));
     dispatch(orderActions.addOneToCart(id));
   };
 
   const removeItemHandler = () => {
-    if (itemQty >= 1) {
-      setItemQty(prevQty => (prevQty = prevQty - 1));
+    if (quantity >= 1) {
+      dispatch(orderActions.removeFromCart(id));
     }
   };
 
@@ -29,7 +27,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ id, quantity }) => {
         <button type="button" onClick={removeItemHandler}>
           -
         </button>
-        <input type="number" readOnly min="0" max="40" value={itemQty} />
+        <input type="number" readOnly min="0" max="40" value={quantity} />
         <button type="button" onClick={addItemQtyHandler}>
           +
         </button>
