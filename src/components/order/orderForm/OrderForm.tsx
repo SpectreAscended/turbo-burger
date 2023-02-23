@@ -23,15 +23,14 @@ const OrderForm: React.FC<OrderFormProps> = ({ id, quantity }) => {
 
   return (
     <form className="order-form">
-      <div className="order-form-actions">
-        <button type="button" onClick={removeItemHandler}>
-          -
-        </button>
-        <input type="number" readOnly min="0" max="40" value={quantity} />
-        <button type="button" onClick={addItemQtyHandler}>
-          +
-        </button>
-      </div>
+      <button type="button" onClick={removeItemHandler}>
+        -
+      </button>
+      <span className="order-form-item-qty">{quantity}</span>
+
+      <button type="button" onClick={addItemQtyHandler}>
+        +
+      </button>
     </form>
   );
 };

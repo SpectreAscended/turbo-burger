@@ -1,0 +1,27 @@
+.order-confirm {
+  a:link,
+  a:visited {
+    color: #1e1e1e;
+    background-color: var(--color-secondary);
+    padding: 0.25rem 1rem;
+    border-radius: 0.25rem;
+    margin-block: 1rem;
+  }
+
+  h1 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  li {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--color-secondary);
+    padding-block: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: #bbb9b9;
+  }
+}

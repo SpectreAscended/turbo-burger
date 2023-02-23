@@ -39,7 +39,6 @@ const orderSlice = createSlice({
     addOneToCart(state, action) {
       const id = action.payload;
       const item = state.items.find(item => item.id === id);
-      console.log(current(item));
       if (item) {
         item.quantity++;
         state.totalPrice = state.totalPrice + item.price;

@@ -25,14 +25,14 @@ const OrderConfirm: React.FC = () => {
 
   const tax = totalPrice * 0.11;
 
-  console.log(cartItems);
+  // const cartHasItems = cartItems.length > 0;
+  // console.log(cartHasItems);
+
   const cartItemsOutput = cartItems.map(item => {
     return (
       <li key={item.id}>
         <div>
-          <h3>
-            {item.title} (x{item.quantity})
-          </h3>
+          <h3>{item.title}</h3>
           <p>${(item.price * item.quantity).toFixed(2)}</p>
         </div>
         <OrderForm id={item.id} quantity={item.quantity} />
@@ -43,6 +43,7 @@ const OrderConfirm: React.FC = () => {
   return (
     <section className="order-confirm">
       <h1>Your order</h1>
+      <Link to="/menu">Back to menu</Link>
       <ul>{cartItemsOutput}</ul>
       <p>Tax: ${tax.toFixed(2)}</p>
       <p>Total: ${(totalPrice + tax).toFixed(2)}</p>
