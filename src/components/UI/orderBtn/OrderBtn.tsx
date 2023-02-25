@@ -6,8 +6,6 @@ import { RootState } from '../../../store';
 import { BTN_BOUNCE_DURATION } from '../../../utlities/config';
 import './orderBtn.scss';
 
-// TODO Add animation to make badge pop up when the cart goes from having no items, to having items
-
 const OrderBtn: React.FC = () => {
   const [bounce, setBounce] = useState(false);
   const dispatch = useDispatch();
