@@ -51,6 +51,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
         price: +item.price,
         title: item.title,
         quantity: orderQty,
+        drinkOption: drinkSelection,
       };
 
       dispatch(orderActions.addToCart(newItem));

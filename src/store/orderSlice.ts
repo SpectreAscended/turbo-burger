@@ -6,6 +6,7 @@ interface OrderState {
     price: number;
     quantity: number;
     title: string;
+    drinkOption?: string;
   }[];
 
   cartQuantity: number;

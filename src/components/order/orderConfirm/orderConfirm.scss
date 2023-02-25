@@ -25,4 +25,12 @@
   p {
     color: #bbb9b9;
   }
+
+  span {
+    filter: brightness(0.8);
+  }
+
+  &-total {
+    margin-top: 1rem;
+  }
 }
