@@ -35,8 +35,9 @@ const OrderConfirm: React.FC = () => {
       <li key={item.id}>
         <div>
           <h3>{item.title}</h3>
-          {item.id.includes('dr1') ||
-            (item.id.includes('dr2') && <span>{item.drinkOption}</span>)}
+          {(item.id.includes('dr1') || item.id.includes('dr2')) && (
+            <span>{item.drinkOption}</span>
+          )}
           <p>${(item.price * item.quantity).toFixed(2)}</p>
         </div>
         <OrderForm id={item.id} quantity={item.quantity} />

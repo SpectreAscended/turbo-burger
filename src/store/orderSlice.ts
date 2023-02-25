@@ -26,16 +26,26 @@ const orderSlice = createSlice({
     addToCart(state, action) {
       const newItem = action.payload;
 
+      const softDrink =
+        action.payload.id.includes('dr1') || action.payload.id.includes('dr2');
+
       const existingItem = state.items.find(item => item.id === newItem.id);
 
       if (!existingItem) {
+        state.items.push(newItem);
+      } else if (
+        existingItem &&
+        softDrink &&
+        existingItem.drinkOption !== newItem.drinkOption
+      ) {
+        newItem.id = newItem.id + Math.random() + 1;
         state.items.push(newItem);
       } else {
         existingItem.quantity = existingItem.quantity + newItem.quantity;
       }
       state.totalPrice = state.totalPrice + newItem.price * newItem.quantity;
       state.cartQuantity = state.cartQuantity + newItem.quantity;
-      // console.log(current(state));
+      console.log(current(state));
     },
     addOneToCart(state, action) {
       const id = action.payload;
