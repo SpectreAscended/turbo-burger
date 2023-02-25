@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { uiActions } from '../../../store/uiSlice';
 import { Link } from 'react-router-dom';
 import { RootState } from '../../../store';
+import { BTN_BOUNCE_DURATION } from '../../../utlities/config';
 import './orderBtn.scss';
 
 // TODO Add animation to make badge pop up when the cart goes from having no items, to having items
@@ -19,7 +20,7 @@ const OrderBtn: React.FC = () => {
     setBounce(true);
     const timeout = setTimeout(() => {
       setBounce(false);
-    }, 250);
+    }, BTN_BOUNCE_DURATION);
 
     return () => {
       clearTimeout(timeout);
