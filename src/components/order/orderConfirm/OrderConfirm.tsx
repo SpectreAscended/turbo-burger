@@ -28,7 +28,6 @@ const OrderConfirm: React.FC = () => {
   const tax = totalPrice * SK_SALES_TAX;
 
   const cartHasItems = cartItems.length > 0;
-  console.log(cartHasItems);
 
   const cartItemsOutput = cartItems.map(item => {
     return (

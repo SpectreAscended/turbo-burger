@@ -40,8 +40,6 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
     setDrinkSelection(selectedDrink);
   };
 
-  console.log(drinkSelection);
-
   const formSubmitHandler = (e: React.FormEvent) => {
     e.preventDefault();
 
