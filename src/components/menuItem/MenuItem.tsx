@@ -35,11 +35,6 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
 
   const totalItemPrice = orderQty * item.price;
 
-  const drinkSelectionHandler = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const selectedDrink = e.target.value;
-    setDrinkSelection(selectedDrink);
-  };
-
   const formSubmitHandler = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -49,39 +44,17 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
         price: +item.price,
         title: item.title,
         quantity: orderQty,
-        drinkOption: drinkSelection,
       };
 
       dispatch(orderActions.addToCart(newItem));
     }
   };
 
-  let drinkOptions: DrinkOptions[] = [];
-
-  if (item.id.includes('dr1') || item.id.includes('dr2')) {
-    drinkOptions = [
-      { value: 'Coke', label: 'Coke' },
-      { value: 'Diet Coke', label: 'Diet Coke' },
-      { value: 'Sprite', label: 'Sprite' },
-      { value: 'Root Beer', label: 'Root Beer' },
-      { value: 'Cream Soda', label: 'Cream Soda' },
-      { value: 'Lemonade', label: 'Lemonade' },
-    ];
-  }
-
   return (
     <section className="menu-item">
       <h1>{item.title}</h1>
       {item.description && <p>{item.description}</p>}
-      {drinkOptions.length > 0 && (
-        <select onChange={drinkSelectionHandler}>
-          {drinkOptions.map(option => (
-            <option value={option.value} key={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-      )}
+
       <span className="menu-item-price">${item.price.toFixed(2)}</span>
 
       <form onSubmit={formSubmitHandler}>

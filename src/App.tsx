@@ -66,6 +66,12 @@ const App = () => {
     },
   ]);
 
+  // const foo =  [{id: 'dr1-5464', type: 'root beer'}, {id: 'dr2-123', type: 'root-beer'}, {id: 'dr1'}]
+
+  // const bar = foo.find
+
+  // console.log(bar)
+
   return <RouterProvider router={router} />;
 };
 

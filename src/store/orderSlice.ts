@@ -26,28 +26,9 @@ const orderSlice = createSlice({
     addToCart(state, action) {
       const newItem = action.payload;
 
-      const softDrink =
-        action.payload.id.includes('dr1') || action.payload.id.includes('dr2');
-
-      const existingSoftDrink =
-        softDrink &&
-        state.items.find(item => item.drinkOption === newItem.drinkOption);
-
       const existingItem = state.items.find(item => item.id === newItem.id);
 
       if (!existingItem) {
-        state.items.push(newItem);
-      } else if (existingSoftDrink) {
-        existingSoftDrink.id =
-          newItem.id + '-' + Math.floor(Math.random() * 100);
-        existingSoftDrink.quantity =
-          existingSoftDrink.quantity + newItem.quantity;
-      } else if (
-        existingItem &&
-        softDrink &&
-        existingItem.drinkOption !== newItem.drinkOption
-      ) {
-        newItem.id = newItem.id + '-' + Math.floor(Math.random() * 100);
         state.items.push(newItem);
       } else {
         existingItem.quantity = existingItem.quantity + newItem.quantity;
