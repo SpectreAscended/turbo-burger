@@ -27,10 +27,10 @@ const Checkout: React.FC = () => {
 
   const freeDelivery = totalPrice >= FREE_DELIVERY;
 
-  let totalOutput = <p>${totalWithoutDelivery.toFixed(2)}</p>;
+  let totalOutput = <p>Total: ${totalWithoutDelivery.toFixed(2)}</p>;
 
   if (delivery && !freeDelivery) {
-    totalOutput = <p>${totalWithDelivery.toFixed(2)}</p>;
+    totalOutput = <p>Total: ${totalWithDelivery.toFixed(2)}</p>;
   }
 
   const deliveryClasses = delivery && freeDelivery ? 'free-delivery' : '';
@@ -82,9 +82,9 @@ const Checkout: React.FC = () => {
           </p>
         )}
         <p>
-          Sales tax ({SK_SALES_TAX * 100}%) ${tax.toFixed(2)}
+          Sales tax ({SK_SALES_TAX * 100}%): ${tax.toFixed(2)}
         </p>
-        <p>Total: {totalOutput}</p>
+        {totalOutput}
       </div>
       <button type="submit">Place order</button>
     </form>

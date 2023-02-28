@@ -3,10 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { RootState } from '../../../store';
 import OrderForm from '../orderForm/OrderForm';
-import { SK_SALES_TAX } from '../../../utlities/appConfig';
 import './orderConfirm.scss';
-
-interface OrderConfirmProps {}
 
 type CartItems = {
   id: string;
@@ -17,10 +14,10 @@ type CartItems = {
 };
 
 const OrderConfirm: React.FC = () => {
-  const dispatch = useDispatch();
   const cartItems = useSelector<RootState>(
     state => state.order.items
   ) as CartItems[];
+
   const totalPrice = useSelector<RootState>(
     state => state.order.totalPrice
   ) as number;

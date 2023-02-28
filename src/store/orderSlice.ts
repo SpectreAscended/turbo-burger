@@ -13,11 +13,11 @@ interface OrderState {
   totalPrice: number;
 }
 
-const initialOrderState = {
+const initialOrderState: OrderState = {
   items: [],
   cartQuantity: 0,
   totalPrice: 0,
-} as OrderState;
+};
 
 const orderSlice = createSlice({
   name: 'order',
@@ -33,9 +33,10 @@ const orderSlice = createSlice({
       } else {
         existingItem.quantity = existingItem.quantity + newItem.quantity;
       }
+
       state.totalPrice = state.totalPrice + newItem.price * newItem.quantity;
       state.cartQuantity = state.cartQuantity + newItem.quantity;
-      console.log(current(state));
+      // console.log(current(state));
     },
     addOneToCart(state, action) {
       const id = action.payload;
