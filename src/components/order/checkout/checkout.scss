@@ -1,10 +1,13 @@
-.order-form {
-  li {
-    background-color: rgba(255, 255, 255, 0.15);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.25rem;
-    border-radius: 0.25rem;
+.checkout-form {
+  &__input {
+    display: block;
+    width: 95%;
+  }
+
+  &__radio {
+    display: inline-block;
+    width: 10%;
+    cursor: pointer;
+    margin: 0.5rem;
   }
 }
