@@ -27,13 +27,15 @@ const Checkout: React.FC = () => {
 
   const freeDelivery = totalPrice >= FREE_DELIVERY;
 
-  let totalOutput = <p>Total: ${totalWithoutDelivery.toFixed(2)}</p>;
+  let totalOutput = <span>${totalWithoutDelivery.toFixed(2)}</span>;
 
   if (delivery && !freeDelivery) {
-    totalOutput = <p>Total: ${totalWithDelivery.toFixed(2)}</p>;
+    totalOutput = <span>${totalWithDelivery.toFixed(2)}</span>;
   }
 
-  const deliveryClasses = delivery && freeDelivery ? 'free-delivery' : '';
+  // Displays styling on delivery fee if delivery is free.
+  const deliveryClasses =
+    delivery && freeDelivery ? 'checkout-form__total-free' : '';
 
   const submitFormHandler = (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,45 +48,62 @@ const Checkout: React.FC = () => {
       <input type="text" id="full-name" className="checkout-form__input" />
       <label htmlFor="phone-number">Phone number</label>
       <input type="tel" id="phone-number" className="checkout-form__input" />
-      <label htmlFor="delivery">Pick up:</label>
-      <input
-        type="radio"
-        value="pick-up"
-        id="pick-up"
-        className="checkout-form__radio"
-        onClick={orderMethodChangeHandler}
-        checked={!delivery}
-      />
-      <label htmlFor="delivery">Delivery:</label>
-      <input
-        type="radio"
-        value="delivery"
-        id="delivery"
-        className="checkout-form__radio"
-        onClick={orderMethodChangeHandler}
-        checked={delivery}
-      />
-
-      {delivery && <label htmlFor="address">Address</label>}
+      <div className="checkout-form__order-method">
+        <label htmlFor="delivery">Pick up:</label>
+        <input
+          type="checkbox"
+          value="pick-up"
+          id="pick-up"
+          className="checkout-form__radio"
+          onClick={orderMethodChangeHandler}
+          checked={!delivery}
+        />
+        <label htmlFor="delivery">Delivery:</label>
+        <input
+          type="checkbox"
+          value="delivery"
+          id="delivery"
+          className="checkout-form__radio"
+          onClick={orderMethodChangeHandler}
+          checked={delivery}
+        />
+      </div>
       {delivery && (
-        <input type="text" id="address" className="checkout-form__input" />
+        <div>
+          <label htmlFor="address">Address</label>
+          <input type="text" id="address" className="checkout-form__input" />
+          <label htmlFor="city">City</label>
+          <input type="text" id="city" className="checkout-form__input" />
+          <label htmlFor="instructions">Special Instructions</label>
+          <textarea
+            id="instructions"
+            rows={3}
+            className="checkout-form__input"
+          />
+        </div>
       )}
       <div className="checkout-form__total">
         <p className="checkout-form__free-delivery">
           Free delivery on orders over ${FREE_DELIVERY.toFixed(2)}!
         </p>
-        {delivery && (
-          <p>
-            Delivery fee:{' '}
-            <span className={deliveryClasses}>
-              ${DELIVERY_FEE.toFixed(2)}&nbsp;
-            </span>
-          </p>
-        )}
-        <p>
-          Sales tax ({SK_SALES_TAX * 100}%): ${tax.toFixed(2)}
-        </p>
-        {totalOutput}
+        <div className="checkout-form__total-container">
+          {delivery && (
+            <div className="checkout-form__total-content">
+              <p className="checkout-form__total-label">Delivery fee:</p>
+              <span className={deliveryClasses}>
+                ${DELIVERY_FEE.toFixed(2)}
+              </span>
+            </div>
+          )}
+          <div className="checkout-form__total-content">
+            <p>Sales tax ({SK_SALES_TAX * 100}%):</p>
+            <span>${tax.toFixed(2)}</span>
+          </div>
+          <div className="checkout-form__total-content">
+            <p>Total:</p>
+            {totalOutput}
+          </div>
+        </div>
       </div>
       <button type="submit">Place order</button>
     </form>

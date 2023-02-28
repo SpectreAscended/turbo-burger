@@ -1,7 +1,6 @@
 .menu {
   h1 {
     text-align: center;
-    display: block;
     border-bottom: 1px solid var(--color-primary);
   }
 
@@ -28,11 +27,11 @@
 
   p {
     font-size: 1.2rem;
-    color: #aaaaaa;
+    color: var(--color-grey-light);
   }
 
   li {
-    background-color: rgba(44, 44, 44, 0.808);
+    background-color: var(--color-grey-dark);
     padding: 0.5rem;
     border-radius: 0.25rem;
     margin-bottom: 1rem;
