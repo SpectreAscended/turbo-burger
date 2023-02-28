@@ -34,8 +34,12 @@ const Checkout: React.FC = () => {
 
   const deliveryClasses = delivery && freeDelivery ? 'free-delivery' : '';
 
+  const submitFormHandler = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
+
   return (
-    <form className="checkout-form">
+    <form className="checkout-form" onSubmit={submitFormHandler}>
       <h1>Checkout</h1>
       <label htmlFor="full-name">Full name</label>
       <input type="text" id="full-name" className="checkout-form__input" />
@@ -59,9 +63,11 @@ const Checkout: React.FC = () => {
         onClick={orderMethodChangeHandler}
         checked={delivery}
       />
-      {delivery ? <p>Delivery</p> : <p>Pickup</p>}
-      <label htmlFor="address">Address</label>
-      <input type="text" id="address" className="checkout-form__input" />
+
+      {delivery && <label htmlFor="address">Address</label>}
+      {delivery && (
+        <input type="text" id="address" className="checkout-form__input" />
+      )}
       <div className="checkout-form__total">
         <p className="checkout-form__free-delivery">
           Free delivery on orders over ${FREE_DELIVERY.toFixed(2)}!
@@ -77,6 +83,7 @@ const Checkout: React.FC = () => {
         </p>
         <p>Total: {totalOutput}</p>
       </div>
+      <button type="submit">Place order</button>
     </form>
   );
 };

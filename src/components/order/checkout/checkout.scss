@@ -5,9 +5,22 @@
   }
 
   label {
-    display: inline-block;
+    display: block;
     font-size: 1.2rem;
     margin-bottom: 1rem;
+  }
+
+  button {
+    display: block;
+    width: 90%;
+    margin: 1rem auto;
+    background-color: var(--color-secondary);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    border: none;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    cursor: pointer;
   }
 
   &__input {
