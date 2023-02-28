@@ -12,7 +12,7 @@ const Checkout: React.FC = () => {
   const [delivery, setDelivery] = useState(false);
 
   const orderMethodChangeHandler = (e: React.FormEvent<HTMLInputElement>) => {
-    setDelivery(option => !option);
+    setDelivery(prevState => !prevState);
   };
 
   const totalPrice = useSelector<RootState>(
@@ -20,9 +20,10 @@ const Checkout: React.FC = () => {
   ) as number;
 
   const tax = totalPrice * SK_SALES_TAX;
+
   const totalWithoutDelivery = totalPrice + tax;
 
-  const totalWithDelivery = totalPrice + tax + DELIVERY_FEE;
+  const totalWithDelivery = totalWithoutDelivery + DELIVERY_FEE;
 
   const freeDelivery = totalPrice >= FREE_DELIVERY;
 
@@ -75,7 +76,9 @@ const Checkout: React.FC = () => {
         {delivery && (
           <p>
             Delivery fee:{' '}
-            <span className={deliveryClasses}>${DELIVERY_FEE.toFixed(2)}</span>
+            <span className={deliveryClasses}>
+              ${DELIVERY_FEE.toFixed(2)}&nbsp;
+            </span>
           </p>
         )}
         <p>
