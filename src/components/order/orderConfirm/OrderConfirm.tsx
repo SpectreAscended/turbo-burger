@@ -25,8 +25,6 @@ const OrderConfirm: React.FC = () => {
     state => state.order.totalPrice
   ) as number;
 
-  const tax = totalPrice * SK_SALES_TAX;
-
   const cartHasItems = cartItems.length > 0;
 
   const cartItemsOutput = cartItems.map(item => {
@@ -49,10 +47,7 @@ const OrderConfirm: React.FC = () => {
         <>
           <ul>{cartItemsOutput}</ul>
           <div className="order-confirm-total">
-            <p>
-              Tax({SK_SALES_TAX * 100}%): ${tax.toFixed(2)}
-            </p>
-            <p>Total: ${(totalPrice + tax).toFixed(2)}</p>
+            <p>Total: ${totalPrice.toFixed(2)}</p>
             <Link to="checkout">Proceed to checkout</Link>
           </div>
         </>
