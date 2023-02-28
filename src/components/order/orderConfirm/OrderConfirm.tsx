@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { RootState } from '../../../store';
 import OrderForm from '../orderForm/OrderForm';
-import { SK_SALES_TAX } from '../../../utlities/config';
+import { SK_SALES_TAX } from '../../../utlities/appConfig';
 import './orderConfirm.scss';
 
 interface OrderConfirmProps {}

@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { uiActions } from '../../../store/uiSlice';
 import { Link } from 'react-router-dom';
 import { RootState } from '../../../store';
-import { BTN_BOUNCE_DURATION } from '../../../utlities/config';
+import { BTN_BOUNCE_DURATION } from '../../../utlities/appConfig';
 import './orderBtn.scss';
 
 const OrderBtn: React.FC = () => {
