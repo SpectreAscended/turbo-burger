@@ -77,6 +77,20 @@ main {
   -webkit-tap-highlight-color: transparent;
 }
 
+// Mixins
+
+@mixin input-regular {
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.5rem;
+  margin-bottom: 2rem;
+  border: none;
+  border-radius: 0.25rem;
+  background-color: #919191;
+  color: #000;
+}
+
 // Media Queries
 
 @media only screen and (max-width: $bp-mobile-small) {
