@@ -1,13 +1,13 @@
 import { json } from 'react-router-dom';
 
-interface IRequestConfig {
+interface RequestConfig {
   url: string;
   method?: string;
   headers?: Record<string, string>;
   body?: Record<string, unknown>;
 }
 
-const loaderRequest = async (requestConfig: IRequestConfig) => {
+const loaderRequest = async (requestConfig: RequestConfig) => {
   let options;
   if (!requestConfig.method) {
     options = {};
