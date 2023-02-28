@@ -1,14 +1,17 @@
 import { json } from 'react-router-dom';
 
-interface RequestConfig {
-  url: string;
+interface RequestOptions {
   method?: string;
   headers?: Record<string, string>;
-  body?: Record<string, unknown>;
+  body?: string;
+}
+
+interface RequestConfig extends RequestOptions {
+  url: string;
 }
 
 const loaderRequest = async (requestConfig: RequestConfig) => {
-  let options;
+  let options: RequestOptions;
   if (!requestConfig.method) {
     options = {};
   } else {
