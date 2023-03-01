@@ -2,8 +2,7 @@ import { Outlet } from 'react-router-dom';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import ScrollToTop from '../../utlities/ScrollToTop';
-import Modal from '../../components/UI/modal/Modal';
-import Modal2 from '../../components/UI/modal2/modal/Modal';
+import Modal2 from '../../components/UI/modal/modal/Modal';
 import { uiActions } from '../../store/uiSlice';
 import { RootState } from '../../store';
 import { AnimatePresence } from 'framer-motion';
@@ -29,6 +28,7 @@ const RootLayout: React.FC = () => {
           <Modal2
             handleClose={closeModalHandler}
             modalOpen={modalOpen}
+            title="Order placed!"
             text="Thank you for shopping at Turbo Burger!"
           />
         )}

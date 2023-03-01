@@ -1,17 +1,38 @@
-.modal2 {
+@import '../../../../index.scss';
+
+.modal {
   width: clamp(50%, 43.75rem, 90%);
   height: min(50%, 18.75rem);
   background-color: var(--color-primary);
   margin: auto;
-  padding: 3rem 1rem;
+  padding: 3rem 0.5rem 1rem 0.5rem;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  box-shadow: 5px 0 4rem rgba(0, 0, 0, 0.25);
+
+  &-title {
+    color: var(--color-dark);
+    letter-spacing: 2px;
+  }
 
   &-text {
-    color: black;
+    color: var(--color-dark);
     padding-inline: 2rem;
+    font-size: 1.2rem;
+  }
+  &-button {
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+    font-size: 1.2rem;
+    border-radius: 0.5rem;
+    padding: 0.25rem 3rem;
+    border: none;
+    // border: 1px solid var(--color-dark);
+    background-color: var(--color-secondary);
+    box-shadow: 0.75rem 0 1.5rem rgba(0, 0, 0, 0.15);
+    cursor: pointer;
   }
 }

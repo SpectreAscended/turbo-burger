@@ -6,9 +6,15 @@ interface ModalProps {
   handleClose: () => void;
   modalOpen: boolean;
   text: string;
+  title?: string;
 }
 
-const Modal: React.FC<ModalProps> = ({ handleClose, text, modalOpen }) => {
+const Modal: React.FC<ModalProps> = ({
+  handleClose,
+  text,
+  modalOpen,
+  title,
+}) => {
   const dropIn = {
     hidden: {
       y: '-100vh',
@@ -33,14 +39,17 @@ const Modal: React.FC<ModalProps> = ({ handleClose, text, modalOpen }) => {
     <Backdrop onClick={handleClose}>
       <motion.div
         onClick={e => e.stopPropagation()}
-        className="modal2"
+        className="modal"
         variants={dropIn}
         initial="hidden"
         animate="visible"
         exit="exit"
       >
-        <p className="modal2-text">{text}</p>
-        <button onClick={handleClose}>Close</button>
+        <h2 className="modal-title">{title}</h2>
+        <p className="modal-text">{text}</p>
+        <button className="modal-button" onClick={handleClose}>
+          Close
+        </button>
       </motion.div>
     </Backdrop>
   );
