@@ -1,15 +1,14 @@
 .mobile-nav {
   position: relative;
-  width: 90%;
+  width: clamp(30%, 18.75rem, 90%);
   background-color: var(--color-primary);
   font-size: 1rem;
-  // padding: 2rem;
   margin-inline: auto;
   margin-bottom: 1rem;
   padding-top: 10rem;
   border-radius: 0 0 1rem 1rem;
   z-index: 10;
-  box-shadow: 2px 0 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 2px 0 1.25rem rgba(0, 0, 0, 0.25);
 
   h2 {
     color: var(--color-background);
