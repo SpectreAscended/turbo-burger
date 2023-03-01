@@ -68,6 +68,7 @@ ul {
 main {
   background: var(--color-background);
   min-height: calc(100vh - 2.5rem);
+  width: clamp(60%, 37.5rem, 100%);
   margin-inline: auto;
   padding: 0.75rem;
   padding-top: 10rem;
