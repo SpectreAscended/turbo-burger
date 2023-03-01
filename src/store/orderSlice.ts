@@ -61,6 +61,11 @@ const orderSlice = createSlice({
       state.cartQuantity--;
       state.totalPrice = Math.abs(state.totalPrice - existingItem!.price);
     },
+    clearCart(state) {
+      state.items = [];
+      state.cartQuantity = 0;
+      state.totalPrice = 0;
+    },
   },
 });
 
