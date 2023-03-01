@@ -24,7 +24,7 @@ const Modal: React.FC<ModalProps> = ({
       y: '0',
       opacity: 1,
       transition: {
-        duration: 0.1,
+        duration: 0.75,
         type: 'spring',
         bounce: 0.25,
       },
