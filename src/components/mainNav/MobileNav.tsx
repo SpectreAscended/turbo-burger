@@ -40,7 +40,6 @@ const MobileNav: React.FC = () => {
   return (
     <Backdrop onClick={closeMenuHandler}>
       <motion.div
-        onClick={e => e.stopPropagation()}
         variants={dropIn}
         initial="hidden"
         animate="visible"
@@ -50,26 +49,22 @@ const MobileNav: React.FC = () => {
           <h2>Welcome back, Guest</h2>
           <ul>
             <li className="auth">
-              <Link to="/login" onClick={closeMenuHandler} className="noSelect">
+              <Link to="/login" className="noSelect">
                 Log in
               </Link>
             </li>
             <li>
-              <Link to="/menu" onClick={closeMenuHandler} className="noSelect">
+              <Link to="/menu" className="noSelect">
                 Menu
               </Link>
             </li>
             <li>
-              <Link
-                to="/reviews"
-                onClick={closeMenuHandler}
-                className="noSelect"
-              >
+              <Link to="/reviews" className="noSelect">
                 Reviews
               </Link>
             </li>
             <li>
-              <Link to="/" onClick={closeMenuHandler} className="noSelect">
+              <Link to="/" className="noSelect">
                 About
               </Link>
             </li>
