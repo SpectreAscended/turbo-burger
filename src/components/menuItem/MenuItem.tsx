@@ -13,14 +13,8 @@ interface MenuItemProps {
   };
 }
 
-type DrinkOptions = {
-  value: string;
-  label: string;
-};
-
 const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
   const [orderQty, setOrderQty] = useState(1);
-  const [drinkSelection, setDrinkSelection] = useState('Coke');
   const dispatch = useDispatch();
 
   const addQtyHandler = () => {

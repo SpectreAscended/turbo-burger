@@ -11,7 +11,7 @@ interface LoaderData {
 
 interface LoaderProps {
   params: {
-    menuItemId?: string;
+    menuItemId: string;
   };
 }
 
@@ -25,7 +25,7 @@ export default MenuItemPage;
 export const loader = async ({ params }: LoaderProps) => {
   const id = params.menuItemId;
 
-  let itemType: string;
+  let itemType;
 
   if (id?.includes('bg')) {
     itemType = 'burgers';
@@ -37,7 +37,7 @@ export const loader = async ({ params }: LoaderProps) => {
     itemType = 'drinks';
   } else if (id?.includes('sd')) {
     itemType = 'sides';
-  } else return;
+  }
 
   const REQUEST_URL: string = import.meta.env.VITE_DATABASE_MENU_ITEM;
 
