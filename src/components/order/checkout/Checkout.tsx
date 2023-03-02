@@ -46,7 +46,7 @@ const Checkout: React.FC = () => {
     e.preventDefault();
     dispatch(uiActions.openModal());
     dispatch(orderActions.clearCart());
-    navigate('/');
+    navigate('/', { replace: true });
   };
 
   return (

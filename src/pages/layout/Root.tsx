@@ -19,8 +19,6 @@ const RootLayout: React.FC = () => {
     dispatch(uiActions.closeModal());
   };
 
-  console.log(modalOpen);
-
   return (
     <>
       <AnimatePresence initial={false} mode="sync">
