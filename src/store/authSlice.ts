@@ -26,10 +26,14 @@ const authSlice = createSlice({
   reducers: {
     signup(state, action) {
       state.uid = action.payload.uid;
+      state.accessToken = action.payload.token;
     },
     login(state, action) {
       state.uid = action.payload.uid;
-      state.accessToken = action.payload.accessToken;
+      // state.accessToken = action.payload.accessToken;
+    },
+    setToken(state, action) {
+      state.accessToken = action.payload;
     },
     signOut() {
       auth.signOut();

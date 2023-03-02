@@ -26,7 +26,10 @@ const LoginForm: React.FC = () => {
         userEmail,
         userPassword
       );
-      console.log(userCredential);
+      const tokenResult = await userCredential.user?.getIdToken();
+      if (tokenResult) {
+        dispatch(authActions.setToken(tokenResult));
+      }
       navigate('/');
     } catch (err) {
       console.error(err);

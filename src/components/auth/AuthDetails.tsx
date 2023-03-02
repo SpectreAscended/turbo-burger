@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { authActions } from '../../store/authSlice';
 import { auth } from '../../../firebase';
+// import { RootState } from '../../store';
 
 interface AuthUser {
   email: string | null;
@@ -8,6 +11,8 @@ interface AuthUser {
 
 const AuthDetails: React.FC = () => {
   const [authUser, setAuthUser] = useState<AuthUser>();
+  const dispatch = useDispatch();
+  // const accessToken = useSelector<RootState>(state => state.auth.accessToken);
 
   useEffect(() => {
     const listen = auth.onAuthStateChanged(user => {
@@ -23,18 +28,17 @@ const AuthDetails: React.FC = () => {
 
   const userSignOut = async () => {
     auth.signOut();
+    dispatch(authActions.setToken(undefined));
   };
 
   return (
     <div>
-      {authUser ? (
-        <p>{`Signed in as ${authUser?.displayName}`}</p>
-      ) : (
-        <p>Signed out</p>
+      {authUser && <p>{`Signed in as ${authUser?.displayName}`}</p>}
+      {authUser && (
+        <button type="button" onClick={userSignOut}>
+          Sign out
+        </button>
       )}
-      <button type="button" onClick={userSignOut}>
-        Sign out
-      </button>
     </div>
   );
 };
