@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { orderActions } from '../../store/orderSlice';
@@ -24,7 +24,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
   };
 
   const removeQtyHandler = () => {
-    if (orderQty > 0) setOrderQty(prevQty => prevQty - 1);
+    if (orderQty > 1) setOrderQty(prevQty => prevQty - 1);
   };
 
   const totalItemPrice = orderQty * item.price;
@@ -46,18 +46,35 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
 
   return (
     <section className="menu-item">
-      <h1>{item.title}</h1>
-      {item.description && <p>{item.description}</p>}
+      <h1 className="menu-item__heading">{item.title}</h1>
+      {item.description && (
+        <p className="menu-item__description">{item.description}</p>
+      )}
 
-      <span className="menu-item-price">${item.price.toFixed(2)}</span>
+      <span className="menu-item__price">${item.price.toFixed(2)}</span>
 
-      <form onSubmit={formSubmitHandler}>
-        <div className="menu-item-form--actions">
-          <button type="button" onClick={removeQtyHandler}>
+      <form onSubmit={formSubmitHandler} className="menu-item__form">
+        <div className="menu-item__form--actions">
+          <button
+            className="menu-item__btn--actions"
+            type="button"
+            onClick={removeQtyHandler}
+          >
             -
           </button>
-          <input type="number" value={orderQty} min="0" max="40" readOnly />
-          <button type="button" onClick={addQtyHandler}>
+          <input
+            type="number"
+            value={orderQty}
+            min="1"
+            max="40"
+            className="menu-item__form--input"
+            readOnly
+          />
+          <button
+            className="menu-item__btn--actions"
+            type="button"
+            onClick={addQtyHandler}
+          >
             +
           </button>
         </div>
@@ -66,7 +83,9 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
         </button>
       </form>
 
-      <Link to="..">Back to menu</Link>
+      <Link to=".." className="menu-item__link">
+        Back to menu
+      </Link>
     </section>
   );
 };
