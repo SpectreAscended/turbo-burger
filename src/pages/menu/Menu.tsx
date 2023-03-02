@@ -4,29 +4,29 @@ import { useLoaderData } from 'react-router-dom';
 import loaderRequest from '../../utlities/loaderRequest';
 import formatMenuData from '../../utlities/formatMenuData';
 
-interface IMenuItem {
+interface MenuItem {
   id: string;
   title: string;
   price: number;
   description?: string;
 }
 
-interface IMenuData {
-  burgers: IMenuItem;
-  hotdogs: IMenuItem;
-  chicken: IMenuItem;
-  drinks: IMenuItem;
-  sides: IMenuItem;
+interface MenuData {
+  burgers: MenuItem;
+  hotdogs: MenuItem;
+  chicken: MenuItem;
+  drinks: MenuItem;
+  sides: MenuItem;
 }
 
 const MenuPage: React.FC = () => {
-  const menuData = useLoaderData() as IMenuData;
+  const menuData = useLoaderData() as MenuData;
 
-  const burgers = formatMenuData(menuData.burgers);
-  const hotdogs = formatMenuData(menuData.hotdogs);
-  const chicken = formatMenuData(menuData.chicken);
-  const drinks = formatMenuData(menuData.drinks);
-  const sides = formatMenuData(menuData.sides);
+  const burgers = formatMenuData(menuData.burgers) as MenuItem[];
+  const hotdogs = formatMenuData(menuData.hotdogs) as MenuItem[];
+  const chicken = formatMenuData(menuData.chicken) as MenuItem[];
+  const drinks = formatMenuData(menuData.drinks) as MenuItem[];
+  const sides = formatMenuData(menuData.sides) as MenuItem[];
 
   return (
     <>

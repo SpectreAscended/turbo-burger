@@ -1,22 +1,22 @@
 import { Link } from 'react-router-dom';
 import './menu.scss';
 
-interface IMenuItem {
+interface MenuItem {
   id: string;
   title: string;
   price: number;
   description?: string;
 }
 
-interface IMenuProps {
-  burgers: IMenuItem[];
-  hotdogs: IMenuItem[];
-  chicken: IMenuItem[];
-  drinks: IMenuItem[];
-  sides: IMenuItem[];
+interface MenuProps {
+  burgers: MenuItem[];
+  hotdogs: MenuItem[];
+  chicken: MenuItem[];
+  drinks: MenuItem[];
+  sides: MenuItem[];
 }
 
-const Menu: React.FC<IMenuProps> = ({
+const Menu: React.FC<MenuProps> = ({
   burgers,
   hotdogs,
   chicken,
