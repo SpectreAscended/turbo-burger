@@ -64,7 +64,7 @@ const Checkout: React.FC = () => {
             value="pick-up"
             id="pick-up"
             className="checkout-form__radio"
-            onClick={orderMethodChangeHandler}
+            onChange={orderMethodChangeHandler}
             checked={!delivery}
           />
           <label htmlFor="delivery">Delivery:</label>
@@ -73,7 +73,7 @@ const Checkout: React.FC = () => {
             value="delivery"
             id="delivery"
             className="checkout-form__radio"
-            onClick={orderMethodChangeHandler}
+            onChange={orderMethodChangeHandler}
             checked={delivery}
           />
         </div>
