@@ -39,8 +39,8 @@ const LoginForm: React.FC = () => {
   return (
     <form className="form" onSubmit={signInHandler}>
       <h1>Log in</h1>
-      {error && <p style={{ color: 'red' }}>Incorrect email or password</p>}
       <AuthDetails />
+      {error && <p style={{ color: 'red' }}>Incorrect email or password</p>}
       <label htmlFor="email">Email</label>
       <input type="email" id="email" autoComplete="email" ref={emailRef} />
       <label htmlFor="password">Password</label>

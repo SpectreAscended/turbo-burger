@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { auth } from '../../../firebase';
 
-interface IauthUser {
+interface AuthUser {
   email: string | null;
   displayName: string | null;
 }
 
 const AuthDetails: React.FC = () => {
-  const [authUser, setAuthUser] = useState<IauthUser>();
+  const [authUser, setAuthUser] = useState<AuthUser>();
 
   useEffect(() => {
     const listen = auth.onAuthStateChanged(user => {
