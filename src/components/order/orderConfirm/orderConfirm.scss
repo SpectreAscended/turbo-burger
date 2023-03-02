@@ -1,12 +1,12 @@
 .order-confirm {
-  a:link,
-  a:visited {
-    color: #1e1e1e;
-    background-color: var(--color-secondary);
-    padding: 0.25rem 1rem;
-    border-radius: 0.25rem;
-    margin-block: 1rem;
-  }
+  // a:link,
+  // a:visited {
+  //   color: #1e1e1e;
+  //   background-color: var(--color-secondary);
+  //   padding: 0.25rem 1rem;
+  //   border-radius: 0.25rem;
+  //   margin-block: 1rem;
+  // }
 
   h1 {
     text-align: center;
@@ -28,5 +28,25 @@
 
   &-total {
     margin-top: 1rem;
+  }
+
+  &__link--back:link,
+  &__link--back:visited {
+    background-color: var(--color-primary);
+    color: #1e1e1e;
+    padding: 0.25rem 1rem;
+    border-radius: 0.25rem;
+    margin-block: 1rem;
+  }
+
+  &__link--checkout {
+    background-color: var(--color-secondary);
+    color: var(--color-dark);
+    display: block !important;
+    padding: 0.5rem 1rem;
+    margin: 1rem auto;
+    text-align: center;
+    letter-spacing: 1px;
+    border-radius: 0.25rem;
   }
 }
