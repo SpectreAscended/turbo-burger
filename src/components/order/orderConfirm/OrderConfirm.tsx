@@ -26,10 +26,12 @@ const OrderConfirm: React.FC = () => {
 
   const cartItemsOutput = cartItems.map(item => {
     return (
-      <li key={item.id}>
+      <li key={item.id} className={'order-confirm__item'}>
         <div>
-          <h3>{item.title}</h3>
-          <p>${(item.price * item.quantity).toFixed(2)}</p>
+          <h3 className="order-confirm__item-title">{item.title}</h3>
+          <p className="order-confirm__price">
+            ${(item.price * item.quantity).toFixed(2)}
+          </p>
         </div>
         <OrderForm id={item.id} quantity={item.quantity} />
       </li>
@@ -38,7 +40,7 @@ const OrderConfirm: React.FC = () => {
 
   return (
     <section className="order-confirm">
-      <h1>Your order</h1>
+      <h1 className="order-confirm__heading">Your order</h1>
       <Link to="/menu" className="order-confirm__link--back">
         Back to menu
       </Link>
@@ -46,14 +48,16 @@ const OrderConfirm: React.FC = () => {
         <>
           <ul>{cartItemsOutput}</ul>
           <div className="order-confirm-total">
-            <p>Total: ${totalPrice.toFixed(2)}</p>
+            <p className="order-confirm__price">
+              Total: ${totalPrice.toFixed(2)}
+            </p>
             <Link to="checkout" className="order-confirm__link--checkout">
               Proceed to checkout
             </Link>
           </div>
         </>
       ) : (
-        <p>Cart is empty</p>
+        <p className="order-confirm__empty-cart">Cart is empty</p>
       )}
     </section>
   );

@@ -1,28 +1,22 @@
 .order-confirm {
-  // a:link,
-  // a:visited {
-  //   color: #1e1e1e;
-  //   background-color: var(--color-secondary);
-  //   padding: 0.25rem 1rem;
-  //   border-radius: 0.25rem;
-  //   margin-block: 1rem;
-  // }
-
-  h1 {
+  &__heading {
     text-align: center;
     margin-bottom: 2rem;
   }
 
-  li {
+  &__item {
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid var(--color-secondary);
     padding-block: 1rem;
-    // margin-bottom: 1rem;
+
+    &-title {
+      margin-bottom: 0.5rem;
+    }
   }
 
-  p {
+  &__price {
     color: #bbb9b9;
   }
 
@@ -48,5 +42,12 @@
     text-align: center;
     letter-spacing: 1px;
     border-radius: 0.25rem;
+  }
+
+  &__empty-cart {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 3rem;
+    color: var(--color-secondary);
   }
 }
