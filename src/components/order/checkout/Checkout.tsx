@@ -51,64 +51,74 @@ const Checkout: React.FC = () => {
 
   return (
     <>
-      <form className="checkout-form" onSubmit={submitFormHandler}>
-        <h1>Checkout</h1>
-        <label htmlFor="full-name">Full name</label>
-        <input type="text" id="full-name" className="checkout-form__input" />
-        <label htmlFor="phone-number">Phone number</label>
-        <input type="tel" id="phone-number" className="checkout-form__input" />
-        <div className="checkout-form__order-method">
-          <label htmlFor="delivery">Pick up:</label>
+      <form className="checkout" onSubmit={submitFormHandler}>
+        <h1 className="checkout__heading">Checkout</h1>
+        <label htmlFor="full-name" className="checkout__label">
+          Full name
+        </label>
+        <input type="text" id="full-name" className="checkout__input" />
+        <label htmlFor="phone-number" className="checkout__label">
+          Phone number
+        </label>
+        <input type="tel" id="phone-number" className="checkout__input" />
+        <div className="checkout__order-method">
+          <label htmlFor="delivery" className="checkout__label">
+            Pick up:
+          </label>
           <input
             type="checkbox"
             value="pick-up"
             id="pick-up"
-            className="checkout-form__radio"
+            className="checkout__checkbox"
             onChange={orderMethodChangeHandler}
             checked={!delivery}
           />
-          <label htmlFor="delivery">Delivery:</label>
+          <label htmlFor="delivery" className="checkout__label">
+            Delivery:
+          </label>
           <input
             type="checkbox"
             value="delivery"
             id="delivery"
-            className="checkout-form__radio"
+            className="checkout__checkbox"
             onChange={orderMethodChangeHandler}
             checked={delivery}
           />
         </div>
         {delivery && (
           <div>
-            <label htmlFor="address">Address</label>
-            <input type="text" id="address" className="checkout-form__input" />
-            <label htmlFor="city">City</label>
-            <input type="text" id="city" className="checkout-form__input" />
-            <label htmlFor="instructions">Special Instructions</label>
-            <textarea
-              id="instructions"
-              rows={3}
-              className="checkout-form__input"
-            />
+            <label htmlFor="address" className="checkout__label">
+              Address
+            </label>
+            <input type="text" id="address" className="checkout__input" />
+            <label htmlFor="city" className="checkout__label">
+              City
+            </label>
+            <input type="text" id="city" className="checkout__input" />
+            <label htmlFor="instructions" className="checkout__label">
+              Special Instructions
+            </label>
+            <textarea id="instructions" rows={3} className="checkout__input" />
           </div>
         )}
-        <div className="checkout-form__total">
-          <p className="checkout-form__free-delivery">
+        <div className="checkout__total">
+          <p className="checkout__free-delivery">
             Free delivery on orders over ${FREE_DELIVERY.toFixed(2)}!
           </p>
-          <div className="checkout-form__total-container">
+          <div className="checkout__total-container">
             {delivery && (
-              <div className="checkout-form__total-content">
-                <p className="checkout-form__total-label">Delivery fee:</p>
+              <div className="checkout__total-content">
+                <p className="checkout__total-label">Delivery fee:</p>
                 <span className={deliveryClasses}>
                   ${DELIVERY_FEE.toFixed(2)}
                 </span>
               </div>
             )}
-            <div className="checkout-form__total-content">
+            <div className="checkout__total-content">
               <p>Sales tax ({SK_SALES_TAX * 100}%):</p>
               <span>${tax.toFixed(2)}</span>
             </div>
-            <div className="checkout-form__total-content">
+            <div className="checkout__total-content">
               <p>Total:</p>
               {totalOutput}
             </div>
