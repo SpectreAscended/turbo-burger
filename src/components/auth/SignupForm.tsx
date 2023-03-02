@@ -37,7 +37,8 @@ const SignupForm: React.FC = () => {
       );
 
       const user = userCredentials.user;
-      const token = await userCredentials.user?.getIdToken();
+      const token = await user?.getIdToken();
+      const userName = user?.displayName;
       await user?.updateProfile({
         displayName: firstNameRef.current!.value,
       });
@@ -45,7 +46,11 @@ const SignupForm: React.FC = () => {
       console.log(userCredentials);
 
       dispatch(
-        authActions.signup({ uid: userCredentials.user!.uid, token: token })
+        authActions.signup({
+          uid: userCredentials.user!.uid,
+          token: token,
+          userName: userName,
+        })
       );
     } catch (err) {
       if (err instanceof Error) {

@@ -1,4 +1,5 @@
-import { useDispatch } from 'react-redux/es/exports';
+import { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux/es/exports';
 import { Link } from 'react-router-dom';
 import { uiActions } from '../../store/uiSlice';
 import { authActions } from '../../store/authSlice';
@@ -6,10 +7,18 @@ import { authActions } from '../../store/authSlice';
 import Backdrop from '../UI/backdrop/Backdrop';
 import './mobileNav.scss';
 import { motion } from 'framer-motion';
+import { RootState } from '../../store';
 
 const MobileNav: React.FC = () => {
   const dispatch = useDispatch();
+  const userSignedIn = useSelector<RootState>(
+    state => state.auth.accessToken
+  ) as string | undefined;
+  const userName = useSelector<RootState>(
+    state => state.auth.userName
+  ) as string;
 
+  console.log(userName);
   const dropIn = {
     hidden: {
       y: '-100vh',
@@ -46,12 +55,24 @@ const MobileNav: React.FC = () => {
         exit="exit"
       >
         <nav className="mobile-nav">
-          <h2>Welcome back, Guest</h2>
+          <h2>Welcome back, {userName ? userName : 'Guest'}!</h2>
           <ul>
             <li className="auth">
-              <Link to="/login" className="noSelect">
+              {!userSignedIn ? (
+                <Link to="/login" className="noSelect">
+                  Log in
+                </Link>
+              ) : (
+                <button
+                  onClick={signOutHandler}
+                  className="mobile-nav__btn--logout"
+                >
+                  Log out
+                </button>
+              )}
+              {/* <Link to="/login" className="noSelect">
                 Log in
-              </Link>
+              </Link> */}
             </li>
             <li>
               <Link to="/menu" className="noSelect">
