@@ -1,0 +1,24 @@
+.total {
+  &__free-delivery {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  &__container {
+    background-color: var(--color-grey-dark);
+    padding: 0.25rem;
+    border-radius: 0.5rem;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-block: 0.5rem;
+  }
+
+  &__free {
+    text-decoration: line-through;
+    color: var(--color-secondary);
+  }
+}

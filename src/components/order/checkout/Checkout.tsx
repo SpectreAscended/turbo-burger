@@ -1,15 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { useSelector, useDispatch } from 'react-redux';
-import {
-  SK_SALES_TAX,
-  DELIVERY_FEE,
-  FREE_DELIVERY,
-} from '../../../utlities/appConfig';
-import { RootState } from '../../../store';
-import './checkout.scss';
+import { useDispatch } from 'react-redux';
+
 import { uiActions } from '../../../store/uiSlice';
 import { orderActions } from '../../../store/orderSlice';
+import useValidation from '../../../hooks/useValidation';
+import Total from './total/Total';
+import './checkout.scss';
 
 const Checkout: React.FC = () => {
   const dispatch = useDispatch();
@@ -19,28 +16,6 @@ const Checkout: React.FC = () => {
   const orderMethodChangeHandler = (e: React.FormEvent<HTMLInputElement>) => {
     setDelivery(prevState => !prevState);
   };
-
-  const totalPrice = useSelector<RootState>(
-    state => state.order.totalPrice
-  ) as number;
-
-  const tax = totalPrice * SK_SALES_TAX;
-
-  const totalWithoutDelivery = totalPrice + tax;
-
-  const totalWithDelivery = totalWithoutDelivery + DELIVERY_FEE;
-
-  const freeDelivery = totalPrice >= FREE_DELIVERY;
-
-  let totalOutput = <span>${totalWithoutDelivery.toFixed(2)}</span>;
-
-  if (delivery && !freeDelivery) {
-    totalOutput = <span>${totalWithDelivery.toFixed(2)}</span>;
-  }
-
-  // Displays styling on delivery fee if delivery is free.
-  const deliveryClasses =
-    delivery && freeDelivery ? 'checkout-form__total-free' : '';
 
   const submitFormHandler = (e: React.FormEvent) => {
     e.preventDefault();
@@ -101,29 +76,7 @@ const Checkout: React.FC = () => {
             <textarea id="instructions" rows={3} className="checkout__input" />
           </div>
         )}
-        <div className="checkout__total">
-          <p className="checkout__free-delivery">
-            Free delivery on orders over ${FREE_DELIVERY.toFixed(2)}!
-          </p>
-          <div className="checkout__total-container">
-            {delivery && (
-              <div className="checkout__total-content">
-                <p className="checkout__total-label">Delivery fee:</p>
-                <span className={deliveryClasses}>
-                  ${DELIVERY_FEE.toFixed(2)}
-                </span>
-              </div>
-            )}
-            <div className="checkout__total-content">
-              <p>Sales tax ({SK_SALES_TAX * 100}%):</p>
-              <span>${tax.toFixed(2)}</span>
-            </div>
-            <div className="checkout__total-content">
-              <p>Total:</p>
-              {totalOutput}
-            </div>
-          </div>
-        </div>
+        <Total delivery={delivery} />
         <button type="submit">Place order</button>
       </form>
     </>
