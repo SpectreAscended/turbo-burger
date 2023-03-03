@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import './backdrop.scss';
 
 interface BackdropProps {
-  children: any;
+  children: React.ReactNode;
   onClick: () => void;
 }
 
