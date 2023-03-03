@@ -37,7 +37,7 @@ const SignupForm: React.FC = () => {
       );
 
       const user = userCredentials.user;
-      const token = await user?.getIdToken();
+      const accessToken = await user?.getIdToken();
       const userName = user?.displayName;
       await user?.updateProfile({
         displayName: firstNameRef.current!.value,
@@ -48,7 +48,7 @@ const SignupForm: React.FC = () => {
       dispatch(
         authActions.signup({
           uid: userCredentials.user!.uid,
-          token: token,
+          accessToken: accessToken,
           userName: userName,
         })
       );
