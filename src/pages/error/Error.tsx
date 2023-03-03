@@ -4,9 +4,7 @@ import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import './error.scss';
 
-interface ErrorPageProps {}
-
-const ErrorPage = () => {
+const ErrorPage: React.FC = () => {
   const error: any = useRouteError();
 
   let title = 'An error occured!';
