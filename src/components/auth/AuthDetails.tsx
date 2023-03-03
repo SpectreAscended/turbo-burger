@@ -27,8 +27,7 @@ const AuthDetails: React.FC = () => {
   }, []);
 
   const userSignOut = async () => {
-    auth.signOut();
-    dispatch(authActions.setToken(undefined));
+    dispatch(authActions.signOut());
   };
 
   return (

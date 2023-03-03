@@ -2,43 +2,25 @@ import { createSlice } from '@reduxjs/toolkit';
 import { auth } from '../../firebase';
 
 interface InitialAuthState {
-  currentUser: string | undefined;
-  userName: string | undefined;
-  uid: string | undefined;
-  accessToken: string | undefined;
-  loading: boolean;
-}
-
-interface SignupData {
-  email: string;
-  password: string;
+  userName?: string;
+  uid?: string;
+  accessToken?: string;
 }
 
 const initialAuthState: InitialAuthState = {
-  currentUser: undefined,
   userName: undefined,
   uid: undefined,
   accessToken: undefined,
-  loading: false,
 };
 
 const authSlice = createSlice({
   name: 'auth',
   initialState: initialAuthState,
   reducers: {
-    signup(state, action) {
+    setUser(state, action) {
       state.uid = action.payload.uid;
       state.accessToken = action.payload.accessToken;
       state.userName = action.payload.userName;
-    },
-    login(state, action) {
-      state.uid = action.payload.uid;
-      state.accessToken = action.payload.accessToken;
-      state.userName = action.payload.userName;
-      // state.accessToken = action.payload.accessToken;
-    },
-    setToken(state, action) {
-      state.accessToken = action.payload;
     },
     signOut(state) {
       auth.signOut();
