@@ -11,9 +11,9 @@ interface LoginFormProps {}
 const LoginForm: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [error, setError] = useState<string | null>(null);
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
-  const [error, setError] = useState<string | null>(null);
 
   const signInHandler = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,15 +26,22 @@ const LoginForm: React.FC = () => {
         userEmail,
         userPassword
       );
-      const token = await userCredential.user?.getIdToken();
-      const id = userCredential.user?.uid;
-      const userName = userCredential.user?.displayName;
+
+      const user = userCredential.user;
+      const accessToken = await user?.getIdToken();
+      const id = user?.uid;
+      const userName = user?.displayName;
       console.log(userName);
-      if (token) {
+      if (accessToken) {
         dispatch(
-          authActions.login({ uid: id, accessToken: token, userName: userName })
+          authActions.login({
+            uid: id,
+            accessToken: accessToken,
+            userName: userName,
+          })
         );
       }
+
       navigate('/');
     } catch (err) {
       console.error(err);
