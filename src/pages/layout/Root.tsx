@@ -2,7 +2,7 @@ import { Outlet } from 'react-router-dom';
 import Header from '../../components/header/Header';
 import Footer from '../../components/footer/Footer';
 import ScrollToTop from '../../utlities/ScrollToTop';
-import Modal2 from '../../components/UI/modal/modal/Modal';
+import Modal from '../../components/UI/modal/modal/Modal';
 import { uiActions } from '../../store/uiSlice';
 import { RootState } from '../../store';
 import { AnimatePresence } from 'framer-motion';
@@ -23,7 +23,7 @@ const RootLayout: React.FC = () => {
     <>
       <AnimatePresence initial={false} mode="sync">
         {modalOpen && (
-          <Modal2
+          <Modal
             handleClose={closeModalHandler}
             modalOpen={modalOpen}
             title="Order placed!"
