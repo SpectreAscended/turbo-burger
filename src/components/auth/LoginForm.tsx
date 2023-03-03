@@ -6,8 +6,6 @@ import { authActions } from '../../store/authSlice';
 import AuthDetails from './AuthDetails';
 import './authForm.scss';
 
-interface LoginFormProps {}
-
 const LoginForm: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
