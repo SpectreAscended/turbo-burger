@@ -9,7 +9,7 @@ interface BackdropProps {
 const Backdrop: React.FC<BackdropProps> = ({ children, onClick }) => {
   return (
     <motion.div
-      className="modal2-backdrop"
+      className="modal-backdrop"
       onClick={onClick}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}

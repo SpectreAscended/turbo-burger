@@ -17,7 +17,6 @@ const Modal: React.FC<ModalProps> = ({
   modalOpen,
   title,
 }) => {
-  let location = useLocation();
   const dropIn = {
     hidden: {
       y: '-100vh',
@@ -38,17 +37,17 @@ const Modal: React.FC<ModalProps> = ({
     },
   };
 
-  useEffect(() => {
-    const handleBackButton = () => {
-      handleClose();
-    };
-    // Closes the modal when the back button is pushed, preventing the backdrop from breaking when the page size changes.
-    window.onpopstate = handleBackButton;
+  // useEffect(() => {
+  //   const handleBackButton = () => {
+  //     handleClose();
+  //   };
+  //   // Closes the modal when the back button is pressed.
+  //   window.onpopstate = handleBackButton;
 
-    return () => {
-      window.onpopstate = null;
-    };
-  }, []);
+  //   return () => {
+  //     window.onpopstate = null;
+  //   };
+  // }, []);
 
   return (
     <Backdrop onClick={handleClose}>
