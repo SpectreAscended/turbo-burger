@@ -10,6 +10,8 @@
   --color-background: #1e1e1e;
   --color-grey-dark: #2c2c2c;
   --color-grey-light: #918f8b;
+  --color-error: #8f1212;
+  --color-error-background: #d36262;
 }
 
 // Breakpoints
@@ -54,6 +56,8 @@ h1 {
   font-size: 2rem;
   font-weight: 400;
   letter-spacing: 3px;
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 a:link,

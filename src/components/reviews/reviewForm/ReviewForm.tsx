@@ -1,6 +1,7 @@
 import { Form, FormMethod, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store';
+import useValidation from '../../../hooks/useValidation';
 import './reviewForm.scss';
 
 interface ReviewFormProps {
@@ -8,14 +9,20 @@ interface ReviewFormProps {
   review?: any;
 }
 
-const ReviewForm: React.FC<ReviewFormProps> = ({ method, review }) => {
+const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
   const userName = useSelector<RootState>(
     state => state.auth.userName
   ) as string;
 
+  const submitFormHandler = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
+
   return (
-    <Form method={method} className="review-form">
-      <h1 className="review-form__heading">New review</h1>
+    <Form method={method} className="review-form" onSubmit={submitFormHandler}>
+      <h1 className="review-form__heading">
+        {method === 'post' ? 'New' : 'Edit'} review
+      </h1>
       <label htmlFor="first-name" className="review-form__label">
         First name
       </label>
@@ -24,8 +31,9 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method, review }) => {
         id="first-name"
         name="first-name"
         value={userName}
-        className="review-form__input"
+        className="review-form__input input-error"
       />
+      <p className="form-error">Name cannot be blank.</p>
       <label htmlFor="rating" className="review-form__label">
         Rating out of 5
       </label>
@@ -34,8 +42,10 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method, review }) => {
         min={1}
         max={5}
         step={0.5}
+        placeholder="5"
         className="review-form__input--rating"
       />
+      <p className="form-error">Must be a number between 1 and 5.</p>
       <label htmlFor="title" className="review-form__label">
         Title
       </label>
@@ -45,6 +55,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method, review }) => {
         name="title"
         className="review-form__input"
       />
+      <p className="form-error">Title cannot be blank.</p>
       <label htmlFor="description" className="review-form__label">
         Description
       </label>
@@ -54,6 +65,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method, review }) => {
         rows={5}
         className="review-form__description"
       />
+      <p className="form-error">Description cannot be blank.</p>
       <div className="review-form__actions">
         <Link to="/reviews" className="review-form__actions-btn--cancel">
           Cancel

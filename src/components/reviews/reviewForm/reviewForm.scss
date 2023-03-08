@@ -15,6 +15,10 @@
   &__input {
     @include input-regular;
 
+    &.input-error {
+      background-color: var(--color-error-background);
+    }
+
     &--rating {
       display: inline-block;
       font-size: 1rem;
@@ -24,10 +28,16 @@
       border-radius: 0.25rem;
       background-color: #919191;
       color: #000;
+      text-align: center;
     }
   }
 
   &__description {
     @include input-regular;
   }
+}
+
+.form-error {
+  margin-top: -2rem;
+  color: var(--color-error);
 }

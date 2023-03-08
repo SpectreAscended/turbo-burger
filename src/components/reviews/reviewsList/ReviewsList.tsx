@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { DUMMY_REVIEWS } from '../../../store/dummyData';
 import ReviewItem from '../reviewItem/ReviewItem';
 import './reviewsList.scss';
@@ -12,7 +13,13 @@ interface Review {
 
 const ReviewsList: React.FC = () => {
   return (
-    <div className="reviews-list">
+    <section className="reviews-list">
+      <h1>Reviews</h1>
+      <div className="reviews-list__actions">
+        <Link to="new" className="reviews-list__link">
+          Add Review
+        </Link>
+      </div>
       <ul>
         {DUMMY_REVIEWS.map((review: Review) => {
           return (
@@ -28,7 +35,7 @@ const ReviewsList: React.FC = () => {
           );
         })}
       </ul>
-    </div>
+    </section>
   );
 };
 
