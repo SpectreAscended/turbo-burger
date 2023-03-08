@@ -29,6 +29,10 @@
       background-color: #919191;
       color: #000;
       text-align: center;
+
+      &.input-error {
+        background-color: var(--color-error-background);
+      }
     }
   }
 

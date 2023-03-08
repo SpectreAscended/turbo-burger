@@ -12,7 +12,9 @@ const useValidation = (validate: Validate) => {
 
   const hasError = interacted && !isValid;
 
-  const enteredValueHandler = (e: React.FormEvent<HTMLInputElement>) => {
+  const enteredValueHandler = (
+    e: React.FormEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setInteracted(false);
     setEnteredValue(e.currentTarget.value);
   };
@@ -30,8 +32,8 @@ const useValidation = (validate: Validate) => {
     enteredValueHandler,
     inputBlurHandler,
     resetValuesHandler,
+    isValid,
     enteredValue,
-    interacted,
     hasError,
   };
 };
