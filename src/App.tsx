@@ -14,12 +14,8 @@ import ReviewsPage from './pages/reviews/Reviews';
 import ReviewDetailPage, {
   loader as reviewLoader,
 } from './pages/reviews/ReviewDetail';
-
-interface MenuLoaderProps {
-  params: {
-    menuItemId: string;
-  };
-}
+import NewReviewPage from './pages/reviews/NewReview';
+import EditReviewPage from './pages/reviews/EditReview';
 
 const App = () => {
   const router = createBrowserRouter([
@@ -79,17 +75,19 @@ const App = () => {
               id: 'review-item',
               loader: reviewLoader,
             },
+            {
+              path: 'new',
+              element: <NewReviewPage />,
+            },
+            {
+              path: 'edit',
+              element: <EditReviewPage />,
+            },
           ],
         },
       ],
     },
   ]);
-
-  // const foo =  [{id: 'dr1-5464', type: 'root beer'}, {id: 'dr2-123', type: 'root-beer'}, {id: 'dr1'}]
-
-  // const bar = foo.find
-
-  // console.log(bar)
 
   return <RouterProvider router={router} />;
 };
