@@ -52,6 +52,9 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
     hasError: descriptionHasError,
   } = useValidation(checkIfEmptyValue);
 
+  const formIsValid =
+    nameIsValid && titleIsValid && ratingIsValid && descriptionIsValid;
+
   const submitFormHandler = (e: React.FormEvent) => {
     e.preventDefault();
   };
@@ -128,7 +131,11 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
         <Link to="/reviews" className="review-form__actions-btn--cancel">
           Cancel
         </Link>
-        <button type="submit" className="review-form__actions-btn--submit">
+        <button
+          type="submit"
+          className="review-form__actions-btn--submit"
+          disabled={!formIsValid}
+        >
           Submit
         </button>
       </div>
