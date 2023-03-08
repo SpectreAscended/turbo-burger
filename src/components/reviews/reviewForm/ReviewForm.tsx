@@ -14,6 +14,7 @@ interface ReviewFormProps {
 }
 
 // TODO fix input error styling - margin under inputs
+// TODO edit useValidation to recognize when there is a default value to avoid it thinking the value is blank when it isnt.
 
 const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
   const userName = useSelector<RootState>(
