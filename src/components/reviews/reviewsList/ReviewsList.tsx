@@ -1,7 +1,6 @@
-import React from 'react';
-import './reviewsList.scss';
 import { DUMMY_REVIEWS } from '../../../store/dummyData';
 import ReviewItem from '../reviewItem/ReviewItem';
+import './reviewsList.scss';
 
 interface Review {
   userName: string;
@@ -17,13 +16,15 @@ const ReviewsList: React.FC = () => {
       <ul>
         {DUMMY_REVIEWS.map((review: Review) => {
           return (
-            <ReviewItem
-              key={review.id}
-              title={review.title}
-              userName={review.userName}
-              rating={review.rating}
-              description={review.description}
-            />
+            <li key={review.id}>
+              <ReviewItem
+                id={review.id}
+                title={review.title}
+                userName={review.userName}
+                rating={review.rating}
+                description={review.description}
+              />
+            </li>
           );
         })}
       </ul>

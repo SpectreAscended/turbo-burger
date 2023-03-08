@@ -9,12 +9,6 @@ interface LoaderData {
   title: string;
 }
 
-interface LoaderProps {
-  params: {
-    menuItemId: string;
-  };
-}
-
 const MenuItemPage: React.FC = () => {
   const menuItem = useRouteLoaderData('menu-item') as LoaderData;
   return <MenuItem item={menuItem} />;
@@ -23,7 +17,7 @@ const MenuItemPage: React.FC = () => {
 export default MenuItemPage;
 
 export const loader = async ({ params }: any) => {
-  const id = params.menuItemId;
+  const id = params.menuItemId as string;
 
   let itemType;
 

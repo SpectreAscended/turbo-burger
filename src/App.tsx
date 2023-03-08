@@ -11,7 +11,9 @@ import OrderPage from './pages/order/Order';
 import ErrorPage from './pages/error/Error';
 import CheckoutPage from './pages/checkout/Checkout';
 import ReviewsPage from './pages/reviews/Reviews';
-import ReviewDetail from './components/reviews/reviewIDetail/ReviewDetail';
+import ReviewDetailPage, {
+  loader as reviewLoader,
+} from './pages/reviews/ReviewDetail';
 
 interface MenuLoaderProps {
   params: {
@@ -73,8 +75,9 @@ const App = () => {
             },
             {
               path: ':reviewItemId',
-              element: <ReviewDetail />,
+              element: <ReviewDetailPage />,
               id: 'review-item',
+              loader: reviewLoader,
             },
           ],
         },
