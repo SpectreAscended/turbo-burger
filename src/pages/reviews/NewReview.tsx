@@ -1,5 +1,7 @@
+import ReviewForm from '../../components/reviews/reviewForm/ReviewForm';
+
 const NewReviewPage: React.FC = () => {
-  return <div>New Review</div>;
+  return <ReviewForm method="post" />;
 };
 
 export default NewReviewPage;
