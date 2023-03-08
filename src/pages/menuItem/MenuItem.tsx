@@ -22,7 +22,7 @@ const MenuItemPage: React.FC = () => {
 
 export default MenuItemPage;
 
-export const loader = async ({ params }: LoaderProps) => {
+export const loader = async ({ params }: any) => {
   const id = params.menuItemId;
 
   let itemType;

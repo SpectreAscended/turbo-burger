@@ -10,6 +10,7 @@ import MenuItemPage, {
 import OrderPage from './pages/order/Order';
 import ErrorPage from './pages/error/Error';
 import CheckoutPage from './pages/checkout/Checkout';
+import ReviewsPage from './pages/reviews/Reviews';
 
 interface MenuLoaderProps {
   params: {
@@ -59,6 +60,15 @@ const App = () => {
               element: <MenuItemPage />,
               id: 'menu-item',
               loader: menuItemLoader,
+            },
+          ],
+        },
+        {
+          path: '/reviews',
+          children: [
+            {
+              index: true,
+              element: <ReviewsPage />,
             },
           ],
         },
