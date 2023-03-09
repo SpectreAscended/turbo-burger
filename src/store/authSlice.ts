@@ -2,15 +2,15 @@ import { createSlice } from '@reduxjs/toolkit';
 import { auth } from '../../firebase';
 
 interface InitialAuthState {
-  userName?: string;
-  uid?: string;
-  accessToken?: string;
+  currentUser: { userName?: string; uid?: string; isAuthenticated?: boolean };
 }
 
 const initialAuthState: InitialAuthState = {
-  userName: undefined,
-  uid: undefined,
-  accessToken: undefined,
+  currentUser: {
+    userName: undefined,
+    uid: undefined,
+    isAuthenticated: false,
+  },
 };
 
 const authSlice = createSlice({
@@ -18,15 +18,21 @@ const authSlice = createSlice({
   initialState: initialAuthState,
   reducers: {
     setUser(state, action) {
-      state.uid = action.payload.uid;
-      state.accessToken = action.payload.accessToken;
-      state.userName = action.payload.userName;
+      state.currentUser = {
+        userName: action.payload.userName,
+        uid: action.payload.uid,
+        isAuthenticated: action.payload.isAuthenticated,
+      };
     },
     signOut(state) {
       auth.signOut();
-      state.uid = undefined;
-      state.accessToken = undefined;
-      state.userName = undefined;
+      state.currentUser = {
+        userName: undefined,
+        uid: undefined,
+        isAuthenticated: false,
+      };
+      localStorage.removeItem('token');
+      localStorage.removeItem('expiration');
     },
   },
 });

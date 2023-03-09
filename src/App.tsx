@@ -17,6 +17,7 @@ import ReviewDetailPage, {
 import NewReviewPage from './pages/reviews/NewReview';
 import EditReviewPage from './pages/reviews/EditReview';
 import { action as reviewFormAction } from './components/reviews/reviewForm/ReviewForm';
+import { tokenLoader } from './utlities/auth';
 
 const App = () => {
   const router = createBrowserRouter([
@@ -24,6 +25,8 @@ const App = () => {
       path: '/',
       element: <RootLayout />,
       errorElement: <ErrorPage />,
+      id: 'root',
+      loader: tokenLoader,
       children: [
         { index: true, element: <AboutPage /> },
         {

@@ -11,11 +11,11 @@ import { RootState } from '../../store';
 
 const MobileNav: React.FC = () => {
   const dispatch = useDispatch();
-  const userSignedIn = useSelector<RootState>(
-    state => state.auth.accessToken
-  ) as string | undefined;
+  const isAuthenticated = useSelector<RootState>(
+    state => state.auth.currentUser.isAuthenticated
+  ) as boolean;
   const userName = useSelector<RootState>(
-    state => state.auth.userName
+    state => state.auth.currentUser.userName
   ) as string;
 
   console.log(userName);
@@ -58,7 +58,7 @@ const MobileNav: React.FC = () => {
           <h2>Welcome back, {userName ? userName : 'Guest'}!</h2>
           <ul>
             <li className="auth">
-              {!userSignedIn ? (
+              {!isAuthenticated ? (
                 <Link to="/login" className="noSelect">
                   Log in
                 </Link>
@@ -70,9 +70,6 @@ const MobileNav: React.FC = () => {
                   Log out
                 </button>
               )}
-              {/* <Link to="/login" className="noSelect">
-                Log in
-              </Link> */}
             </li>
             <li>
               <Link to="/menu" className="noSelect">

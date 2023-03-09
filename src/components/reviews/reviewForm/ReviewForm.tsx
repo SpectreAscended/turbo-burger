@@ -29,7 +29,7 @@ interface ReviewFormProps {
 
 const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
   const userName = useSelector<RootState>(
-    state => state.auth.userName
+    state => state.auth.currentUser.userName
   ) as string;
 
   const navigation = useNavigation();
@@ -162,7 +162,9 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
 export default ReviewForm;
 
 export const action = async ({ request, params }: any) => {
-  const uid = useSelector<RootState>(state => state.auth.uid) as string;
+  const uid = useSelector<RootState>(
+    state => state.auth.currentUser.uid
+  ) as string;
   //   const id = params.reviewItemId;
   const data = await request.formData();
   const URL = import.meta.env.VITE_DATABASE_REVIEWS;
