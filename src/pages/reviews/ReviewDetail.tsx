@@ -1,5 +1,4 @@
 import ReviewDetail from '../../components/reviews/reviewIDetail/ReviewDetail';
-import loaderRequest from '../../utlities/loaderRequest';
 
 interface LoaderProps {
   params: {

@@ -3,7 +3,7 @@ import { json } from 'react-router-dom';
 interface RequestOptions {
   method?: string;
   headers?: Record<string, string>;
-  body?: string;
+  body?: any;
 }
 
 interface RequestConfig extends RequestOptions {

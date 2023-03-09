@@ -14,9 +14,10 @@ import ReviewsPage from './pages/reviews/Reviews';
 import ReviewDetailPage, {
   loader as reviewLoader,
 } from './pages/reviews/ReviewDetail';
-import NewReviewPage from './pages/reviews/NewReview';
+import NewReviewPage, {
+  action as reviewFormAction,
+} from './pages/reviews/NewReview';
 import EditReviewPage from './pages/reviews/EditReview';
-import { action as reviewFormAction } from './components/reviews/reviewForm/ReviewForm';
 import { tokenLoader } from './utlities/auth';
 
 const App = () => {

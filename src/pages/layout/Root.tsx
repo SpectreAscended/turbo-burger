@@ -31,7 +31,6 @@ const RootLayout: React.FC = () => {
 
     const userName = auth.currentUser?.displayName;
     const uid = auth.currentUser?.uid;
-    console.log(userName, token);
     dispatch(authActions.setUser({ userName, uid, isAuthenticated: true }));
 
     setTimeout(() => {

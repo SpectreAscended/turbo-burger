@@ -93,7 +93,7 @@ export const signOut = () => {
 };
 
 export const getUserInfo = () => {
-  const currentUser = useSelector<RootState>(state => state.auth.currentUser);
+  // const currentUser = useSelector<RootState>(state => state.auth.currentUser);
 };
 
 // export const signIn = async (email: string, password: string) => {
