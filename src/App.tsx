@@ -14,10 +14,9 @@ import ReviewsPage from './pages/reviews/Reviews';
 import ReviewDetailPage, {
   loader as reviewLoader,
 } from './pages/reviews/ReviewDetail';
-import NewReviewPage, {
-  action as newReviewAction,
-} from './pages/reviews/NewReview';
+import NewReviewPage from './pages/reviews/NewReview';
 import EditReviewPage from './pages/reviews/EditReview';
+import { action as reviewFormAction } from './components/reviews/reviewForm/ReviewForm';
 
 const App = () => {
   const router = createBrowserRouter([
@@ -80,7 +79,7 @@ const App = () => {
             {
               path: 'new',
               element: <NewReviewPage />,
-              action: newReviewAction,
+              action: reviewFormAction,
             },
             {
               path: 'edit',

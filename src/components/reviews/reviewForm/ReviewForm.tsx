@@ -8,6 +8,16 @@ import {
 } from '../../../utlities/validators';
 import './reviewForm.scss';
 
+import loaderRequest from '../../../utlities/loaderRequest';
+
+interface FormData {
+  id: string;
+  userName: string;
+  rating: number;
+  title: string;
+  description: string;
+}
+
 interface ReviewFormProps {
   method?: FormMethod;
   review?: any;
@@ -23,7 +33,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
   ) as string;
 
   const navigation = useNavigation();
-  const isSubmitting = navigation.state;
+  const isSubmitting = navigation.state === 'submitting';
 
   const {
     enteredValueHandler: nameChangeHandler,
@@ -94,7 +104,6 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
         min={1}
         max={5}
         step={0.5}
-        placeholder="5"
         className={`review-form__input--rating ${
           ratingHasError ? 'input-error' : ''
         }`}
@@ -143,7 +152,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
           className="review-form__actions-btn--submit"
           disabled={!formIsValid}
         >
-          {isSubmitting === 'submitting' ? 'Submitting...' : 'Submit'}
+          {isSubmitting ? 'Submitting...' : 'Submit'}
         </button>
       </div>
     </Form>
@@ -151,3 +160,31 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
 };
 
 export default ReviewForm;
+
+export const action = async ({ request, params }: any) => {
+  const uid = useSelector<RootState>(state => state.auth.uid) as string;
+  //   const id = params.reviewItemId;
+  const data = await request.formData();
+  const URL = import.meta.env.VITE_DATABASE_REVIEWS;
+  const date = new Date();
+  console.log('new review action running');
+
+  const reviewItem = {
+    title: data.get('title'),
+    rating: data.get('rating'),
+    description: data.get('description'),
+    userName: data.get('userName'),
+    date,
+    uid,
+  };
+
+  const requestConfig = {
+    url: `${URL}.json`,
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(reviewItem),
+  };
+
+  const response = await loaderRequest(requestConfig);
+  console.log(response);
+};
