@@ -27,6 +27,8 @@ interface ReviewFormProps {
 // TODO edit useValidation to recognize when there is a default value to avoid it thinking the value is blank when it isnt.
 // TODO FIGURE THIS OUT
 
+//BUG form only works if you are not logged in
+
 const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
   const userName = useSelector<RootState>(
     state => state.auth.currentUser.userName
