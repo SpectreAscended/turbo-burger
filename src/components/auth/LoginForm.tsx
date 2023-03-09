@@ -25,10 +25,15 @@ const LoginForm: React.FC = () => {
         userPassword
       );
 
+      console.log(userCredential);
+
       const user = userCredential.user;
       const id = user?.uid;
       const userName = user?.displayName;
       const accessToken = await user?.getIdToken();
+      const expiration = new Date();
+      expiration.setHours(expiration.getHours() + 1);
+      localStorage.setItem('expiration', expiration.toISOString());
 
       if (accessToken) {
         dispatch(
