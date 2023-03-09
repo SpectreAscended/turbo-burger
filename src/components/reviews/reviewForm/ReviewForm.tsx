@@ -1,4 +1,4 @@
-import { Form, FormMethod, Link } from 'react-router-dom';
+import { Form, FormMethod, Link, useNavigation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store';
 import useValidation from '../../../hooks/useValidation';
@@ -15,11 +15,15 @@ interface ReviewFormProps {
 
 // TODO fix input error styling - margin under inputs
 // TODO edit useValidation to recognize when there is a default value to avoid it thinking the value is blank when it isnt.
+// TODO FIGURE THIS OUT
 
 const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
   const userName = useSelector<RootState>(
     state => state.auth.userName
   ) as string;
+
+  const navigation = useNavigation();
+  const isSubmitting = navigation.state;
 
   const {
     enteredValueHandler: nameChangeHandler,
@@ -58,10 +62,12 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
 
   const submitFormHandler = (e: React.FormEvent) => {
     e.preventDefault();
+    if (formIsValid) {
+    }
   };
 
   return (
-    <Form method={method} className="review-form" onSubmit={submitFormHandler}>
+    <Form method={method} className="review-form">
       <h1 className="review-form__heading">
         {method === 'post' ? 'New' : 'Edit'} review
       </h1>
@@ -137,7 +143,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
           className="review-form__actions-btn--submit"
           disabled={!formIsValid}
         >
-          Submit
+          {isSubmitting === 'submitting' ? 'Submitting...' : 'Submit'}
         </button>
       </div>
     </Form>

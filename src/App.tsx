@@ -14,7 +14,9 @@ import ReviewsPage from './pages/reviews/Reviews';
 import ReviewDetailPage, {
   loader as reviewLoader,
 } from './pages/reviews/ReviewDetail';
-import NewReviewPage from './pages/reviews/NewReview';
+import NewReviewPage, {
+  action as newReviewAction,
+} from './pages/reviews/NewReview';
 import EditReviewPage from './pages/reviews/EditReview';
 
 const App = () => {
@@ -78,6 +80,7 @@ const App = () => {
             {
               path: 'new',
               element: <NewReviewPage />,
+              action: newReviewAction,
             },
             {
               path: 'edit',
