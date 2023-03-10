@@ -27,7 +27,7 @@ const App = () => {
       element: <RootLayout />,
       errorElement: <ErrorPage />,
       id: 'root',
-      loader: tokenLoader,
+      // loader: tokenLoader,
       children: [
         { index: true, element: <AboutPage /> },
         {

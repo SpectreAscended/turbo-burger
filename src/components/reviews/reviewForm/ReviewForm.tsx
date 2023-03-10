@@ -75,8 +75,6 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
 
   const submitFormHandler = (e: React.FormEvent) => {
     e.preventDefault();
-    if (formIsValid) {
-    }
   };
 
   return (
