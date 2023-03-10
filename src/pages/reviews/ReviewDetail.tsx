@@ -1,20 +1,22 @@
+import { useLoaderData } from 'react-router';
 import ReviewDetail from '../../components/reviews/reviewIDetail/ReviewDetail';
-
-interface LoaderProps {
-  params: {
-    reviewItemId: string;
-  };
-}
+import loaderRequest from '../../utlities/loaderRequest';
+import { ReviewItem as IReviewItem } from './Reviews';
 
 const ReviewDetailPage: React.FC = () => {
-  return <ReviewDetail />;
+  const reviewData = useLoaderData() as IReviewItem;
+
+  return <ReviewDetail review={reviewData} />;
 };
 
 export default ReviewDetailPage;
 
 export const loader = async ({ params }: any) => {
-  const url = import.meta.env.VITE_DATABASE_REVIEWS;
+  const baseUrl = import.meta.env.VITE_DATABASE_REVIEWS;
   const reviewId = params.reviewItemId;
+  const url = `${baseUrl}/${reviewId}.json`;
 
-  return null;
+  const data = await loaderRequest({ url });
+
+  return data;
 };
