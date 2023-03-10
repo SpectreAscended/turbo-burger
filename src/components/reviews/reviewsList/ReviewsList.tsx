@@ -9,6 +9,22 @@ interface ReviewsListProps {
 }
 
 const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
+  const reviewsList = reviews.slice();
+
+  // const sortedList = reviewsList.sort((a, b) => {
+  //   const dateB = new Date(b.date);
+  //   const dateA = new Date(a.date);
+
+  //   return dateB.getTime() - dateA.getTime();
+  // });
+
+  const sortedList = reviewsList.sort((a, b) => {
+    const ratingA = +a.rating;
+    const ratingB = +b.rating;
+
+    return ratingB - ratingA;
+  });
+
   return (
     <section className="reviews-list">
       <h1>Reviews</h1>
@@ -18,7 +34,7 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
         </Link>
       </div>
       <ul>
-        {reviews.map(review => {
+        {sortedList.map(review => {
           return (
             <li key={review.id}>
               <ReviewItem

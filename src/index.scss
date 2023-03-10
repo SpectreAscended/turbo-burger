@@ -69,6 +69,10 @@ ul {
   list-style: none;
 }
 
+textarea {
+  font-family: inherit;
+}
+
 main {
   background: var(--color-background);
   min-height: calc(100vh - 2.5rem);
