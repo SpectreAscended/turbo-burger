@@ -18,8 +18,10 @@ const ReviewDetail: React.FC<ReviewDetailProps> = ({ review }) => {
   const usersPost = uid === review.uid && uid !== undefined;
 
   const deleteEventHandler = () => {
+    if (!usersPost) return;
+
     const proceed = window.confirm('Are you sure?');
-    if (proceed && usersPost) {
+    if (proceed) {
       submit(null, { method: 'delete' });
     }
   };
