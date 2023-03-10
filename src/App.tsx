@@ -10,7 +10,7 @@ import MenuItemPage, {
 import OrderPage from './pages/order/Order';
 import ErrorPage from './pages/error/Error';
 import CheckoutPage from './pages/checkout/Checkout';
-import ReviewsPage from './pages/reviews/Reviews';
+import ReviewsPage, { loader as reviewsLoader } from './pages/reviews/Reviews';
 import ReviewDetailPage, {
   loader as reviewLoader,
 } from './pages/reviews/ReviewDetail';
@@ -73,6 +73,7 @@ const App = () => {
             {
               index: true,
               element: <ReviewsPage />,
+              loader: reviewsLoader,
             },
             {
               path: ':reviewItemId',

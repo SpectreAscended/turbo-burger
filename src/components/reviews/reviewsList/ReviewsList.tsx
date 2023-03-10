@@ -1,17 +1,14 @@
 import { Link } from 'react-router-dom';
 import { DUMMY_REVIEWS } from '../../../store/dummyData';
 import ReviewItem from '../reviewItem/ReviewItem';
+import { ReviewItem as IReviewItem } from '../../../pages/reviews/Reviews';
 import './reviewsList.scss';
 
-interface Review {
-  userName: string;
-  title: string;
-  id: string;
-  rating: string;
-  description: string;
+interface ReviewsListProps {
+  reviews: IReviewItem[];
 }
 
-const ReviewsList: React.FC = () => {
+const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
   return (
     <section className="reviews-list">
       <h1>Reviews</h1>
@@ -21,7 +18,7 @@ const ReviewsList: React.FC = () => {
         </Link>
       </div>
       <ul>
-        {DUMMY_REVIEWS.map((review: Review) => {
+        {reviews.map(review => {
           return (
             <li key={review.id}>
               <ReviewItem
@@ -30,6 +27,8 @@ const ReviewsList: React.FC = () => {
                 userName={review.userName}
                 rating={review.rating}
                 description={review.description}
+                date={review.date}
+                uid={review.uid}
               />
             </li>
           );

@@ -2,7 +2,7 @@ import React from 'react';
 import Menu from '../../components/menu/Menu';
 import { useLoaderData } from 'react-router-dom';
 import loaderRequest from '../../utlities/loaderRequest';
-import formatMenuData from '../../utlities/formatMenuData';
+import formatAPIData from '../../utlities/formatAPIData';
 
 interface MenuItem {
   id: string;
@@ -22,11 +22,11 @@ interface MenuData {
 const MenuPage: React.FC = () => {
   const menuData = useLoaderData() as MenuData;
 
-  const burgers = formatMenuData(menuData.burgers) as MenuItem[];
-  const hotdogs = formatMenuData(menuData.hotdogs) as MenuItem[];
-  const chicken = formatMenuData(menuData.chicken) as MenuItem[];
-  const drinks = formatMenuData(menuData.drinks) as MenuItem[];
-  const sides = formatMenuData(menuData.sides) as MenuItem[];
+  const burgers = formatAPIData(menuData.burgers) as MenuItem[];
+  const hotdogs = formatAPIData(menuData.hotdogs) as MenuItem[];
+  const chicken = formatAPIData(menuData.chicken) as MenuItem[];
+  const drinks = formatAPIData(menuData.drinks) as MenuItem[];
+  const sides = formatAPIData(menuData.sides) as MenuItem[];
 
   return (
     <>
