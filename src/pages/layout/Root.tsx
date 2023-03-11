@@ -9,13 +9,14 @@ import { authActions } from '../../store/authSlice';
 import { RootState } from '../../store';
 import { AnimatePresence } from 'framer-motion';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTokenDuration } from '../../utlities/auth';
+import { getTokenDuration, tokenLoader } from '../../utlities/auth';
 import { auth } from '../../../firebase';
 
 const RootLayout: React.FC = () => {
   const dispatch = useDispatch();
 
-  const token = useLoaderData();
+  // const token = useLoaderData();
+  const token = tokenLoader();
 
   useEffect(() => {
     if (!token) {

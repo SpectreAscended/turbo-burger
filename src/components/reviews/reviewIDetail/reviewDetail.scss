@@ -1,0 +1,12 @@
+@import '../../../index.scss';
+
+.review-detail {
+  &__edit {
+    @include button-primary;
+    text-align: center;
+    color: var(--color-dark);
+  }
+  &__delete {
+    @include button-secondary;
+  }
+}
