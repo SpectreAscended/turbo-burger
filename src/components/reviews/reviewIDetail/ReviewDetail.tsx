@@ -15,7 +15,6 @@ interface ReviewDetailProps {
 
 const ReviewDetail: React.FC<ReviewDetailProps> = ({ review }) => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [proceed, setProceed] = useState(false);
   const submit = useSubmit();
   const uid = useSelector<RootState>(state => state.auth.currentUser.uid);
 
@@ -25,16 +24,13 @@ const ReviewDetail: React.FC<ReviewDetailProps> = ({ review }) => {
     setModalOpen(false);
   };
 
+  let confirmHandler = () => {
+    submit(null, { method: 'delete' });
+  };
+
   const deleteEventHandler = () => {
     if (!usersPost) return;
     setModalOpen(true);
-
-    () => {};
-
-    // const proceed = window.confirm('Are you sure?');
-    if (proceed) {
-      submit(null, { method: 'delete' });
-    }
   };
 
   return (
@@ -45,7 +41,9 @@ const ReviewDetail: React.FC<ReviewDetailProps> = ({ review }) => {
             title="Delete Review"
             text="Are you sure?"
             handleClose={closeModalHandler}
-            modalOpen={false}
+            onConfirm={confirmHandler}
+            modalOpen={modalOpen}
+            type="prompt"
           />
         )}
       </AnimatePresence>

@@ -6,14 +6,16 @@ import './modal.scss';
 
 interface ModalProps {
   handleClose: () => void;
+  onConfirm?: () => void;
   modalOpen: boolean;
   text: string;
   title?: string;
-  type: string;
+  type?: string;
 }
 
 const Modal: React.FC<ModalProps> = ({
   handleClose,
+  onConfirm,
   text,
   modalOpen,
   title,
@@ -62,8 +64,12 @@ const Modal: React.FC<ModalProps> = ({
   if (type === 'prompt') {
     actions = (
       <div className="modal__actions--prompt">
-        <button className="modal-button--cancel">Cancel</button>
-        <button className="modal-button--confirm">Confirm</button>
+        <button className="modal-button--cancel" onClick={handleClose}>
+          Cancel
+        </button>
+        <button className="modal-button--confirm" onClick={onConfirm}>
+          Confirm
+        </button>
       </div>
     );
   }
