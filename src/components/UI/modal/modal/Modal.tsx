@@ -9,6 +9,7 @@ interface ModalProps {
   modalOpen: boolean;
   text: string;
   title?: string;
+  type: string;
 }
 
 const Modal: React.FC<ModalProps> = ({
@@ -16,6 +17,7 @@ const Modal: React.FC<ModalProps> = ({
   text,
   modalOpen,
   title,
+  type,
 }) => {
   const dropIn = {
     hidden: {
@@ -49,6 +51,23 @@ const Modal: React.FC<ModalProps> = ({
   //   };
   // }, []);
 
+  let actions = (
+    <div className="modal__actions">
+      <button className="modal-button" onClick={handleClose}>
+        Close
+      </button>
+    </div>
+  );
+
+  if (type === 'prompt') {
+    actions = (
+      <div className="modal__actions--prompt">
+        <button className="modal-button--cancel">Cancel</button>
+        <button className="modal-button--confirm">Confirm</button>
+      </div>
+    );
+  }
+
   return (
     <Backdrop onClick={handleClose}>
       <motion.div
@@ -61,9 +80,7 @@ const Modal: React.FC<ModalProps> = ({
       >
         <h2 className="modal-title">{title}</h2>
         <p className="modal-text">{text}</p>
-        <button className="modal-button" onClick={handleClose}>
-          Close
-        </button>
+        {actions}
       </motion.div>
     </Backdrop>
   );
