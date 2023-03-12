@@ -11,8 +11,6 @@ interface ReviewDetailProps {
   review: IReviewItem;
 }
 
-// TODO Make modal for this proceed window
-
 const ReviewDetail: React.FC<ReviewDetailProps> = ({ review }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const submit = useSubmit();
