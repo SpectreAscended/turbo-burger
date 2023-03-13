@@ -1,7 +1,8 @@
 .reviews-list {
   &__actions {
-    width: 100%;
     display: flex;
+    justify-content: space-between;
+    gap: 1rem;
   }
   &__link {
     background-color: var(--color-primary);
@@ -9,7 +10,6 @@
     font-size: 1rem;
     padding: 0.5rem 1.5rem;
     border-radius: 0.5rem;
-    margin-left: auto;
   }
   &__sort {
     background-color: var(--color-primary);
@@ -18,5 +18,10 @@
     border: 1px solid var(--color-primary);
     border-radius: 0.5rem;
     font-size: inherit;
+    max-width: 10rem;
+
+    &--hidden {
+      display: none;
+    }
   }
 }

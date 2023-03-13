@@ -11,6 +11,8 @@ interface ReviewsListProps {
 const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
   const reviewsList = reviews.slice();
   const [sorttedList, setSorttedList] = useState(reviewsList);
+  // setRefresh is a bit of a hack to force the component to refresh to solve bug where onChange isnt firing properly on mobile browsers.
+  const [_, setRefresh] = useState(false);
 
   const sortMethodHandler = (e: React.FormEvent<HTMLSelectElement>) => {
     const sortMethod = e.currentTarget.value;
@@ -23,6 +25,7 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
           return ratingB - ratingA;
         });
         setSorttedList(reviewsList);
+        setRefresh(e => !e);
         break;
       }
       case 'rating-lowest': {
@@ -33,6 +36,7 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
           return ratingA - ratingB;
         });
         setSorttedList(reviewsList);
+        setRefresh(e => !e);
         break;
       }
       case 'date-newest': {
@@ -43,6 +47,7 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
           return dateB.getTime() - dateA.getTime();
         });
         setSorttedList(reviewsList);
+        setRefresh(e => !e);
         break;
       }
       case 'date-oldest': {
@@ -52,6 +57,7 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
           return dateA.getTime() - dateB.getTime();
         });
         setSorttedList(reviewsList);
+        setRefresh(e => !e);
         break;
       }
     }
@@ -65,7 +71,6 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
           name="sort-reviews"
           id="sort-reviews"
           className="reviews-list__sort"
-          value="rating-highest"
           onChange={sortMethodHandler}
         >
           <option value="rating-highest">Rating (Highest to lowest)</option>
