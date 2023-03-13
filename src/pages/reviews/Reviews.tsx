@@ -17,7 +17,6 @@ const ReviewsPage: React.FC = () => {
   const data = useLoaderData() as ReviewItem;
 
   const reviews = formatAPIData(data) as ReviewItem[];
-  console.log(reviews);
 
   return <ReviewsList reviews={reviews} />;
 };
