@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import ReviewItem from '../reviewItem/ReviewItem';
 import { ReviewItem as IReviewItem } from '../../../pages/reviews/Reviews';
@@ -39,8 +39,8 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
       }
       case 'date-newest': {
         reviewsList.sort((a, b) => {
-          const dateB = new Date(b.date);
           const dateA = new Date(a.date);
+          const dateB = new Date(b.date);
 
           return dateB.getTime() - dateA.getTime();
         });
@@ -91,8 +91,16 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
           name="sort-reviews"
           id="sort-reviews"
           className="reviews-list__sort"
+          defaultValue="default"
           onChange={sortMethodHandler}
         >
+          <option
+            value="default"
+            disabled
+            className="reviews-list__sort--hidden"
+          >
+            Sort by
+          </option>
           <option value="rating-highest">Rating (Highest)</option>
           <option value="rating-lowest">Rating (Lowest)</option>
           <option value="date-newest">Date (Newest)</option>

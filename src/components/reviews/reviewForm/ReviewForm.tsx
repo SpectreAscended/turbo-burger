@@ -83,20 +83,6 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
         {method === 'post' ? 'New' : 'Edit'} review
       </h1>
 
-      <label htmlFor="first-name" className="review-form__label">
-        First name
-      </label>
-      <input
-        type="text"
-        id="first-name"
-        name="first-name"
-        defaultValue={userName}
-        onChange={nameChangeHandler}
-        onBlur={nameBlurHandler}
-        className={`review-form__input ${nameHasError ? 'input-error' : ''}`}
-      />
-      {nameHasError && <p className="form-error">Name cannot be blank.</p>}
-
       <label htmlFor="rating" className="review-form__label">
         Rating out of 5
       </label>
@@ -115,6 +101,21 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
       {ratingHasError && (
         <p className="form-error">Must be a number between 1 and 5.</p>
       )}
+
+      <label htmlFor="first-name" className="review-form__label">
+        First name
+      </label>
+      <input
+        type="text"
+        id="first-name"
+        name="first-name"
+        defaultValue={userName}
+        onChange={nameChangeHandler}
+        onBlur={nameBlurHandler}
+        className={`review-form__input ${nameHasError ? 'input-error' : ''}`}
+      />
+      {nameHasError && <p className="form-error">Name cannot be blank.</p>}
+
       <label htmlFor="title" className="review-form__label">
         Title
       </label>
