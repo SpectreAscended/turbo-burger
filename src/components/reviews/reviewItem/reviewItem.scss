@@ -3,7 +3,6 @@
   margin-block: 2rem;
   border-radius: 1rem;
   padding: 1rem;
-  // padding-bottom: 1rem;
   display: block;
   color: inherit;
   transition: transform 250ms ease;
@@ -14,7 +13,8 @@
   }
 
   &__heading {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    color: var(--color-primary-light);
   }
 
   &__username {
