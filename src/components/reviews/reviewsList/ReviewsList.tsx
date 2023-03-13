@@ -11,8 +11,8 @@ interface ReviewsListProps {
 const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
   const reviewsList = reviews.slice();
   const [sorttedList, setSorttedList] = useState(reviewsList);
-  // setRefresh is a bit of a hack to force the component to refresh to solve bug where sorttedList isnt refreshing properly on mobile browsers.
-  const [_, setRefresh] = useState(false);
+  // setRefresh is a bit of a hack to force the component to rerender to solve bug where sorttedList isnt rerendering properly on mobile browsers.
+  const [_, setForceRefresh] = useState(false);
 
   const sortMethodHandler = (e: React.FormEvent<HTMLSelectElement>) => {
     const sortMethod = e.currentTarget.value;
@@ -25,7 +25,6 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
           return ratingB - ratingA;
         });
         setSorttedList(reviewsList);
-        setRefresh(e => !e);
         break;
       }
       case 'rating-lowest': {
@@ -36,7 +35,6 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
           return ratingA - ratingB;
         });
         setSorttedList(reviewsList);
-        setRefresh(e => !e);
         break;
       }
       case 'date-newest': {
@@ -47,7 +45,6 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
           return dateB.getTime() - dateA.getTime();
         });
         setSorttedList(reviewsList);
-        setRefresh(e => !e);
         break;
       }
       case 'date-oldest': {
@@ -57,10 +54,10 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
           return dateA.getTime() - dateB.getTime();
         });
         setSorttedList(reviewsList);
-        setRefresh(e => !e);
         break;
       }
     }
+    setForceRefresh(e => !e);
   };
 
   return (
