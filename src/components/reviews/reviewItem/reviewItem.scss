@@ -2,7 +2,8 @@
   background-color: #313131;
   margin-block: 2rem;
   border-radius: 1rem;
-  padding: 0.5rem;
+  padding: 1rem;
+  // padding-bottom: 1rem;
   display: block;
   color: inherit;
   transition: transform 250ms ease;
@@ -10,6 +11,10 @@
 
   &:hover {
     transform: scale(1.02) translateY(-0.25rem);
+  }
+
+  &__heading {
+    font-size: 1.4rem;
   }
 
   &__username {
