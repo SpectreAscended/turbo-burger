@@ -9,7 +9,9 @@ interface ReviewsListProps {
 }
 
 const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
+  // Create copy of reviews list.
   const reviewsList = reviews.slice();
+
   const [sorttedList, setSorttedList] = useState(reviewsList);
   // setRefresh is a bit of a hack to force the component to rerender to solve bug where sorttedList isnt rerendering properly on mobile browsers.
   const [_, setForceRefresh] = useState(false);
@@ -24,7 +26,6 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
 
           return ratingB - ratingA;
         });
-        setSorttedList(reviewsList);
         break;
       }
       case 'rating-lowest': {
@@ -34,7 +35,6 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
 
           return ratingA - ratingB;
         });
-        setSorttedList(reviewsList);
         break;
       }
       case 'date-newest': {
@@ -44,7 +44,6 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
 
           return dateB.getTime() - dateA.getTime();
         });
-        setSorttedList(reviewsList);
         break;
       }
       case 'date-oldest': {
@@ -53,10 +52,10 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
           const dateA = new Date(a.date);
           return dateA.getTime() - dateB.getTime();
         });
-        setSorttedList(reviewsList);
         break;
       }
     }
+    setSorttedList(reviewsList);
     setForceRefresh(e => !e);
   };
 
