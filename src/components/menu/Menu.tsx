@@ -31,7 +31,7 @@ const Menu: React.FC<MenuProps> = ({
         {burgers.map(burger => {
           return (
             <li key={burger.id}>
-              <Link to={`/menu/${burger.id}`}>
+              <Link to={`/menu/${burger.id}`} className={'menu__link'}>
                 <h4>{burger.title}</h4>
                 <p>${burger.price.toFixed(2)}</p>
               </Link>
@@ -42,7 +42,7 @@ const Menu: React.FC<MenuProps> = ({
         {hotdogs.map(hotdog => {
           return (
             <li key={hotdog.id}>
-              <Link to={`/menu/${hotdog.id}`}>
+              <Link to={`/menu/${hotdog.id}`} className={'menu__link'}>
                 <h4>{hotdog.title}</h4>
                 <p>${hotdog.price.toFixed(2)}</p>
               </Link>
@@ -53,7 +53,7 @@ const Menu: React.FC<MenuProps> = ({
         {chicken.map(chicken => {
           return (
             <li key={chicken.id}>
-              <Link to={`/menu/${chicken.id}`}>
+              <Link to={`/menu/${chicken.id}`} className={'menu__link'}>
                 <h4>{chicken.title}</h4>
                 <p>${chicken.price.toFixed(2)}</p>
               </Link>
@@ -64,7 +64,7 @@ const Menu: React.FC<MenuProps> = ({
         {sides.map(side => {
           return (
             <li key={side.id}>
-              <Link to={`/menu/${side.id}`}>
+              <Link to={`/menu/${side.id}`} className={'menu__link'}>
                 <h4>{side.title}</h4>
                 <p>${side.price.toFixed(2)}</p>
               </Link>
@@ -75,7 +75,7 @@ const Menu: React.FC<MenuProps> = ({
         {drinks.map(drink => {
           return (
             <li key={drink.id}>
-              <Link to={`/menu/${drink.id}`}>
+              <Link to={`/menu/${drink.id}`} className={'menu__link'}>
                 <h4>{drink.title}</h4>
                 <p>${drink.price.toFixed(2)}</p>
               </Link>

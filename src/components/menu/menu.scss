@@ -14,11 +14,9 @@
   h4 {
     font-size: 1.2rem;
     font-weight: 400;
-    // font-family: ;
   }
 
-  a:link,
-  a:visited {
+  &__link {
     display: flex;
     justify-content: space-between;
     align-items: center;
