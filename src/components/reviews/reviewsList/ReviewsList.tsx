@@ -19,8 +19,8 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
     switch (sortMethod) {
       case 'rating-highest': {
         reviewsList.sort((a, b) => {
-          const ratingA = +a.rating;
           const ratingB = +b.rating;
+          const ratingA = +a.rating;
 
           return ratingB - ratingA;
         });
@@ -49,8 +49,8 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
       }
       case 'date-oldest': {
         reviewsList.sort((a, b) => {
-          const dateA = new Date(a.date);
           const dateB = new Date(b.date);
+          const dateA = new Date(a.date);
           return dateA.getTime() - dateB.getTime();
         });
         setSorttedList(reviewsList);
@@ -59,6 +59,30 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
     }
     setForceRefresh(e => !e);
   };
+
+  let listContent = <h2 className="reviews-list__no-content">No reviews</h2>;
+
+  if (reviews.length > 0) {
+    listContent = (
+      <ul>
+        {sorttedList.map(review => {
+          return (
+            <li key={review.id}>
+              <ReviewItem
+                id={review.id}
+                title={review.title}
+                userName={review.userName}
+                rating={review.rating}
+                description={review.description}
+                date={review.date}
+                uid={review.uid}
+              />
+            </li>
+          );
+        })}
+      </ul>
+    );
+  }
 
   return (
     <section className="reviews-list">
@@ -80,23 +104,7 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
           Add Review
         </Link>
       </div>
-      <ul>
-        {sorttedList.map(review => {
-          return (
-            <li key={review.id}>
-              <ReviewItem
-                id={review.id}
-                title={review.title}
-                userName={review.userName}
-                rating={review.rating}
-                description={review.description}
-                date={review.date}
-                uid={review.uid}
-              />
-            </li>
-          );
-        })}
-      </ul>
+      {listContent}
     </section>
   );
 };
