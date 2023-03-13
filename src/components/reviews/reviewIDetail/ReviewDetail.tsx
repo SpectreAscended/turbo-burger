@@ -18,11 +18,12 @@ const ReviewDetail: React.FC<ReviewDetailProps> = ({ review }) => {
 
   const usersPost = uid === review.uid && uid !== undefined;
 
-  const closeModalHandler = () => {
+  const cancelDeleteHandler = () => {
     setModalOpen(false);
   };
 
-  let confirmHandler = () => {
+  // TODO add token loader to this
+  let confirmDeleteHandler = () => {
     submit(null, { method: 'delete' });
   };
 
@@ -38,8 +39,8 @@ const ReviewDetail: React.FC<ReviewDetailProps> = ({ review }) => {
           <Modal
             title="Delete Review"
             text="Are you sure?"
-            handleClose={closeModalHandler}
-            onConfirm={confirmHandler}
+            handleClose={cancelDeleteHandler}
+            onConfirm={confirmDeleteHandler}
             modalOpen={modalOpen}
             type="prompt"
           />
