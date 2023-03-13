@@ -11,7 +11,7 @@ interface ReviewsListProps {
 const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
   const reviewsList = reviews.slice();
   const [sorttedList, setSorttedList] = useState(reviewsList);
-  // setRefresh is a bit of a hack to force the component to refresh to solve bug where onChange isnt firing properly on mobile browsers.
+  // setRefresh is a bit of a hack to force the component to refresh to solve bug where sorttedList isnt refreshing properly on mobile browsers.
   const [_, setRefresh] = useState(false);
 
   const sortMethodHandler = (e: React.FormEvent<HTMLSelectElement>) => {
@@ -73,10 +73,10 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
           className="reviews-list__sort"
           onChange={sortMethodHandler}
         >
-          <option value="rating-highest">Rating (Highest to lowest)</option>
-          <option value="rating-lowest">Rating (Lowest to highest)</option>
-          <option value="date-newest">Date (Newest to oldest)</option>
-          <option value="date-oldest">Date (Oldest to newest)</option>
+          <option value="rating-highest">Rating (Highest)</option>
+          <option value="rating-lowest">Rating (Lowest)</option>
+          <option value="date-newest">Date (Newest)</option>
+          <option value="date-oldest">Date (Oldest)</option>
         </select>
 
         <Link to="new" className="reviews-list__link">
