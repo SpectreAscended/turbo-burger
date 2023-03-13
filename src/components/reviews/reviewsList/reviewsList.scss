@@ -17,14 +17,21 @@
     margin-top: 3rem;
   }
 
-  &__sort {
-    background-color: var(--color-primary);
-    background-color: transparent;
-    color: var(--color-primary);
-    border: 1px solid var(--color-primary);
-    border-radius: 0.5rem;
-    font-size: inherit;
-    max-width: 10rem;
+  &__select {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    min-width: 10rem;
+
+    &-box {
+      padding-left: 0.5rem;
+      width: 100%;
+      color: var(--color-primary);
+      background-color: var(--color-background);
+      border: 1px solid var(--color-primary);
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
 
     &--hidden {
       display: none;

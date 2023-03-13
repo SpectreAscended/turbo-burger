@@ -87,25 +87,27 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
     <section className="reviews-list">
       <h1>Reviews</h1>
       <div className="reviews-list__actions">
-        <select
-          name="sort-reviews"
-          id="sort-reviews"
-          className="reviews-list__sort"
-          defaultValue="default"
-          onChange={sortMethodHandler}
-        >
-          <option
-            value="default"
-            disabled
-            className="reviews-list__sort--hidden"
+        <div className="reviews-list__select">
+          <select
+            name="sort-reviews"
+            id="sort-reviews"
+            className="reviews-list__select-box"
+            defaultValue="default"
+            onChange={sortMethodHandler}
           >
-            Sort by
-          </option>
-          <option value="rating-highest">Rating (Highest)</option>
-          <option value="rating-lowest">Rating (Lowest)</option>
-          <option value="date-newest">Date (Newest)</option>
-          <option value="date-oldest">Date (Oldest)</option>
-        </select>
+            <option
+              value="default"
+              disabled
+              className="reviews-list__select--hidden"
+            >
+              Sort by
+            </option>
+            <option value="rating-highest">Rating (Highest)</option>
+            <option value="rating-lowest">Rating (Lowest)</option>
+            <option value="date-newest">Date (Newest)</option>
+            <option value="date-oldest">Date (Oldest)</option>
+          </select>
+        </div>
 
         <Link to="new" className="reviews-list__link">
           Add Review
