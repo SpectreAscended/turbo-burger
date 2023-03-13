@@ -6,6 +6,7 @@
   display: block;
   color: inherit;
   transition: transform 250ms ease;
+  cursor: default;
 
   &:hover {
     transform: scale(1.02) translateY(-0.25rem);
