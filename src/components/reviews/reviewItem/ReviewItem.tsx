@@ -20,9 +20,13 @@ const ReviewItem: React.FC<IReviewItem> = ({
   return (
     <Link to={`${id}`} className="review-item">
       <h3 className="review-item__heading">{title}</h3>
-      <span className="review-item__username">{userName}</span>
-      <span className="review-item__date">{formattedDate}</span>
-      <span className="review-item__rating">{rating}/5</span>
+      <div className="review-item__container">
+        <div>
+          <span className="review-item__username">{userName}</span>
+          <span className="review-item__date">{formattedDate}</span>
+        </div>
+        <span className="review-item__rating">{rating}/5</span>
+      </div>
       <p className="reivew-item__description">{description}</p>
     </Link>
   );
