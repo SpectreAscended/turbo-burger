@@ -1,3 +1,5 @@
+@import '../../../../index.scss';
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -9,4 +11,8 @@
   background-color: rgba(0, 0, 0, 0.007);
   backdrop-filter: blur(0.25rem);
   overflow-y: auto;
+
+  @media only screen and (min-width: $bp-tablet-large) {
+    display: none;
+  }
 }
