@@ -35,16 +35,27 @@
   @media only screen and (min-width: $bp-tablet-large) {
     &__list {
       display: flex;
-      justify-content: space-between;
+      justify-content: space-around;
       font-size: 1.2rem;
       gap: 2.5rem;
     }
   }
 
   @media only screen and (min-width: $bp-desktop-small) {
+    width: 100%;
     &__list {
       font-size: 1.3rem;
-      gap: 2.75rem;
+      gap: 0.5rem;
     }
+  }
+
+  @media only screen and (min-width: $bp-desktop-medium) {
+    margin: 2rem;
+    font-size: 1.6rem;
+  }
+
+  @media only screen and (min-width: $bp-desktop-large) {
+    width: 50%;
+    gap: 3rem;
   }
 }
