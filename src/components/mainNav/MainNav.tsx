@@ -1,43 +1,49 @@
-import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import './MainNav.scss';
+import './mainNav.scss';
 
 const MainNav: React.FC = () => {
-  useEffect(() => {}, []);
-
   return (
-    <nav className="nav">
-      <ul className="nav-list">
+    <nav className="main-nav">
+      <ul className="main-nav__list">
         <li>
           <NavLink
-            to="/"
-            className={({ isActive }) => (isActive ? 'active' : undefined)}
-          >
-            About
-          </NavLink>
-        </li>
-        <li>
-          <NavLink
-            to="menu"
-            className={({ isActive }) => (isActive ? 'active' : undefined)}
+            to="/menu"
+            className={({ isActive }) =>
+              isActive ? 'main-nav__link--active' : 'main-nav__link'
+            }
           >
             Menu
           </NavLink>
         </li>
         <li>
           <NavLink
-            to="reviews"
-            className={({ isActive }) => (isActive ? 'active' : undefined)}
+            to="/reviews"
+            className={({ isActive }) =>
+              isActive ? 'main-nav__link--active' : 'main-nav__link'
+            }
           >
             Reviews
           </NavLink>
         </li>
-        {/* <li className={orderClasses()} onClick={buttonBounceHandler}>
-          <NavLink to="order">Your Order</NavLink>
-          <div className={classes.badge}>5</div>
-        </li> */}
-        <li className="auth">
-          <NavLink to="auth">Log in</NavLink>
+        <li>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? 'main-nav__link--active' : 'main-nav__link'
+            }
+          >
+            About
+          </NavLink>
+        </li>
+        <li>
+          <NavLink
+            to="/login"
+            className={({ isActive }) =>
+              isActive ? 'main-nav__login--active' : 'main-nav__login'
+            }
+          >
+            Log in
+          </NavLink>
         </li>
       </ul>
     </nav>
@@ -45,3 +51,10 @@ const MainNav: React.FC = () => {
 };
 
 export default MainNav;
+
+// <NavLink
+// to="/"
+// className={({ isActive }) => (isActive ? 'active' : undefined)}
+// >
+// About
+// </NavLink>

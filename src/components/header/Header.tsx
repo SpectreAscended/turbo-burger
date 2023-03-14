@@ -25,7 +25,7 @@ const Header: React.FC = () => {
       <header className="header">
         <div className="header-content">
           <Logo />
-          {/* <MainNav /> */}
+          <MainNav />
           <div className="header-actions">
             <Hamburger onClick={showMenuHandler} />
             <OrderBtn />
