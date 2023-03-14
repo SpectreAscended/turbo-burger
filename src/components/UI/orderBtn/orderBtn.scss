@@ -1,3 +1,5 @@
+@import '../../../index.scss';
+
 .order {
   position: relative;
   background-color: var(--color-secondary);
@@ -6,7 +8,7 @@
   width: 7rem;
   border-radius: 0.5rem;
   color: var(--color-dark);
-  transition: background 250ms ease;
+  transition: background 250ms ease-in-out;
 
   &-badge {
     position: absolute;
@@ -23,6 +25,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: border-color 250ms ease-in-out;
+  }
+
+  @media only screen and (min-width: $bp-tablet-large) {
+    &:hover {
+      background-color: var(--color-secondary-light);
+    }
+    &:hover > .order-badge {
+      border-color: var(--color-secondary-light);
+    }
   }
 }
 
