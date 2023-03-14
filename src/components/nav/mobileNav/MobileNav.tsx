@@ -16,7 +16,6 @@ const MobileNav: React.FC = () => {
     state => state.auth.currentUser.userName
   ) as string;
 
-  // console.log(userName);
   const dropIn = {
     hidden: {
       y: '-100vh',
