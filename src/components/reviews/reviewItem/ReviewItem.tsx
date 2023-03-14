@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ReviewItem as IReviewItem } from '../../../pages/reviews/Reviews';
+import formatDate from '../../../utlities/formatDate';
 import './reviewItem.scss';
 
 const ReviewItem: React.FC<IReviewItem> = ({
@@ -10,12 +11,7 @@ const ReviewItem: React.FC<IReviewItem> = ({
   id,
   date,
 }) => {
-  const reviewDate = new Date(date);
-  const formattedDate = reviewDate.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  });
+  const formattedDate = formatDate(date);
 
   return (
     <Link to={`${id}`} className="review-item">
