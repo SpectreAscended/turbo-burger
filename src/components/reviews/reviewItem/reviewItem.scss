@@ -1,3 +1,5 @@
+@import '../../../index.scss';
+
 .review-item {
   background-color: #313131;
   margin-block: 2rem;
@@ -45,5 +47,9 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 1rem;
+  }
+
+  @media only screen and (min-width: $bp-tablet-large) {
+    cursor: pointer;
   }
 }
