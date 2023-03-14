@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Logo from '../logo/Logo';
-// import MainNav from './main-nav/MainNav';
+import MainNav from '../mainNav/MainNav';
 // import classes from './Header.module.css';
 import Hamburger from '../UI/hamburger/Hamburger';
 import OrderBtn from '../UI/orderBtn/OrderBtn';
@@ -25,11 +25,11 @@ const Header: React.FC = () => {
       <header className="header">
         <div className="header-content">
           <Logo />
+          {/* <MainNav /> */}
           <div className="header-actions">
             <Hamburger onClick={showMenuHandler} />
             <OrderBtn />
           </div>
-          {/* <MainNav /> */}
         </div>
         <div className="header-border-bottom"></div>
       </header>

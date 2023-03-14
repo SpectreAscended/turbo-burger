@@ -1,32 +1,17 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import classes from './MainNav.module.css';
+import './MainNav.scss';
 
 const MainNav: React.FC = () => {
-  const [bump, setBump] = useState(false);
-
-  const buttonBounceHandler = () => {
-    setBump(true);
-    const timer = setTimeout(() => {
-      setBump(false);
-    }, 750);
-  };
-
   useEffect(() => {}, []);
 
-  const orderClasses = () => {
-    return `${classes.order} ${bump ? classes['animate-badge'] : undefined}`;
-  };
-
   return (
-    <nav className={classes.nav}>
-      <ul className={classes['nav-list']}>
+    <nav className="nav">
+      <ul className="nav-list">
         <li>
           <NavLink
             to="/"
-            className={({ isActive }) =>
-              isActive ? classes.active : undefined
-            }
+            className={({ isActive }) => (isActive ? 'active' : undefined)}
           >
             About
           </NavLink>
@@ -34,9 +19,7 @@ const MainNav: React.FC = () => {
         <li>
           <NavLink
             to="menu"
-            className={({ isActive }) =>
-              isActive ? classes.active : undefined
-            }
+            className={({ isActive }) => (isActive ? 'active' : undefined)}
           >
             Menu
           </NavLink>
@@ -44,18 +27,16 @@ const MainNav: React.FC = () => {
         <li>
           <NavLink
             to="reviews"
-            className={({ isActive }) =>
-              isActive ? classes.active : undefined
-            }
+            className={({ isActive }) => (isActive ? 'active' : undefined)}
           >
             Reviews
           </NavLink>
         </li>
-        <li className={orderClasses()} onClick={buttonBounceHandler}>
+        {/* <li className={orderClasses()} onClick={buttonBounceHandler}>
           <NavLink to="order">Your Order</NavLink>
           <div className={classes.badge}>5</div>
-        </li>
-        <li className={classes.auth}>
+        </li> */}
+        <li className="auth">
           <NavLink to="auth">Log in</NavLink>
         </li>
       </ul>

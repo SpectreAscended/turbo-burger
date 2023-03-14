@@ -1,3 +1,5 @@
+@import '../../../index.scss';
+
 .hamburger {
   border: none;
   background-color: transparent;
@@ -29,5 +31,11 @@
 
   &--active &--bottom {
     transform: translateY(-0.6rem) rotate(45deg);
+  }
+}
+
+@media only screen and (min-width: $bp-desktop-small) {
+  .hamburger {
+    display: none;
   }
 }
