@@ -149,4 +149,15 @@ main {
   main {
     padding-top: 10rem;
   }
+
+  form {
+    max-width: 32.5em;
+    margin-inline: auto;
+  }
+
+  section {
+    border: 1px solid red;
+    max-width: 50em;
+    margin-inline: auto;
+  }
 }
