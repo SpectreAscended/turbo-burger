@@ -144,3 +144,9 @@ main {
     padding-top: 7.5rem;
   }
 }
+
+@media only screen and (min-width: $bp-desktop-small) {
+  main {
+    padding-top: 10rem;
+  }
+}
