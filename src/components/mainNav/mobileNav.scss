@@ -1,3 +1,5 @@
+@import '../../index.scss';
+
 .mobile-nav {
   position: relative;
   width: clamp(30%, 18.75rem, 90%);
@@ -59,5 +61,11 @@
 
   @media only screen and (min-width: 42.5em) {
     padding-top: 7rem;
+  }
+
+  @media only screen and (min-width: $bp-tablet-large) {
+    .mobile-nav {
+      display: none;
+    }
   }
 }

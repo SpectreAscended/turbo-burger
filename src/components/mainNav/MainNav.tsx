@@ -7,12 +7,12 @@ const MainNav: React.FC = () => {
       <ul className="main-nav__list">
         <li>
           <NavLink
-            to="/menu"
+            to="/"
             className={({ isActive }) =>
               isActive ? 'main-nav__link--active' : 'main-nav__link'
             }
           >
-            Menu
+            About
           </NavLink>
         </li>
         <li>
@@ -27,14 +27,15 @@ const MainNav: React.FC = () => {
         </li>
         <li>
           <NavLink
-            to="/"
+            to="/menu"
             className={({ isActive }) =>
               isActive ? 'main-nav__link--active' : 'main-nav__link'
             }
           >
-            About
+            Menu
           </NavLink>
         </li>
+
         <li>
           <NavLink
             to="/login"

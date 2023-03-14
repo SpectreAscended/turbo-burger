@@ -47,4 +47,11 @@
       padding-block: 0.5rem;
     }
   }
+
+  @media only screen and (min-width: $bp-desktop-small) {
+    &-content {
+      max-width: clamp(60%, 37.5em, 100%);
+      margin-inline: auto;
+    }
+  }
 }
