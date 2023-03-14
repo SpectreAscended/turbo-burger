@@ -2,7 +2,7 @@
 
 .modal {
   position: relative;
-  width: clamp(50%, 43.75rem, 90%);
+  width: clamp(20%, 43.75rem, 90%);
   // height: min(50%, 18.75rem);
   height: min-content;
   background-color: var(--color-primary);
