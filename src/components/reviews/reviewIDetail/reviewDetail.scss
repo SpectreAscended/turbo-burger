@@ -1,6 +1,43 @@
 @import '../../../index.scss';
 
 .review-detail {
+  &__rating {
+    font-size: 1.45rem;
+    color: var(--color-dark);
+    // background-color: var(--color-secondary);
+    // background: rgb(213, 77, 77);
+    // background: linear-gradient(
+    //   135deg,
+    //   rgba(213, 77, 77, 1) 0%,
+    //   rgba(171, 27, 14, 1) 94%
+    // );
+
+    background: #c21500; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #ffc500,
+      #c21500
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #ffc500,
+      #c21500
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    color: black;
+    padding: 0.25rem;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+  }
+
+  &__actions {
+    display: block;
+  }
   &__edit {
     @include button-primary;
     text-align: center;
@@ -8,5 +45,23 @@
   }
   &__delete {
     @include button-secondary;
+  }
+
+  @media only screen and (min-width: $bp-tablet-large) {
+    &__actions {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+    }
+    &__edit {
+      width: 12rem;
+      margin-inline: 0;
+    }
+
+    &__delete {
+      width: 12rem;
+      margin-inline: 0;
+    }
   }
 }
