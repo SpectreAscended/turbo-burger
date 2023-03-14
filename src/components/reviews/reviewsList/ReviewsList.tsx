@@ -14,7 +14,7 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
 
   const [sorttedList, setSorttedList] = useState(reviewsList);
   // setRefresh is a bit of a hack to force the component to rerender to solve bug where sorttedList isnt rerendering properly on mobile browsers.
-  const [_, setForceRefresh] = useState(false);
+  const [_, setForceRerender] = useState(false);
 
   const sortMethodHandler = (e: React.FormEvent<HTMLSelectElement>) => {
     const sortMethod = e.currentTarget.value;
@@ -56,7 +56,7 @@ const ReviewsList: React.FC<ReviewsListProps> = ({ reviews }) => {
       }
     }
     setSorttedList(reviewsList);
-    setForceRefresh(e => !e);
+    setForceRerender(e => !e);
   };
 
   let listContent = <h2 className="reviews-list__no-content">No reviews</h2>;
