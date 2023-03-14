@@ -52,10 +52,3 @@ const MainNav: React.FC = () => {
 };
 
 export default MainNav;
-
-// <NavLink
-// to="/"
-// className={({ isActive }) => (isActive ? 'active' : undefined)}
-// >
-// About
-// </NavLink>
