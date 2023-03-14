@@ -57,23 +57,41 @@ const LoginForm: React.FC = () => {
   };
 
   return (
-    <form className="form" onSubmit={signInHandler}>
-      <h1>Log in</h1>
+    <form className="auth-form" onSubmit={signInHandler}>
+      <h1 className="auth-form__heading">Log in</h1>
       <AuthDetails />
-      {error && <p style={{ color: 'red' }}>Incorrect email or password</p>}
-      <label htmlFor="email">Email</label>
-      <input type="email" id="email" autoComplete="email" ref={emailRef} />
-      <label htmlFor="password">Password</label>
+      {error && (
+        <p style={{ color: 'red' }} className="auth-form__error">
+          Incorrect email or password
+        </p>
+      )}
+      <label htmlFor="email" className="auth-form__label">
+        Email
+      </label>
+      <input
+        type="email"
+        id="email"
+        autoComplete="email"
+        ref={emailRef}
+        className="auth-form__input"
+      />
+      <label htmlFor="password" className="auth-form__label">
+        Password
+      </label>
       <input
         type="password"
         id="password"
         autoComplete="current-password"
         ref={passwordRef}
+        className="auth-form__input"
       />
-      <span>
-        Need an account? <Link to="/signup">Sign up!</Link>
+      <span className="auth-form__query">
+        Need an account?{' '}
+        <Link to="/signup" className="auth-form__link">
+          Sign up!
+        </Link>
       </span>
-      <button>Log in</button>
+      <button className="auth-form__btn">Log in</button>
     </form>
   );
 };

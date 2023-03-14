@@ -1,27 +1,20 @@
 @import '../../index.scss';
 
-.form {
+.auth-form {
   margin-top: 1rem;
 
-  h1 {
-    font-size: 2rem;
-    font-weight: 400;
-    text-align: center;
-    margin-bottom: 1rem;
-  }
-
-  label {
+  &__label {
     display: block;
     font-size: 1.2rem;
     margin-bottom: 1rem;
   }
 
-  input {
+  &__input {
     @include input-regular;
   }
 
-  a:link,
-  a:visited {
+  &__link:link,
+  &__link:visited {
     text-decoration: none;
     display: inline-block;
     color: inherit;
@@ -29,13 +22,24 @@
     transition: color 250ms, transform 250ms ease;
   }
 
-  a:hover,
-  a:active {
+  &__link:hover,
+  &__link:active {
     color: var(--color-primary-light);
     transform: translateY(-2px);
   }
 
-  button {
+  &__btn {
     @include button-primary;
+  }
+
+  @media only screen and (min-width: $bp-tablet-large) {
+    &__btn {
+      max-width: 30%;
+      margin-left: auto;
+    }
+
+    &__btn:hover {
+      background-color: var(--color-primary-light);
+    }
   }
 }

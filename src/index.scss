@@ -116,6 +116,7 @@ main {
   background-color: var(--color-primary);
   border-radius: 0.5rem;
   cursor: pointer;
+  transition: background 250ms ease-in-out;
 }
 
 @mixin button-secondary {
@@ -129,6 +130,7 @@ main {
   background-color: var(--color-secondary);
   border-radius: 0.5rem;
   cursor: pointer;
+  transition: background 250ms ease-in-out;
 }
 
 // Media Queries
@@ -156,7 +158,6 @@ main {
   }
 
   section {
-    border: 1px solid red;
     max-width: 50em;
     margin-inline: auto;
   }
