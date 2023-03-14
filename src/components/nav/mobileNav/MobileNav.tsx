@@ -1,13 +1,11 @@
-import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
 import { Link } from 'react-router-dom';
-import { uiActions } from '../../store/uiSlice';
-import { authActions } from '../../store/authSlice';
-// import { auth } from '../../../firebase';
-import Backdrop from '../UI/backdrop/Backdrop';
+import { uiActions } from '../../../store/uiSlice';
+import { authActions } from '../../../store/authSlice';
+import Backdrop from '../../UI/backdrop/Backdrop';
 import './mobileNav.scss';
 import { motion } from 'framer-motion';
-import { RootState } from '../../store';
+import { RootState } from '../../../store';
 
 const MobileNav: React.FC = () => {
   const dispatch = useDispatch();
