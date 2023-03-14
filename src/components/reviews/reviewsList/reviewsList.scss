@@ -44,5 +44,9 @@
     &__link:hover {
       background-color: var(--color-primary-light);
     }
+
+    &__select-box {
+      cursor: pointer;
+    }
   }
 }
