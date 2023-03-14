@@ -11,14 +11,14 @@ import './reviewForm.scss';
 interface FormData {
   id: string;
   userName: string;
-  rating: number;
+  rating: string;
   title: string;
   description: string;
 }
 
 interface ReviewFormProps {
   method?: FormMethod;
-  review?: any;
+  review?: FormData;
 }
 
 // TODO fix input error styling - margin under inputs
@@ -85,6 +85,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
         className={`review-form__input--rating ${
           ratingHasError ? 'input-error' : ''
         }`}
+        defaultValue={review?.rating ? review.rating : ''}
         onChange={ratingChangeHandler}
         onBlur={ratingBlurHandler}
       />
@@ -99,7 +100,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
         type="text"
         id="first-name"
         name="first-name"
-        defaultValue={userName}
+        defaultValue={review?.userName ? review.userName : userName}
         onChange={nameChangeHandler}
         onBlur={nameBlurHandler}
         className={`review-form__input ${nameHasError ? 'input-error' : ''}`}
@@ -114,6 +115,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
         id="title"
         name="title"
         className={`review-form__input ${titleHasError ? 'input-error' : ''}`}
+        defaultValue={review?.title ? review.title : ''}
         onChange={titleChangeHandler}
         onBlur={titleBlurHandler}
       />
@@ -129,6 +131,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
         className={`review-form__input ${
           descriptionHasError ? 'input-error' : ''
         }`}
+        defaultValue={review?.description ? review.description : ''}
         onChange={descriptionChangeHandler}
         onBlur={descriptionBlurHandler}
       />

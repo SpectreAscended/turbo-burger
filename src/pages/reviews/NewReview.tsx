@@ -1,6 +1,6 @@
 import ReviewForm from '../../components/reviews/reviewForm/ReviewForm';
 import { store } from '../../store';
-import { useNavigate, redirect, json } from 'react-router';
+import { redirect, json } from 'react-router';
 
 interface ReviewItem {
   title: string;
@@ -17,10 +17,9 @@ const NewReviewPage: React.FC = () => {
 
 export default NewReviewPage;
 
-export const action = async ({ request, params }: any) => {
+export const action = async ({ request }: any) => {
   const state = store.getState();
   const uid = state.auth.currentUser.uid;
-  console.log(uid);
   const data = await request.formData();
   const URL = import.meta.env.VITE_DATABASE_REVIEWS + '.json';
   const date = new Date();

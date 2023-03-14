@@ -67,7 +67,7 @@ const ReviewDetail: React.FC<ReviewDetailProps> = ({ review }) => {
           </Link>
           {usersPost && (
             <div className="review-detail__actions">
-              <Link to="/edit" className="review-detail__edit">
+              <Link to="edit" className="review-detail__edit">
                 Edit Review
               </Link>
               <button

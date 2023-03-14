@@ -77,20 +77,27 @@ const App = () => {
               loader: reviewsLoader,
             },
             {
-              path: ':reviewItemId',
-              element: <ReviewDetailPage />,
-              id: 'review-item',
-              action: reviewAction,
-              loader: reviewLoader,
-            },
-            {
               path: 'new',
               element: <NewReviewPage />,
               action: reviewFormAction,
             },
             {
-              path: 'edit',
-              element: <EditReviewPage />,
+              path: ':reviewItemId',
+              // element: <ReviewDetailPage />,
+              id: 'review-item',
+              action: reviewAction,
+              loader: reviewLoader,
+              children: [
+                {
+                  index: true,
+                  element: <ReviewDetailPage />,
+                },
+                {
+                  path: 'edit',
+                  element: <EditReviewPage />,
+                  action: reviewFormAction,
+                },
+              ],
             },
           ],
         },

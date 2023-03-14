@@ -1,4 +1,4 @@
-import { useLoaderData, json, redirect } from 'react-router-dom';
+import { useRouteLoaderData, json, redirect } from 'react-router-dom';
 import ReviewDetail from '../../components/reviews/reviewIDetail/ReviewDetail';
 import loaderRequest from '../../utlities/loaderRequest';
 import { ReviewItem as IReviewItem } from './Reviews';
@@ -6,7 +6,7 @@ import { ReviewItem as IReviewItem } from './Reviews';
 const baseUrl = import.meta.env.VITE_DATABASE_REVIEWS;
 
 const ReviewDetailPage: React.FC = () => {
-  const reviewData = useLoaderData() as IReviewItem;
+  const reviewData = useRouteLoaderData('review-item') as IReviewItem;
 
   return <ReviewDetail review={reviewData} />;
 };
