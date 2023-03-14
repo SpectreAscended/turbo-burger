@@ -8,8 +8,6 @@ import {
 } from '../../../utlities/validators';
 import './reviewForm.scss';
 
-import loaderRequest from '../../../utlities/loaderRequest';
-
 interface FormData {
   id: string;
   userName: string;
@@ -39,7 +37,6 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
 
   const {
     enteredValueHandler: nameChangeHandler,
-    enteredValue: enteredName,
     isValid: nameIsValid,
     inputBlurHandler: nameBlurHandler,
     hasError: nameHasError,
@@ -47,7 +44,6 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
 
   const {
     enteredValueHandler: titleChangeHandler,
-    enteredValue: enteredTitle,
     isValid: titleIsValid,
     inputBlurHandler: titleBlurHandler,
     hasError: titleHasError,
@@ -55,7 +51,6 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
 
   const {
     enteredValueHandler: ratingChangeHandler,
-    enteredValue: enteredRating,
     isValid: ratingIsValid,
     inputBlurHandler: ratingBlurHandler,
     hasError: ratingHasError,
@@ -63,7 +58,6 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
 
   const {
     enteredValueHandler: descriptionChangeHandler,
-    enteredValue: enteredDescription,
     isValid: descriptionIsValid,
     inputBlurHandler: descriptionBlurHandler,
     hasError: descriptionHasError,
