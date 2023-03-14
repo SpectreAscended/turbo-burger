@@ -4,10 +4,12 @@ import { uiActions } from '../../../store/uiSlice';
 import { Link } from 'react-router-dom';
 import { RootState } from '../../../store';
 import { BTN_BOUNCE_DURATION } from '../../../utlities/appConfig';
+import useFirstRender from '../../../hooks/useFirstRender';
 import './orderBtn.scss';
 
 const OrderBtn: React.FC = () => {
   const [bounce, setBounce] = useState(false);
+  const firstRender = useFirstRender();
   const dispatch = useDispatch();
 
   const cartQty = useSelector<RootState>(
@@ -15,7 +17,9 @@ const OrderBtn: React.FC = () => {
   ) as number;
 
   const buttonBounceEffect = () => {
-    setBounce(true);
+    if (!firstRender) {
+      setBounce(true);
+    }
     const timeout = setTimeout(() => {
       setBounce(false);
     }, BTN_BOUNCE_DURATION);
@@ -32,7 +36,7 @@ const OrderBtn: React.FC = () => {
 
   useEffect(() => {
     buttonBounceEffect();
-  }, [cartQty]);
+  }, [cartQty, firstRender]);
 
   const orderClasses = `order noSelect ${bounce ? 'animate-bump' : ''}`;
 
