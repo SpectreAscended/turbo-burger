@@ -26,8 +26,8 @@ const Menu: React.FC<MenuProps> = ({
   return (
     <section className="menu">
       <h1 className="menu__heading">Menu</h1>
-      <ul>
-        <h3>Burgers</h3>
+      <h3 className="menu__sub-heading">Burgers</h3>
+      <ul className="menu__list">
         {burgers.map(burger => {
           return (
             <li key={burger.id} className="menu__list-item">
@@ -40,7 +40,9 @@ const Menu: React.FC<MenuProps> = ({
             </li>
           );
         })}
-        <h3>Hot dogs</h3>
+      </ul>
+      <h3 className="menu__sub-heading">Hot dogs</h3>
+      <ul className="menu__list">
         {hotdogs.map(hotdog => {
           return (
             <li key={hotdog.id} className="menu__list-item">
@@ -53,7 +55,9 @@ const Menu: React.FC<MenuProps> = ({
             </li>
           );
         })}
-        <h3>Chicken</h3>
+      </ul>
+      <h3 className="menu__sub-heading">Chicken</h3>
+      <ul className="menu__list">
         {chicken.map(chicken => {
           return (
             <li key={chicken.id} className="menu__list-item">
@@ -66,7 +70,9 @@ const Menu: React.FC<MenuProps> = ({
             </li>
           );
         })}
-        <h3>Sides</h3>
+      </ul>
+      <h3 className="menu__sub-heading">Sides</h3>
+      <ul className="menu__list">
         {sides.map(side => {
           return (
             <li key={side.id} className="menu__list-item">
@@ -79,7 +85,9 @@ const Menu: React.FC<MenuProps> = ({
             </li>
           );
         })}
-        <h3>Drinks</h3>
+      </ul>
+      <h3 className="menu__sub-heading">Drinks</h3>
+      <ul className="menu__list">
         {drinks.map(drink => {
           return (
             <li key={drink.id} className="menu__list-item">

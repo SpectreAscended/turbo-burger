@@ -1,19 +1,38 @@
+@import '../../index.scss';
+
 .menu {
-  h1 {
+  &__heading {
     text-align: center;
     border-bottom: 1px solid var(--color-primary);
   }
 
-  h3 {
+  &__sub-heading {
     font-size: 1.4rem;
     margin-top: 2rem;
     margin-bottom: 1rem;
     color: var(--color-secondary);
   }
 
-  h4 {
-    font-size: 1.2rem;
-    font-weight: 400;
+  &__list-item {
+    background-color: var(--color-grey-dark);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    margin-bottom: 1rem;
+    transition: transform 250ms ease;
+
+    &:hover {
+      transform: scale(1.01) translateY(-0.15rem);
+    }
+
+    &--heading {
+      font-size: 1.2rem;
+      font-weight: 400;
+    }
+
+    &--price {
+      font-size: 1.2rem;
+      color: var(--color-grey-light);
+    }
   }
 
   &__link {
@@ -23,20 +42,25 @@
     color: inherit;
   }
 
-  p {
-    font-size: 1.2rem;
-    color: var(--color-grey-light);
-  }
+  @media only screen and (min-width: $bp-tablet-large) {
+    &__list {
+      display: flex;
+      justify-content: flex-start;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
 
-  li {
-    background-color: var(--color-grey-dark);
-    padding: 0.5rem;
-    border-radius: 0.25rem;
-    margin-bottom: 1rem;
-    transition: transform 250ms ease;
-  }
+    &__list-item {
+      width: 10rem;
+      border-radius: 1rem;
+      text-align: center;
+    }
 
-  li:hover {
-    transform: scale(1.01) translateY(-0.15rem);
+    &__link {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1rem;
+    }
   }
 }
