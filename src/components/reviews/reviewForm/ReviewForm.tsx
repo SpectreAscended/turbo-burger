@@ -27,7 +27,7 @@ interface ReviewFormProps {
 
 //BUG form only works if you are not logged in
 
-const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
+const ReviewForm: React.FC<ReviewFormProps> = ({ method, review }) => {
   const userName = useSelector<RootState>(
     state => state.auth.currentUser.userName
   ) as string;
@@ -40,28 +40,28 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method = 'post', review }) => {
     isValid: nameIsValid,
     inputBlurHandler: nameBlurHandler,
     hasError: nameHasError,
-  } = useValidation(checkIfEmptyValue);
+  } = useValidation(checkIfEmptyValue, review?.userName);
 
   const {
     enteredValueHandler: titleChangeHandler,
     isValid: titleIsValid,
     inputBlurHandler: titleBlurHandler,
     hasError: titleHasError,
-  } = useValidation(checkIfEmptyValue);
+  } = useValidation(checkIfEmptyValue, review?.title);
 
   const {
     enteredValueHandler: ratingChangeHandler,
     isValid: ratingIsValid,
     inputBlurHandler: ratingBlurHandler,
     hasError: ratingHasError,
-  } = useValidation(checkIfValidRating);
+  } = useValidation(checkIfValidRating, review?.rating);
 
   const {
     enteredValueHandler: descriptionChangeHandler,
     isValid: descriptionIsValid,
     inputBlurHandler: descriptionBlurHandler,
     hasError: descriptionHasError,
-  } = useValidation(checkIfEmptyValue);
+  } = useValidation(checkIfEmptyValue, review?.description);
 
   let formIsValid = false;
   formIsValid =

@@ -1,12 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 type Validate = (a: string) => boolean;
 
-const useValidation = (validate: Validate) => {
+const useValidation = (
+  validate: Validate,
+  defaultInput: string | undefined = undefined
+) => {
   const [enteredValue, setEnteredValue] = useState('');
   const [interacted, setInteracted] = useState(false);
 
   // validate will return true or false depending on condition in function passed into hook.
+
+  useEffect(() => {
+    if (defaultInput) {
+      setInteracted(false);
+      setEnteredValue(defaultInput);
+    }
+  }, []);
 
   const isValid = validate(enteredValue);
 

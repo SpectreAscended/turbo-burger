@@ -17,12 +17,18 @@ const NewReviewPage: React.FC = () => {
 
 export default NewReviewPage;
 
-export const action = async ({ request }: any) => {
+export const action = async ({ request, params }: any) => {
   const state = store.getState();
   const uid = state.auth.currentUser.uid;
   const data = await request.formData();
-  const URL = import.meta.env.VITE_DATABASE_REVIEWS + '.json';
+  let URL = `${import.meta.env.VITE_DATABASE_REVIEWS}.json`;
   const date = new Date();
+  const reviewId = params.reviewItemId;
+
+  const method = request.method;
+  if (method === 'PATCH') {
+    URL = `${import.meta.env.VITE_DATABASE_REVIEWS}/${reviewId}.json`;
+  }
 
   const reviewItem = {
     title: data.get('title'),
@@ -34,7 +40,7 @@ export const action = async ({ request }: any) => {
   } as ReviewItem;
 
   const options = {
-    method: 'post',
+    method: method,
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(reviewItem),
   };
