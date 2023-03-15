@@ -72,30 +72,56 @@ const SignupForm: React.FC = () => {
   };
 
   return (
-    <form className="form" onSubmit={submitSignUpHandler}>
-      <h1>Sign up</h1>
-      <label htmlFor="first-name">First Name</label>
-      <input type="text" id="first-name" ref={firstNameRef} />
-      <label htmlFor="email">Email</label>
-      <input type="email" id="email" autoComplete="email" ref={emailRef} />
-      <label htmlFor="password">Password</label>
+    <form className="auth-form" onSubmit={submitSignUpHandler}>
+      <h1 className="auth-form__heading">Sign up</h1>
+      <label htmlFor="first-name" className="auth-form__label">
+        First Name
+      </label>
+      <input
+        type="text"
+        id="first-name"
+        ref={firstNameRef}
+        className="auth-form__input"
+      />
+      <label htmlFor="email" className="auth-form__label">
+        Email
+      </label>
+      <input
+        type="email"
+        id="email"
+        autoComplete="email"
+        ref={emailRef}
+        className="auth-form__input"
+      />
+      <label htmlFor="password" className="auth-form__label">
+        Password
+      </label>
       <input
         type="password"
         id="password"
         autoComplete="current-password"
         ref={passwordRef}
+        className="auth-form__input"
       />
-      <label htmlFor="confirm-password">Confirm password</label>
+      <label htmlFor="confirm-password" className="auth-form__label">
+        Confirm password
+      </label>
       <input
         type="password"
         id="confirm-password"
         autoComplete="current-password"
         ref={confirmPasswordRef}
+        className="auth-form__input"
       />
       <span>
-        Already have an account? <Link to="/login">Log in!</Link>
+        Already have an account?{' '}
+        <Link to="/login" className="auth-form__link">
+          Log in!
+        </Link>
       </span>
-      <button type="submit">Sign up</button>
+      <button type="submit" className="auth-form__btn">
+        Sign up
+      </button>
     </form>
   );
 };
