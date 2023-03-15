@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 
 import { uiActions } from '../../../store/uiSlice';
@@ -77,7 +77,14 @@ const Checkout: React.FC = () => {
           </div>
         )}
         <Total delivery={delivery} />
-        <button type="submit">Place order</button>
+        <div className="checkout__actions">
+          <Link to=".." className="checkout__actions--back">
+            Back to cart
+          </Link>
+          <button type="submit" className="checkout__actions--submit">
+            Place order
+          </button>
+        </div>
       </form>
     </>
   );

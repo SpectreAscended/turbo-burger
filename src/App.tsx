@@ -83,7 +83,6 @@ const App = () => {
             },
             {
               path: ':reviewItemId',
-              // element: <ReviewDetailPage />,
               id: 'review-item',
               loader: reviewLoader,
               children: [
