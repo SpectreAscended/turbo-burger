@@ -55,29 +55,35 @@ const ReviewDetail: React.FC<ReviewDetailProps> = ({ review }) => {
       <section>
         <article className="review-detail">
           <h1 className="review-detail__heading">{review.title}</h1>
-          <span className="review-detail__rating">{review.rating}/5</span>
-          <p className="review-detail__userName">{review.userName}</p>
-          <p className="review-detail__date">{date}</p>
-          <p className="review-detail__description">{review.description}</p>
-          <Link
-            to=".."
-            className="review-detail__link review-detail__link--back"
-          >
-            Back to Reviews
-          </Link>
-          {usersPost && (
-            <div className="review-detail__actions">
-              <Link to="edit" className="review-detail__edit">
-                Edit Review
-              </Link>
-              <button
-                onClick={deleteEventHandler}
-                className="review-detail__delete"
-              >
-                Delete Review
-              </button>
+          <div className="review-detail__header">
+            <div className="review-detail__user-data">
+              <p className="review-detail__userName">{review.userName}</p>
+              <p className="review-detail__date">{date}</p>
             </div>
-          )}
+            <span className="review-detail__rating">{review.rating}/5</span>
+          </div>
+          <p className="review-detail__description">{review.description}</p>
+          <div className="review-detail__actions">
+            <Link
+              to=".."
+              className="review-detail__link review-detail__link--back"
+            >
+              Back to Reviews
+            </Link>
+            {usersPost && (
+              <>
+                <Link to="edit" className="review-detail__edit">
+                  Edit Review
+                </Link>
+                <button
+                  onClick={deleteEventHandler}
+                  className="review-detail__delete"
+                >
+                  Delete Review
+                </button>
+              </>
+            )}
+          </div>
         </article>
       </section>
     </>
