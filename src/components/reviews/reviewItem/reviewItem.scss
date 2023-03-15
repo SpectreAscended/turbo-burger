@@ -26,9 +26,19 @@
   }
 
   &__rating {
+    // font-size: 1.45rem;
+    // color: var(--color-dark);
+    // background-color: var(--color-secondary);
+    // padding: 0.25rem;
+    // height: 4rem;
+    // width: 4rem;
+    // border-radius: 50px;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
     font-size: 1.45rem;
     color: var(--color-dark);
-    background-color: var(--color-secondary);
+    background: linear-gradient(to bottom right, #f37610, #c21500);
     padding: 0.25rem;
     height: 4rem;
     width: 4rem;
