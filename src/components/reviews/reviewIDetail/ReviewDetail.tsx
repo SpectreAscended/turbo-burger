@@ -27,7 +27,7 @@ const ReviewDetail: React.FC<ReviewDetailProps> = ({ review }) => {
   };
 
   // TODO add token loader to this
-  let confirmDeleteHandler = () => {
+  const confirmDeleteHandler = () => {
     submit(null, { method: 'delete' });
   };
 

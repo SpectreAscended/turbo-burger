@@ -13,7 +13,7 @@ import CheckoutPage from './pages/checkout/Checkout';
 import ReviewsPage, { loader as reviewsLoader } from './pages/reviews/Reviews';
 import ReviewDetailPage, {
   loader as reviewLoader,
-  action as reviewAction,
+  action as reviewDeleteAction,
 } from './pages/reviews/ReviewDetail';
 import NewReviewPage, {
   action as reviewFormAction,
@@ -85,12 +85,12 @@ const App = () => {
               path: ':reviewItemId',
               // element: <ReviewDetailPage />,
               id: 'review-item',
-              action: reviewAction,
               loader: reviewLoader,
               children: [
                 {
                   index: true,
                   element: <ReviewDetailPage />,
+                  action: reviewDeleteAction,
                 },
                 {
                   path: 'edit',

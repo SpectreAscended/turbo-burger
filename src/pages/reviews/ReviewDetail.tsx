@@ -14,10 +14,12 @@ const ReviewDetailPage: React.FC = () => {
 export default ReviewDetailPage;
 
 export const action = async ({ request, params }: any) => {
+  console.log('running');
   const reviewId = params.reviewItemId;
-  const url = `${baseUrl}/${reviewId}.json`;
+  const URL = `${baseUrl}/${reviewId}.json`;
+  const method = request.method;
   try {
-    const res = await fetch(url, { method: request.method });
+    const res = await fetch(URL, { method: method });
     if (!res.ok) {
       throw json({ message: 'Could not delete review', status: 500 });
     }
