@@ -16,14 +16,10 @@ const AboutContent: React.FC = () => {
   );
   return (
     <>
-      {output}
+      <h1>Welcome to Turbo Burger!</h1>
       <p>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis a
-        vitae voluptatem iusto voluptas, eum sit dolorem aperiam provident
-        veniam minus est modi nobis cum labore, alias quaerat velit
-        perspiciatis. Nesciunt necessitatibus reprehenderit reiciendis
-        voluptates officiis! Vel rerum hic atque amet debitis, excepturi quae
-        reprehenderit, aliquid minima ab vitae recusandae.
+        Turbo Burger is home to the world famous Turbo Burger! We use only the
+        freshest ingredients and highest quality prime Canadian beef.
       </p>
       <div
         style={{
@@ -31,44 +27,17 @@ const AboutContent: React.FC = () => {
           margin: '2rem auto',
         }}
       >
-        <img src={burgerImg} alt="Burger" style={{ width: '100%' }} />
+        <img
+          src={burgerImg}
+          alt="Burger"
+          style={{ width: '100%', borderRadius: '1rem' }}
+        />
       </div>
       <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. At ratione sed
-        enim ipsam exercitationem, iste voluptatum eligendi quod et reiciendis,
-        commodi harum aliquam ab dolores vel ut odit nesciunt obcaecati.
-        Mollitia sint assumenda placeat in, eveniet maiores reiciendis nemo
-        voluptate expedita repudiandae dignissimos aspernatur, explicabo
-        suscipit unde dolore amet eum fugit a labore possimus? Possimus
-        cupiditate quis quisquam dolorem culpa? Odit suscipit quae quaerat ut
-        optio incidunt perferendis nobis sit est, recusandae laudantium modi
-        corrupti nesciunt facere aperiam ducimus? Facilis dolor, incidunt
-        blanditiis error explicabo eum ad veritatis illum hic. Porro vitae
-        corporis nulla, impedit hic consequuntur qui iure, sequi laudantium
-        rerum officia! Deserunt ducimus voluptatem architecto laborum
-        dignissimos consequatur tempore praesentium minus totam quos libero
-        voluptate, asperiores ea cum. Molestias, itaque accusantium quidem
-        dolores architecto deserunt magnam sapiente excepturi dicta! Dolore
-        tenetur tempora at beatae consequuntur consequatur, amet ipsum natus
-        alias, illo assumenda nesciunt, voluptates sed suscipit quae impedit.
-        Tempora ipsum architecto aspernatur in sit incidunt alias impedit, iusto
-        voluptatibus quisquam beatae quam a ipsa laudantium expedita doloribus
-        ullam accusantium vero rerum accusamus soluta quo ratione nostrum?
-        Inventore, dolor? Maiores laboriosam aspernatur perspiciatis sint nam
-        doloribus soluta accusamus neque exercitationem nisi, harum ipsum,
-        libero cumque quam voluptatem quidem delectus blanditiis eum dolorem
-        dicta. Quasi modi placeat earum nesciunt ut. Sequi unde excepturi
-        accusantium iusto dolorem vitae laborum aspernatur officia culpa,
-        adipisci harum itaque magni doloremque a quaerat velit soluta deleniti
-        tempore ipsum quisquam? Aliquid, ducimus? Atque quibusdam error rerum.
-        Praesentium atque hic totam. Aperiam ullam vero deserunt repudiandae
-        quas nihil facere, velit, magnam, laborum doloremque optio quaerat unde.
-        Dolores aut laborum quia esse et illo possimus asperiores iure non?
-        Deserunt iusto fugiat, repudiandae sapiente tempore atque repellat magni
-        laboriosam, amet quasi corrupti in error. Odit maiores repellat aliquid
-        maxime, ab voluptate dicta facilis magnam dolores iste temporibus magni
-        totam.
+        Established in 1993. Turbo Burger was founded by 2 brothers with one
+        goal in mind: Serve the freshest, juiciest burgers in town!
       </p>
+      <p>Winner of the 1995 Burger of the year award</p>
     </>
   );
 };
