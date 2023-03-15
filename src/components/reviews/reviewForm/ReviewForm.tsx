@@ -140,7 +140,7 @@ const ReviewForm: React.FC<ReviewFormProps> = ({ method, review }) => {
       )}
 
       <div className="review-form__actions">
-        <Link to="/reviews" className="review-form__actions-btn--cancel">
+        <Link to=".." className="review-form__actions-btn--cancel">
           Cancel
         </Link>
         <button
