@@ -16,7 +16,7 @@ const OrderBtn: React.FC = () => {
     quantity: number;
   }[];
 
-  const cartQty = items.reduce((acc: number, item) => {
+  const cartQty = items.reduce((acc, item) => {
     return acc + item.quantity;
   }, 0);
 
