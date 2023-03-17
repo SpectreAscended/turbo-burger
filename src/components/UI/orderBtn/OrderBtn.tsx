@@ -12,9 +12,13 @@ const OrderBtn: React.FC = () => {
   const firstRender = useFirstRender();
   const dispatch = useDispatch();
 
-  const cartQty = useSelector<RootState>(
-    state => state.order.cartQuantity
-  ) as number;
+  const items = useSelector<RootState>(state => state.order.items) as {
+    quantity: number;
+  }[];
+
+  const cartQty = items.reduce((acc: number, item) => {
+    return acc + item.quantity;
+  }, 0);
 
   const buttonBounceEffect = () => {
     if (!firstRender) {

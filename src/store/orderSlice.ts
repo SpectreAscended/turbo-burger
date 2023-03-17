@@ -9,13 +9,11 @@ interface OrderState {
     drinkOption?: string;
   }[];
 
-  cartQuantity: number;
   totalPrice: number;
 }
 
 const initialOrderState: OrderState = {
   items: [],
-  cartQuantity: 0,
   totalPrice: 0,
 };
 
@@ -35,7 +33,6 @@ const orderSlice = createSlice({
       }
 
       state.totalPrice = state.totalPrice + newItem.price * newItem.quantity;
-      state.cartQuantity = state.cartQuantity + newItem.quantity;
       // console.log(current(state));
     },
     addOneToCart(state, action) {
@@ -44,7 +41,6 @@ const orderSlice = createSlice({
       if (item) {
         item.quantity++;
         state.totalPrice = state.totalPrice + item.price;
-        state.cartQuantity++;
       }
     },
     removeFromCart(state, action) {
@@ -58,12 +54,10 @@ const orderSlice = createSlice({
         state.items[existingItemIndex].quantity--;
       }
 
-      state.cartQuantity--;
       state.totalPrice = Math.abs(state.totalPrice - existingItem!.price);
     },
     clearCart(state) {
       state.items = [];
-      state.cartQuantity = 0;
       state.totalPrice = 0;
     },
   },
