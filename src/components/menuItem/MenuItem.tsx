@@ -1,7 +1,8 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { orderActions } from '../../store/orderSlice';
+import OrderInput from '../order/orderInput/OrderInput';
 import './menuItem.scss';
 
 interface MenuItemProps {
@@ -23,7 +24,7 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
     }
   };
 
-  const removeQtyHandler = () => {
+  const reduceQtyHandler = () => {
     if (orderQty > 1) setOrderQty(prevQty => prevQty - 1);
   };
 
@@ -32,10 +33,10 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
   const formSubmitHandler = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (orderQty > 0) {
+    if (orderQty >= 1) {
       const newItem = {
         id: item.id,
-        price: +item.price,
+        price: item.price,
         title: item.title,
         quantity: orderQty,
       };
@@ -54,38 +55,24 @@ const MenuItem: React.FC<MenuItemProps> = ({ item }) => {
       <span className="menu-item__price">${item.price.toFixed(2)}</span>
 
       <form onSubmit={formSubmitHandler} className="menu-item__form">
-        <div className="menu-item__form--actions">
+        <OrderInput
+          onRemove={reduceQtyHandler}
+          onAdd={addQtyHandler}
+          quantity={orderQty}
+        />
+        <div className="menu-item__form-actions">
+          <Link to=".." className="menu-item__form-back">
+            Back to menu
+          </Link>
           <button
-            className="menu-item__btn--actions"
-            type="button"
-            onClick={removeQtyHandler}
+            className="menu-item__form-order-btn"
+            type="submit"
+            disabled={orderQty < 1}
           >
-            -
-          </button>
-          <input
-            type="number"
-            value={orderQty}
-            min="1"
-            max="40"
-            className="menu-item__form--input"
-            readOnly
-          />
-          <button
-            className="menu-item__btn--actions"
-            type="button"
-            onClick={addQtyHandler}
-          >
-            +
+            Add to order (${totalItemPrice.toFixed(2)})
           </button>
         </div>
-        <button className="order-btn" type="submit" disabled={orderQty === 0}>
-          Add to order (${totalItemPrice.toFixed(2)})
-        </button>
       </form>
-
-      <Link to=".." className="menu-item__link">
-        Back to menu
-      </Link>
     </section>
   );
 };

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { orderActions } from '../../../store/orderSlice';
+import OrderInput from '../orderInput/OrderInput';
 import './orderForm.scss';
 
 interface OrderFormProps {
@@ -23,7 +24,12 @@ const OrderForm: React.FC<OrderFormProps> = ({ id, quantity }) => {
 
   return (
     <form className="order-form">
-      <button
+      <OrderInput
+        onAdd={addItemQtyHandler}
+        onRemove={removeItemHandler}
+        quantity={quantity}
+      />
+      {/* <button
         type="button"
         onClick={removeItemHandler}
         className="order-form__btn order-form__btn--minus"
@@ -38,7 +44,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ id, quantity }) => {
         className="order-form__btn order-form__btn--add"
       >
         +
-      </button>
+      </button> */}
     </form>
   );
 };

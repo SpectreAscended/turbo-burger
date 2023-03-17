@@ -1,3 +1,5 @@
+@import '../../index.scss';
+
 .menu-item {
   &__heading {
     text-align: center;
@@ -22,46 +24,52 @@
     margin-bottom: 2rem;
   }
 
-  &__btn--actions {
-    border: none;
-    background-color: var(--color-secondary);
-    font-size: 2rem;
-    color: #eeeeee;
-    width: 2rem;
-    border-radius: 0.25rem;
-    margin: 1rem;
-    cursor: pointer;
-  }
-
   &__form {
-    margin-bottom: 2rem;
-    &--actions {
+    &-actions {
       display: flex;
-      align-items: center;
+      flex-direction: column-reverse;
       justify-content: center;
+      gap: 1rem;
+      margin: 2rem;
     }
-    &--input {
-      font-size: 2rem;
-      width: 4rem;
-      border-radius: 0.25rem;
-      border: none;
+
+    &-back {
+      color: var(--color-primary);
+      padding: 0.5rem 1rem;
+      border: 1px solid var(--color-primary);
+      border-radius: 0.5rem;
       text-align: center;
+      transition: background 250ms, color 250ms ease-in-out;
+
+      &:hover {
+        color: var(--color-dark);
+        background-color: var(--color-primary-light);
+      }
+    }
+    &-order-btn {
+      color: var(--color-dark);
+      background-color: var(--color-secondary);
+      border: 1px solid var(--color-secondary);
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-size: inherit;
+      cursor: pointer;
+      transition: background 250ms ease-in-out;
+
+      &:hover {
+        background-color: var(--color-secondary-light);
+      }
+
+      &:disabled {
+        cursor: not-allowed;
+      }
     }
   }
-}
 
-.order-btn {
-  background-color: var(--color-secondary);
-  border: none;
-  font-size: 1.2rem;
-  display: block;
-  width: 80%;
-  margin-inline: auto;
-  padding-block: 0.5rem;
-  border-radius: 0.5rem;
-  cursor: pointer;
-
-  &:disabled {
-    cursor: not-allowed;
+  @media only screen and (min-width: $bp-tablet-large) {
+    &__form-actions {
+      flex-direction: row;
+      gap: 2rem;
+    }
   }
 }
