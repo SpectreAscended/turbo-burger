@@ -80,6 +80,7 @@ const App = () => {
               path: 'new',
               element: <NewReviewPage />,
               action: reviewFormAction,
+              loader: checkAuthLoader,
             },
             {
               path: ':reviewItemId',
