@@ -69,15 +69,15 @@ export const getAuthToken = () => {
   if (!tokenDuration || tokenDuration < 0) {
     return 'EXPIRED';
   }
-  console.log(token);
   return token;
 };
 
 export const checkAuthLoader = () => {
-  const token = getAuthToken();
+  const currentUser = auth.currentUser;
+  console.log(currentUser);
 
-  if (!token) {
-    redirect('/login');
+  if (!currentUser) {
+    return redirect('/login');
   }
 
   return null;
@@ -91,6 +91,7 @@ export const signOut = () => {
   auth.signOut();
   localStorage.removeItem('expiration');
   localStorage.removeItem('token');
+  localStorage.removeItem('user');
 };
 
 export const getUserInfo = () => {

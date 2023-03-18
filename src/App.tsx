@@ -19,7 +19,7 @@ import NewReviewPage, {
   action as reviewFormAction,
 } from './pages/reviews/NewReview';
 import EditReviewPage from './pages/reviews/EditReview';
-import { tokenLoader } from './utlities/auth';
+import { checkAuthLoader, tokenLoader } from './utlities/auth';
 
 const App = () => {
   const router = createBrowserRouter([
@@ -95,6 +95,7 @@ const App = () => {
                   path: 'edit',
                   element: <EditReviewPage />,
                   action: reviewFormAction,
+                  loader: checkAuthLoader,
                 },
               ],
             },

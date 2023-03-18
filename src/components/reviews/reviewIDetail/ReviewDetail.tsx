@@ -17,10 +17,10 @@ const ReviewDetail: React.FC<ReviewDetailProps> = ({ review }) => {
   const submit = useSubmit();
   const uid = useSelector<RootState>(state => state.auth.currentUser.uid);
 
-  // const usersPost = uid === review.uid && uid !== undefined;
+  const usersPost = uid === review.uid && uid !== undefined;
 
   // TODOLEC  TEMP!!!
-  const usersPost = true;
+  // const usersPost = true;
 
   const cancelDeleteHandler = () => {
     setModalOpen(false);
