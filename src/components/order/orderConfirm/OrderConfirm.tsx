@@ -44,7 +44,7 @@ const OrderConfirm: React.FC = () => {
 
       {cartHasItems ? (
         <>
-          <ul>{cartItemsOutput}</ul>
+          <ul className="order-confirm__list">{cartItemsOutput}</ul>
           <div className="order-confirm-total">
             <p className="order-confirm__price">
               Total: ${totalPrice.toFixed(2)}
@@ -60,7 +60,14 @@ const OrderConfirm: React.FC = () => {
           </div>
         </>
       ) : (
-        <p className="order-confirm__empty-cart">Cart is empty</p>
+        <>
+          <p className="order-confirm__empty-cart">Cart is empty</p>
+          <div className="order-confirm__actions">
+            <Link to="/menu" className="order-confirm__link--back">
+              Back to menu
+            </Link>
+          </div>
+        </>
       )}
     </section>
   );

@@ -28,23 +28,18 @@
 
   &__link--back:link,
   &__link--back:visited {
-    // background-color: var(--color-primary);
-    // color: #1e1e1e;
-    // padding: 0.25rem 1rem;
-    // border-radius: 0.25rem;
-    // margin-block: 1rem;
+    font-size: 1rem;
     background-color: transparent;
     border-radius: 0.25rem;
     color: var(--color-primary);
     border: 1px solid currentColor;
     padding: 0.5rem 1rem;
-    font-size: 1.2rem;
     text-align: center;
     transition: background 250ms, color 250ms ease-in-out;
   }
 
   &__link--checkout {
-    font-size: 1.2rem;
+    font-size: 1rem;
     background-color: var(--color-secondary);
     color: var(--color-dark);
     padding: 0.5rem 1rem;
@@ -58,6 +53,7 @@
     font-size: 1.2rem;
     text-align: center;
     margin-top: 3rem;
+    margin-bottom: 5rem;
     color: var(--color-secondary);
   }
 
