@@ -1,7 +1,6 @@
 import { auth } from '../../firebase';
 import { redirect } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from '../store';
+import { useDispatch } from 'react-redux';
 import { authActions } from '../store/authSlice';
 
 export const signIn = async (email: string, password: string) => {
@@ -59,12 +58,13 @@ export const getAuthToken = () => {
     return null;
   }
 
+  // BUG This may be why this was crashing. Investigate further.
   const tokenDuration = getTokenDuration();
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   const userName = auth.currentUser?.displayName;
   const uid = auth.currentUser?.uid;
-  dispatch(authActions.setUser({ userName, uid, isAuthenticated: true }));
+  // dispatch(authActions.setUser({ userName, uid, isAuthenticated: true }));
 
   if (!tokenDuration || tokenDuration < 0) {
     return 'EXPIRED';
@@ -74,7 +74,6 @@ export const getAuthToken = () => {
 
 export const checkAuthLoader = () => {
   const currentUser = auth.currentUser;
-  console.log(currentUser);
 
   if (!currentUser) {
     return redirect('/login');

@@ -41,9 +41,7 @@ const OrderConfirm: React.FC = () => {
   return (
     <section className="order-confirm">
       <h1 className="order-confirm__heading">Your order</h1>
-      <Link to="/menu" className="order-confirm__link--back">
-        Back to menu
-      </Link>
+
       {cartHasItems ? (
         <>
           <ul>{cartItemsOutput}</ul>
@@ -51,9 +49,14 @@ const OrderConfirm: React.FC = () => {
             <p className="order-confirm__price">
               Total: ${totalPrice.toFixed(2)}
             </p>
-            <Link to="checkout" className="order-confirm__link--checkout">
-              Proceed to checkout
-            </Link>
+            <div className="order-confirm__actions">
+              <Link to="/menu" className="order-confirm__link--back">
+                Back to menu
+              </Link>
+              <Link to="checkout" className="order-confirm__link--checkout">
+                Proceed to checkout
+              </Link>
+            </div>
           </div>
         </>
       ) : (
