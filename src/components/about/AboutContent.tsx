@@ -29,7 +29,7 @@ const AboutContent: React.FC = () => {
       >
         <img
           src={burgerImg}
-          alt="Burger"
+          alt="Burger spread out showing ingredients"
           style={{ width: '100%', borderRadius: '1rem' }}
         />
       </div>
@@ -37,7 +37,9 @@ const AboutContent: React.FC = () => {
         Established in 1993. Turbo Burger was founded by 2 brothers with one
         goal in mind: Serve the freshest, juiciest burgers in town!
       </p>
-      <p>Winner of the 1995 Burger of the year award</p>
+      <p style={{ marginBottom: '5rem' }}>
+        Winner of the 1995 Burger of the year award
+      </p>
     </>
   );
 };
